@@ -12,8 +12,8 @@ const PORT = process.env.PORT || 3000;
 // listen to a server on the defined port and consolé-dot-log when it's running
 app.listen(PORT, () => console.log(`Server is running on port: ${PORT}`));
 
-// serve the homepage when no additional path is specified, and print the user's username when opening the page
-let username = "Chris"
+// serve the homepage when no additional path is specified, and print the group number when opening the page
+let group = "group 1"
 app.get("/", (req,res) => {
-    res.render("index", {name:username});
+    res.render("index", {name:group});
 });
