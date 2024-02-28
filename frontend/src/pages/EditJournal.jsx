@@ -49,7 +49,7 @@ const EditJournal = () => {
   return (
     <div className='app'>
       <Navbar />
-      <div>
+      <div className='content'>
       
       <BackButton />
       <h1>Edit journal</h1>

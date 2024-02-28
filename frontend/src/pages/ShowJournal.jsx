@@ -31,7 +31,7 @@ const ShowJournal = () => {
   return (
     <div className='app'>
       <Navbar />
-      <div className='table_container'>
+      <div className='content'>
         <BackButton destination='/journals/list' />
         <h1>Show journal</h1>
         {loading ? (
