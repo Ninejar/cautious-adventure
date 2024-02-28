@@ -35,7 +35,7 @@ const CreateJournal = () => {
     <div className='app'>
       <Navbar />
       <div className='content'>
-      <BackButton />
+      <BackButton destination='/journals/list'/>
       
       <h1>Create journal</h1>
       {loading ? <Loading /> : ''}
