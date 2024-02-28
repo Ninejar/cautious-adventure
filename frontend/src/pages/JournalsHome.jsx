@@ -7,10 +7,13 @@ import { MdOutlineAddBox, MdOutlineDelete } from "react-icons/md";
 import Loading from "../components/Loading";
 import BackButton from "../components/BackButton";
 import Navbar from "../components/Navbar";
+import JournalsCard from "../components/home/JournalsCard";
+import JournalsTable from "../components/home/JournalsTable";
 
 const Home = () => {
   const [journals, setJournals] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [showType, setShowType] = useState('table')
 
   useEffect(() => {
     setLoading(true);
@@ -31,48 +34,19 @@ const Home = () => {
       <div className="content">
         <BackButton />
         <h1>Journal list</h1>
+        <div className="table_or_card">
+          <button onClick={() => setShowType('table')}>Table</button>
+          <button onClick={() => setShowType('card')}>Card</button>
+        </div>
         <Link to="/journals/create">
           <MdOutlineAddBox />
         </Link>
 
         {loading ? (
           <Loading />
-        ) : (
-          <table>
-            <thead>
-              <tr>
-                <th>No</th>
-                <th>Title</th>
-                <th>Content</th>
-                <th>Visibility</th>
-                <th>Operations</th>
-              </tr>
-            </thead>
-            <tbody>
-              {journals.map((journal, index) => (
-                <tr key={journal._id}>
-                  <td>{index + 1}</td>
-                  <td>{journal.title}</td>
-                  <td>{journal.content}</td>
-                  <td>{journal.visibility}</td>
-                  <td>
-                    <div>
-                      <Link to={`/journals/details/${journal._id}`}>
-                        <BsInfoCircle />
-                      </Link>
-                      <Link to={`/journals/edit/${journal._id}`}>
-                        <AiOutlineEdit />
-                      </Link>
-                      <Link to={`/journals/delete/${journal._id}`}>
-                        <MdOutlineDelete />
-                      </Link>
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        )}
+        ) : showType === 'table' ? (
+          <JournalsTable journals = {journals}/>
+        ) : (<JournalsCard journals = {journals}/>)}
       </div>
     </div>
   );
