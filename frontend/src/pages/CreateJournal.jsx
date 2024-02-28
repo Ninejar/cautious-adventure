@@ -34,9 +34,9 @@ const CreateJournal = () => {
   return (
     <div className='app'>
       <Navbar />
-      <div>
-      
+      <div className='content'>
       <BackButton />
+      
       <h1>Create journal</h1>
       {loading ? <Loading /> : ''}
 

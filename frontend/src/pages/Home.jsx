@@ -6,10 +6,10 @@ import LinkItem from '../components/LinkItem'
 const Home = () => {
   return (
     <div className="app">
-    
-    <Navbar />
+        <Navbar />
 
-    <main>
+        <div className='content'>
+        <main>
         <div className="link_container">
         <LinkItem />
 
@@ -61,6 +61,8 @@ const Home = () => {
         </div>
 
     </main>
+        </div>
+
 </div>
   )
 }
