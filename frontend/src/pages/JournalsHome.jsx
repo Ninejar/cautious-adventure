@@ -45,6 +45,7 @@ const Home = () => {
                         <th>No</th>
                         <th>Title</th>
                         <th>Content</th>
+                        <th>Visibility</th>
                         <th>Operations</th>
                     </tr>
                 </thead>
@@ -54,6 +55,7 @@ const Home = () => {
                             <td>{index + 1}</td>
                             <td>{journal.title}</td>
                             <td>{journal.content}</td>
+                            <td>{journal.visibility}</td>
                             <td>
                                 <div>
                                     <Link to = {`/journals/details/${journal._id}`}>

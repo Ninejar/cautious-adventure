@@ -10,16 +10,18 @@ router.post('/', async (req, res) => {
     try{
         if (
             !req.body.title || 
-            !req.body.content 
+            !req.body.content ||
+            !req.body.visibility
         ) {
-            return response.status(400).send({
-                message: 'Send all required fields, title, content'
+            return res.status(400).send({
+                message: 'Send all required fields, title, content, visibility'
             })
         }
 
         const newJournal = {
             title: req.body.title,
-            content: req.body.content
+            content: req.body.content,
+            visibility: req.body.visibility
         }
 
         const journal = await Journal.create(newJournal)
@@ -28,7 +30,7 @@ router.post('/', async (req, res) => {
         
     } catch (error){
         console.log(error.message)
-        response.status(500).send({message: error.message})
+        res.status(500).send({message: error.message})
 
     }
 })
@@ -67,9 +69,10 @@ router.put('/:id', async (req, res) => {
     try {
         if (
             !req.body.title || 
-            !req.body.content 
+            !req.body.content ||
+            !req.body.visibility
         ) {
-            return response.status(400).send({
+            return res.status(400).send({
                 message: 'Send all required fields: title, content'
             })
         }

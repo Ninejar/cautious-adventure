@@ -9,6 +9,12 @@ const journalSchema = mongoose.Schema(
     content: {
         type: String,
         required: true
+    },
+    visibility: {
+        type: String, 
+        enum: ['Private', 'Public'], 
+        default: 'Private',
+        required: true
     }
     },
     {
