@@ -19,6 +19,7 @@ const ShowJournal = () => {
         console.log("Id:", journal._id);
         console.log("Title:", journal.title);
         console.log("Content:", journal.content);
+        console.log("Visibility:", journal.visibility);
         setJournal(res.data.journal)
         setLoading(false)
       })
@@ -60,6 +61,11 @@ const ShowJournal = () => {
             <div className='journal_data'>
               <h2>Last edited: </h2>
               <span>{new Date(journal.updatedAt).toString()}</span>
+            </div>
+
+            <div className='journal_data'>
+              <h2>Visibility: </h2>
+              <span>{journal.visibility}</span>
             </div>
 
           </div>
