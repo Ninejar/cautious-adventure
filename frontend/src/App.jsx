@@ -1,5 +1,6 @@
 import React from 'react'
 import {Routes, Route} from 'react-router-dom'
+import RoleSelect from './pages/RoleSelect'
 import Home from './pages/Home'
 import JournalsHome from './pages/JournalsHome'
 import CreateJournal from './pages/CreateJournal'
@@ -10,6 +11,7 @@ import DeleteJournal from './pages/DeleteJournal'
 const App = () => {
   return (
     <Routes>
+      <Route path = "/" element = {<RoleSelect />}/>
       <Route path = "/journals" element = {<Home />}/>
       <Route path = "/journals/list" element = {<JournalsHome />} />
       <Route path = "/journals/create" element = {<CreateJournal />} />
