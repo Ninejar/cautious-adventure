@@ -343,7 +343,7 @@ h1{
 
 .create_journal button {
   padding: 12px;
-  background-color: #3498db;;
+  background-color: #3498db;
   color: #ffffff;
   border: none;
   border-radius: 6px;
@@ -354,4 +354,73 @@ h1{
 
 .create_journal button:hover {
   background-color: #1e70a6;
+}
+
+.table_or_card{
+  display: flex;
+  justify-content: center;
+}
+
+
+.journal_cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 35px;
+  justify-content: space-around;
+}
+
+.journal_card {
+  background:rgb(255, 255, 255);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 250px; 
+  height: 180px;
+  transition: transform 0.2s ease-in-out;
+  position: relative;
+}
+
+.journal_card:hover {
+  transform: scale(1.05);
+}
+
+.journal_card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #333333;
+}
+
+.journal_card h5 {
+  font-size: 1rem;
+  color: #555555;
+}
+
+.journal_card h6{
+  color: #555555;
+}
+
+.journal_card a {
+  margin-right: 10px;
+  color: #3498db;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.journal_card a:hover {
+  color: #217dbb;
+}
+
+
+.last_edited{
+  position: absolute;
+  bottom: 10px;
+}
+
+.card_id{
+  font-size: 0.5rem;
+}
+
+.card_operations{
+  position: absolute;
+  bottom: 24px;
 }
