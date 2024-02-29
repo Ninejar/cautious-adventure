@@ -20,7 +20,7 @@ const journalsTable = ({journals}) => {
                 <tr key={journal._id}>
                   <td>{index + 1}</td>
                   <td>{journal.title}</td>
-                  <td>{journal.content}</td>
+                  <td> <pre>{journal.content}</pre> </td>
                   <td>{journal.visibility}</td>
                   <td>
                     <div>

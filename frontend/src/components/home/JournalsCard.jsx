@@ -37,7 +37,8 @@ const journalsCard = ({journals}) => {
                 </div>
 
                 <div className='last_edited'>
-                    <h6>Last edited: {new Date(item.updatedAt).toLocaleString()}</h6>
+                    <h6>Last edited: </h6>
+                    <h6>{new Date(item.updatedAt).toLocaleString()}</h6>
                 </div>
             
             </div>

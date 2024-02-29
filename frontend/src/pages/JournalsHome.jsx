@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { AiOutlineEdit } from "react-icons/ai";
 import { BsInfoCircle } from "react-icons/bs";
 import { MdOutlineAddBox, MdOutlineDelete } from "react-icons/md";
+import { IoCreateOutline } from "react-icons/io5"
+import { HiOutlineSwitchHorizontal } from "react-icons/hi"
 import Loading from "../components/Loading";
 import BackButton from "../components/BackButton";
 import Navbar from "../components/Navbar";
@@ -36,10 +38,11 @@ const Home = () => {
         <h1>Journal list</h1>
         <div className="table_or_card">
           <button onClick={() => setShowType('table')}>Table</button>
+          <HiOutlineSwitchHorizontal />
           <button onClick={() => setShowType('card')}>Card</button>
         </div>
         <Link to="/journals/create">
-          <MdOutlineAddBox />
+          <IoCreateOutline />
         </Link>
 
         {loading ? (

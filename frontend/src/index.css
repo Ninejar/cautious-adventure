@@ -50,7 +50,8 @@ button:hover {
 }
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  /* outline: 4px auto -webkit-focus-ring-color; */
+  background-color: #3498db;
 }
 
 
@@ -107,6 +108,10 @@ th, td {
 thead {
   background-color: #3498db;
   color: white;
+}
+
+td pre{
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
 
@@ -299,6 +304,15 @@ main .other_container{
   margin-left: 1%;
 }
 
+
+.journal_data pre{
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  margin-left: 1%;
+  max-height: 300px;
+  overflow: scroll;
+  border: solid 1px white;
+}
+
 h1{
   margin: 3% 0;
 }
@@ -312,8 +326,8 @@ h1{
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #ffffff;
-  max-width: 80%; 
+  background-color: #e7e7e7;
+  max-width: 100%; 
   margin: 0 auto; 
 }
 
@@ -357,9 +371,22 @@ h1{
   background-color: #1e70a6;
 }
 
+.create_journal input#title{
+  all: unset;
+
+  color: black;
+  border-bottom: 1px solid rgb(94, 94, 94);
+  width: 75%;
+  font-size: 20pt;
+  margin: 0 auto;
+  margin-top: 2%;
+}
+
 .table_or_card{
   display: flex;
   justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
 
@@ -414,9 +441,14 @@ h1{
 
 
 .last_edited{
+  display: flex;
   position: absolute;
   bottom: 10px;
+  justify-content: space-between;
+  width: 83%;
 }
+
+
 
 .card_id{
   font-size: 0.5rem;

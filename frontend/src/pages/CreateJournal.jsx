@@ -4,6 +4,9 @@ import Loading from '../components/Loading'
 import axios from 'axios'
 import {useNavigate} from 'react-router-dom'
 import Navbar from '../components/Navbar'
+import Page from '../components/DocumentPage/DocumentPage';
+import '../components/DocumentPage/sheets-of-paper.css'
+import '../components/DocumentPage/sheets-of-paper-a4.css'
 
 const CreateJournal = () => {
   const [title, setTitle] = useState('')
@@ -23,7 +26,7 @@ const CreateJournal = () => {
       .post('http://localhost:1814/journals', data)
       .then(()=>{
         setLoading(false)
-        navigate('/journals/')
+        navigate('/journals/list')
       })
       .catch((error) => {
         setLoading(false)
@@ -41,14 +44,12 @@ const CreateJournal = () => {
       {loading ? <Loading /> : ''}
 
       <div className="create_journal">
-        <label>Title</label>
-        <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+        <input id="title" type="text" placeholder='Title' value={title} onChange={(e) => setTitle(e.target.value)} />
 
-        <label>Content</label>
-        <input type="text" value={content} onChange={(e) => setContent(e.target.value)} />
+        <Page content={content} onChange={(e) => setContent(e.target.value)} />
 
         <div className='radio_container'>  
-           <label>Visibility</label> 
+           <label>Set visibility</label> 
            <div> <input
               type="radio"
               id="public"

@@ -50,7 +50,7 @@ const ShowJournal = () => {
 
             <div className='journal_data'>
               <h2>Content: </h2>
-              <span>{journal.content}</span>
+              <span><pre>{journal.content}</pre></span>
             </div>
 
             <div className='journal_data'>
