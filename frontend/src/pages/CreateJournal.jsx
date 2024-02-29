@@ -44,10 +44,8 @@ const CreateJournal = () => {
       {loading ? <Loading /> : ''}
 
       <div className="create_journal">
-        <label>Title</label>
-        <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+        <input id="title" type="text" placeholder='Title' value={title} onChange={(e) => setTitle(e.target.value)} />
 
-        <label>Content</label>
         <Page content={content} onChange={(e) => setContent(e.target.value)} />
 
         <div className='radio_container'>  

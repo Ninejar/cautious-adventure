@@ -357,6 +357,12 @@ h1{
   background-color: #1e70a6;
 }
 
+.create_journal input#title{
+  /* background-color: #a1d9ff; */
+  font-weight: bold;
+  font-size: 15pt;
+}
+
 .table_or_card{
   display: flex;
   justify-content: center;

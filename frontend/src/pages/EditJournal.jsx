@@ -162,8 +162,7 @@ const EditJournal = () => {
         {loading ? <Loading /> : ''}
 
         <div className="create_journal">
-          <label>Title</label>
-          <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+          <input id="title" type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
 
           {/* Use the Page component for content editing */}
           <Page content={content} onChange={(e) => setContent(e.target.value)} />
