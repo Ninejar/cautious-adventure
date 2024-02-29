@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import BackButton from '../components/BackButton'
+import BackButton from '../components/BackButton/BackButton'
 import Loading from '../components/Loading'
 import Navbar from '../components/Navbar'
 import axios from 'axios'

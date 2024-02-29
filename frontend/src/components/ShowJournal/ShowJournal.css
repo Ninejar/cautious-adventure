@@ -1,0 +1,21 @@
+.show_journal{
+    margin: 5%;
+  }
+  
+  .journal_data{
+    margin-bottom: 2%;
+    margin-left: 2%;
+  }
+  
+  .journal_data > span {
+    margin-left: 1%;
+  }
+  
+  
+  .journal_data pre{
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    margin-left: 1%;
+    max-height: 300px;
+    overflow: scroll;
+    border: solid 1px white;
+  }

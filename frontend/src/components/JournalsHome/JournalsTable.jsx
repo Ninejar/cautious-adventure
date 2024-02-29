@@ -3,6 +3,7 @@ import { AiOutlineEdit } from "react-icons/ai";
 import { BsInfoCircle } from "react-icons/bs";
 import { MdOutlineAddBox, MdOutlineDelete } from "react-icons/md";
 import { IoCreateOutline } from "react-icons/io5"
+import './JournalsTable.css'
 
 const journalsTable = ({journals}) => {
   return (

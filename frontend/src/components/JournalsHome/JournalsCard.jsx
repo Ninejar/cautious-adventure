@@ -5,6 +5,7 @@ import {AiOutlineEdit} from 'react-icons/ai'
 import {BsInfoCircle} from 'react-icons/bs'
 import {MdOutlineDelete} from 'react-icons/md'
 import { GoPlus } from "react-icons/go";
+import './JournalsCard.css'
 
 const journalsCard = ({journals}) => {
   return (

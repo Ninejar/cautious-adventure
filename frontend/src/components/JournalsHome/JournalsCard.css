@@ -1,0 +1,181 @@
+.create_journal {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
+    max-width: 100%; 
+    margin: 0 auto; 
+  }
+  
+  .create_journal label {
+    margin-bottom: 8px;
+    font-size: 20px;
+    font-weight: bold;
+  
+  }
+  
+  .create_journal input {
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #dddddd;
+    border-radius: 6px;
+    font-size: 14px;
+    color: white;
+  }
+  
+  .create_journal .radio_container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 21cm;
+    margin: 0 auto;
+  }
+  
+  
+  
+  
+  
+  .create_journal input[type="radio"] {
+    margin-right: 8px;
+  }
+  
+  .create_journal button {
+    padding: 12px;
+    background-color: #17A2B8;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .create_journal button:hover {
+    background-color: #1e70a6;
+  }
+  
+  .create_journal input#title{
+    all: unset;
+    border-bottom: 1px solid rgb(94, 94, 94);
+    width: 21cm;
+    font-size: 20pt;
+    margin: 5% auto;
+  }
+  
+  .table_or_card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 2% 0;
+  }
+  
+  
+  .journal_cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 35px;
+    justify-content: space-around;
+  }
+  
+  .journal_card {
+    background:rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 250px; 
+    height: 180px;
+    transition: transform 0.2s ease-in-out;
+    position: relative;
+    
+  }
+  
+  .journal_card.new{
+    background-color: #17A2B8;
+    
+  }
+  
+  .journal_card:hover {
+    transform: scale(1.05);
+  }
+  
+  .journal_card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333333;
+  }
+  
+  .journal_card h5 {
+    font-size: 1rem;
+    color: #555555;
+  }
+  
+  .journal_card h6{
+    color: #555555;
+  }
+  
+  .journal_card a {
+    margin-right: 10px;
+    color: #3498db;
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
+  
+  .journal_card a:hover {
+    color: #217dbb;
+  }
+  
+  
+  .last_edited{
+    display: flex;
+    position: absolute;
+    bottom: 10px;
+    justify-content: space-between;
+    width: 83%;
+  }
+  
+  
+  
+  .card_id{
+    font-size: 0.5rem;
+  }
+  
+  .card_operations{
+    position: absolute;
+    bottom: 24px;
+  }
+  
+  .card_operations a{
+    color: #17A2B8
+  }
+  
+  
+  button.new_journal_btn{
+    margin-bottom: 2%;
+    background-color: #17A2B8;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  button.new_journal_btn:hover {
+    transform: scale(1.05);
+  }
+  
+  .create_new{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    gap: 10px;
+    color: white;
+  }
+  
+  
+  .create_new .plus{
+    margin-top: 40px;
+    scale: 5;
+  }
+  

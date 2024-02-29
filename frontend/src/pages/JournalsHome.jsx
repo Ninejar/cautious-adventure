@@ -7,10 +7,10 @@ import { MdOutlineAddBox, MdOutlineDelete } from "react-icons/md";
 import { IoCreateOutline } from "react-icons/io5"
 import { HiOutlineSwitchHorizontal } from "react-icons/hi"
 import Loading from "../components/Loading";
-import BackButton from "../components/BackButton";
+import BackButton from "../components/BackButton/BackButton";
 import Navbar from "../components/Navbar";
-import JournalsCard from "../components/home/JournalsCard";
-import JournalsTable from "../components/home/JournalsTable";
+import JournalsCard from "../components/JournalsHome/JournalsCard";
+import JournalsTable from "../components/JournalsHome/JournalsTable";
 
 const Home = () => {
   const [journals, setJournals] = useState([]);

@@ -1,0 +1,38 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  
+  thead {
+    background-color: #17A2B8;
+    color: white;
+  }
+  
+  td pre{
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  }
+  .content > table tbody tr td > div {
+    display: flex;
+    gap: 10px;
+  }
+  
+  
+  .content > table tbody tr td > div a {
+    color: #17A2B8;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .content > table tbody tr td > div a:hover {
+    color: #217dbb;
+  }
