@@ -157,7 +157,7 @@ const EditJournal = () => {
     <div className="app">
       <Navbar />
       <div className="content">
-        <BackButton destination="/journals/list" />
+      <div className="backbutton" ><BackButton destination='/journals/list' /></div>
         <h1>Edit journal</h1>
         {loading ? <Loading /> : ''}
 

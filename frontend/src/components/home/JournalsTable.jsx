@@ -2,9 +2,14 @@ import { Link } from "react-router-dom";
 import { AiOutlineEdit } from "react-icons/ai";
 import { BsInfoCircle } from "react-icons/bs";
 import { MdOutlineAddBox, MdOutlineDelete } from "react-icons/md";
+import { IoCreateOutline } from "react-icons/io5"
 
 const journalsTable = ({journals}) => {
   return (
+    <>
+    <Link to="/journals/create">
+          <button className="new_journal_btn">New Journal</button>
+        </Link>
     <table>
             <thead>
               <tr>
@@ -39,6 +44,7 @@ const journalsTable = ({journals}) => {
               ))}
             </tbody>
           </table>
+          </>
   )
 }
 

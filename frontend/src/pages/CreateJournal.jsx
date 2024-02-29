@@ -38,13 +38,13 @@ const CreateJournal = () => {
     <div className='app'>
       <Navbar />
       <div className='content'>
-      <BackButton destination='/journals/list'/>
+      <div className="backbutton" ><BackButton destination='/journals/list' /></div>
       
       <h1>Create journal</h1>
       {loading ? <Loading /> : ''}
 
       <div className="create_journal">
-        <input id="title" type="text" placeholder='Title' value={title} onChange={(e) => setTitle(e.target.value)} />
+        <input id="title" type="text" placeholder='Give this journal a title...' value={title} onChange={(e) => setTitle(e.target.value)} />
 
         <Page content={content} onChange={(e) => setContent(e.target.value)} />
 
