@@ -34,21 +34,18 @@ const Home = () => {
     <div className="app">
       <Navbar />
       <div className="content">
-        <BackButton />
+        <div className="backbutton" ><BackButton /></div>
         <h1>Journal list</h1>
         <div className="table_or_card">
           <button onClick={() => setShowType('table')}>Table</button>
           <HiOutlineSwitchHorizontal />
           <button onClick={() => setShowType('card')}>Card</button>
         </div>
-        <Link to="/journals/create">
-          <IoCreateOutline />
-        </Link>
 
         {loading ? (
           <Loading />
         ) : showType === 'table' ? (
-          <JournalsTable journals = {journals}/>
+            <JournalsTable journals = {journals}/>
         ) : (<JournalsCard journals = {journals}/>)}
       </div>
     </div>

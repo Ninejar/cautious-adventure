@@ -4,10 +4,21 @@ import {BiUserCircle} from 'react-icons/bi'
 import {AiOutlineEdit} from 'react-icons/ai'
 import {BsInfoCircle} from 'react-icons/bs'
 import {MdOutlineDelete} from 'react-icons/md'
+import { GoPlus } from "react-icons/go";
 
 const journalsCard = ({journals}) => {
   return (
     <div className='journal_cards'>
+        <Link to="/journals/create">
+            <div className='journal_card new'>
+                <div className='create_new'>   
+                    <div className='plus'><GoPlus /></div>
+                    <div>New Journal</div>
+                </div>
+                
+            </div>
+        </Link>
+        
         {journals.map((item) => (
             <div className='journal_card'  key = {item._id}> 
                 <h6 className='card_id'>{item._id}</h6>

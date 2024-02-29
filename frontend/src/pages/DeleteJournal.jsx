@@ -28,7 +28,7 @@ const DeleteJournal = () => {
       <Navbar />
 
       <div className='content'>
-        <BackButton destination='/journals/list' />
+      <div className="backbutton" ><BackButton destination='/journals/list' /></div>
         <h1>Delete journal</h1>
         {loading ? <Loading /> : ''}
         <h3>Are you sure you want to delete this journal?</h3>
