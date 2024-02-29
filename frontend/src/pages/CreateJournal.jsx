@@ -4,6 +4,9 @@ import Loading from '../components/Loading'
 import axios from 'axios'
 import {useNavigate} from 'react-router-dom'
 import Navbar from '../components/Navbar'
+import Page from '../components/DocumentPage/DocumentPage';
+import '../components/DocumentPage/sheets-of-paper.css'
+import '../components/DocumentPage/sheets-of-paper-a4.css'
 
 const CreateJournal = () => {
   const [title, setTitle] = useState('')
@@ -45,7 +48,7 @@ const CreateJournal = () => {
         <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
 
         <label>Content</label>
-        <input type="text" value={content} onChange={(e) => setContent(e.target.value)} />
+        <Page content={content} onChange={(e) => setContent(e.target.value)} />
 
         <div className='radio_container'>  
            <label>Visibility</label> 
