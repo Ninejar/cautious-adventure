@@ -109,6 +109,10 @@ thead {
   color: white;
 }
 
+td pre{
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
 
 
 /* div {
@@ -299,6 +303,15 @@ main .other_container{
   margin-left: 1%;
 }
 
+
+.journal_data pre{
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  margin-left: 1%;
+  max-height: 300px;
+  overflow: scroll;
+  border: solid 1px white;
+}
+
 h1{
   margin: 3% 0;
 }
@@ -359,8 +372,13 @@ h1{
 
 .create_journal input#title{
   /* background-color: #a1d9ff; */
-  font-weight: bold;
-  font-size: 15pt;
+  all: unset;
+
+  color: black;
+  border-bottom: 1px solid rgb(94, 94, 94);
+  width: 75%;
+  font-size: 20pt;
+  margin: 0 auto;
 }
 
 .table_or_card{

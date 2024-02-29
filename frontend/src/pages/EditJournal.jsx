@@ -168,7 +168,7 @@ const EditJournal = () => {
           <Page content={content} onChange={(e) => setContent(e.target.value)} />
 
           <div className="radio_container">
-            <label>Visibility</label>
+            <label>Set visibility</label> 
             <div>
               <input
                 type="radio"

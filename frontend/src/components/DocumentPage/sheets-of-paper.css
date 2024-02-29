@@ -28,6 +28,7 @@ html, body {
 
 textarea{
 	font-family: "Roboto", -apple-system, "San Francisco", "Segoe UI", "Helvetica Neue", sans-serif;
+	resize: none;
 }
 .page {
 	/* Styles for better appearance on screens only -- are reset to defaults in print styles later */
