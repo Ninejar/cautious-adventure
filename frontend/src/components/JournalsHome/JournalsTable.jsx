@@ -4,13 +4,16 @@ import { BsInfoCircle } from "react-icons/bs";
 import { MdOutlineAddBox, MdOutlineDelete } from "react-icons/md";
 import { IoCreateOutline } from "react-icons/io5"
 import './JournalsTable.css'
+import './TableOrCard.css'
 
 const journalsTable = ({journals}) => {
   return (
     <>
-    <Link to="/journals/create">
-          <button className="new_journal_btn">New Journal</button>
-        </Link>
+     <Link to="/journals/create">
+      <div className="new_journal_btn_container" >
+        <button className="new_journal_btn">New Journal</button>
+      </div>
+      </Link>
     <table>
             <thead>
               <tr>

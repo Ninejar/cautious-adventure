@@ -37,9 +37,15 @@ const Home = () => {
         <div className="backbutton" ><BackButton /></div>
         <h1>Journal list</h1>
         <div className="table_or_card">
-          <button onClick={() => setShowType('table')}>Table</button>
+          <button  
+            className={showType === 'table' ? 'selected_button' : ''}
+            onClick={() => setShowType('table')}>Table
+          </button>
           <HiOutlineSwitchHorizontal />
-          <button onClick={() => setShowType('card')}>Card</button>
+          <button 
+            className={showType === 'card' ? 'selected_button' : ''}
+            onClick={() => setShowType('card')}>Card
+          </button>
         </div>
 
         {loading ? (

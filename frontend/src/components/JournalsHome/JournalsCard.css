@@ -153,16 +153,6 @@
   }
   
   
-  button.new_journal_btn{
-    margin-bottom: 2%;
-    background-color: #17A2B8;
-    transition: transform 0.2s ease-in-out;
-  }
-  
-  button.new_journal_btn:hover {
-    transform: scale(1.05);
-  }
-  
   .create_new{
     display:flex;
     flex-direction: column;

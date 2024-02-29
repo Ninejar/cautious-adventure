@@ -36,3 +36,34 @@ table {
   .content > table tbody tr td > div a:hover {
     color: #217dbb;
   }
+
+  /* .new_journal_btn_container{
+    width: 133px;
+  } */
+
+  /* *{outline: 1px solid red;} */
+
+  .new_journal_btn_Link{
+    width: 15%;
+  }
+
+  button.new_journal_btn{
+    margin-bottom: 2%;
+    background-color: #17A2B8;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  button.new_journal_btn:hover {
+    transform: scale(1.05);
+  }
+
+  button.new_journal_btn ~ span{
+    position: relative;
+    scale: 2.5;
+    transform: translate(-5px, 13px);
+    color: white;
+  
+
+  }
+
+  /* *{outline: 1px solid red} */
