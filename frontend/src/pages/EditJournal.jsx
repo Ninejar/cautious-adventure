@@ -38,7 +38,7 @@ const EditJournal = () => {
       .put(`http://localhost:1814/journals/${id}`, data)
       .then(()=>{
         setLoading(false)
-        navigate('/journals/')
+        navigate('/journals/list')
       })
       .catch((error) => {
         setLoading(false)
