@@ -50,7 +50,8 @@ button:hover {
 }
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  /* outline: 4px auto -webkit-focus-ring-color; */
+  background-color: #3498db;
 }
 
 
@@ -371,7 +372,6 @@ h1{
 }
 
 .create_journal input#title{
-  /* background-color: #a1d9ff; */
   all: unset;
 
   color: black;
@@ -379,11 +379,14 @@ h1{
   width: 75%;
   font-size: 20pt;
   margin: 0 auto;
+  margin-top: 2%;
 }
 
 .table_or_card{
   display: flex;
   justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
 
@@ -438,9 +441,14 @@ h1{
 
 
 .last_edited{
+  display: flex;
   position: absolute;
   bottom: 10px;
+  justify-content: space-between;
+  width: 83%;
 }
+
+
 
 .card_id{
   font-size: 0.5rem;

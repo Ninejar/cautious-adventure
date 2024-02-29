@@ -26,7 +26,7 @@ const CreateJournal = () => {
       .post('http://localhost:1814/journals', data)
       .then(()=>{
         setLoading(false)
-        navigate('/journals/')
+        navigate('/journals/list')
       })
       .catch((error) => {
         setLoading(false)
