@@ -3,7 +3,7 @@ import BackButton from '../components/BackButton/BackButton'
 import Loading from '../components/Loading'
 import axios from 'axios'
 import {useNavigate} from 'react-router-dom'
-import Navbar from '../components/Navbar'
+import Navbar from "../components/NavBar/Navbar";
 import Page from '../components/DocumentPage/DocumentPage';
 import '../components/DocumentPage/sheets-of-paper.css'
 import '../components/DocumentPage/sheets-of-paper-a4.css'

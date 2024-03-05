@@ -101,7 +101,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
-import Navbar from '../components/Navbar';
+import Navbar from "../components/NavBar/Navbar";
 import BackButton from '../components/BackButton/BackButton';
 import Loading from '../components/Loading';
 import Page from '../components/DocumentPage/DocumentPage';

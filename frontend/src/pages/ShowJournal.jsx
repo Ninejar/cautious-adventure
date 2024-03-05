@@ -3,7 +3,7 @@ import axios from 'axios'
 import {useParams} from 'react-router-dom'
 import Loading from '../components/Loading'
 import BackButton from '../components/BackButton/BackButton'
-import Navbar from '../components/Navbar'
+import Navbar from "../components/NavBar/Navbar";
 import '../components/ShowJournal/ShowJournal.css'
 
 const ShowJournal = () => {

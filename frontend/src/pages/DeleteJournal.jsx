@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import BackButton from '../components/BackButton/BackButton'
 import Loading from '../components/Loading'
-import Navbar from '../components/Navbar'
+import Navbar from "../components/NavBar/Navbar";
 import axios from 'axios'
 import { useNavigate, useParams } from 'react-router-dom'
 
