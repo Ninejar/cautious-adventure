@@ -1,9 +1,11 @@
 import express, { response } from "express";
 import {PORT, mongoDBURL} from "./config.js"
+//const dotenv = require("dotenv").config();
 import mongoose from 'mongoose'
 import journalsRoute from './routes/journalsRoute.js'
 import cors from 'cors'
 
+//const PORT = process.env.PORT || 8089;
 const app = express() 
 
 
