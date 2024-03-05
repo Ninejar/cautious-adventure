@@ -1,10 +1,12 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import LinkItem from '../components/LinkItem'
+import RoleButtons from '../components/RoleButtons'
 
 const RoleSelect = () => {
   return (
     <main>
+        <RoleButtons />
+
         <div className="link_container">
             <Link to = {`/journals`}>
                 <div className="link_item">
