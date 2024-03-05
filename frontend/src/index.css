@@ -72,7 +72,7 @@ button:focus-visible {
 
 .app{
   display: grid;
-  grid-template-columns:250px 1fr;
+  grid-template-columns: min-content 1fr;
   grid-template-areas: "nav content ";
   height: 100vh;
 }
@@ -82,66 +82,10 @@ button:focus-visible {
   margin: 2%;
 }
 
-nav{
-  grid-area: nav;
-}
-
 .content {
   margin: 20px;
 }
 
-nav{
-  display: flex;
-  flex-direction: column;
-  background-color: #2C3237;
-  width: 100%;
-  height: 100%;
-}
-
-nav{
-  display: flex;
-  overflow-y: scroll;
-  color: white;
-}
-
-.nav_user{
-  width: 100%;
-  height: 90px;
-  background-color: #3E454C;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-ul{
-  list-style: none;
-}
-
-.ul_main{
-  display: flex;
-  flex-direction: column;
-  list-style: none;
-}
-
-.ul_main > li{
-  width: 100%;
-  height: 80px;
-  background-color: #363B3F;
-  list-style: none;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  
-}
-
-.ul_main > li:nth-child(odd) {
-  background-color: #363B3F;
-}
-
-.ul_main > li:nth-child(even) {
-  background-color: #2C3237;
-}
 
 main{ 
   display: flex;

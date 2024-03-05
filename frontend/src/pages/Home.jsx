@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import {BsInfoCircle} from 'react-icons/bs'
-import Navbar from '../components/Navbar'
+import Navbar from "../components/NavBar/Navbar";
 import LinkItem from '../components/LinkItem'
 const Home = () => {
   return (

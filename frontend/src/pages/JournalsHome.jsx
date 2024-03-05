@@ -8,7 +8,7 @@ import { IoCreateOutline } from "react-icons/io5"
 import { HiOutlineSwitchHorizontal } from "react-icons/hi"
 import Loading from "../components/Loading";
 import BackButton from "../components/BackButton/BackButton";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/NavBar/Navbar";
 import JournalsCard from "../components/JournalsHome/JournalsCard";
 import JournalsTable from "../components/JournalsHome/JournalsTable";
 
