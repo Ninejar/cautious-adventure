@@ -12,7 +12,7 @@ router.post('/', async (req, res) => {
             !req.body.title || 
             !req.body.content 
         ) {
-            return response.status(400).send({
+            return res.status(400).send({
                 message: 'Send all required fields, title, content'
             })
         }
