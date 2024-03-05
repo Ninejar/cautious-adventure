@@ -14,6 +14,19 @@ services:
 
 #    volumes:
 #      - ./mydata:/data/db
+    # deploy: 
+    #   restart_policy:
+    #     condition: on-failure
+    #     delay: 3s
+    #     max_attempts: 10
+    #     window: 15s
+    #   resources:
+    #     limits:
+    #       cpus: "0.75"
+    #       memory: 175M
+    #     reservations: 
+    #       cpus: "0.25"
+    #       memory: 75M
 
 
   backend:
