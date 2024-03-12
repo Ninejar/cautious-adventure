@@ -1,0 +1,82 @@
+.
+├── README.md
+├── backend
+│   ├── Dockerfile
+│   ├── config.js
+│   ├── index.js
+│   ├── models
+│   │   └── journalModel.js
+│   ├── package-lock.json
+│   ├── package.json
+│   └── routes
+│       └── journalsRoute.js
+├── docker-compose.yaml
+├── frontend
+│   ├── Dockerfile
+│   ├── index.html
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── public
+│   │   └── vite.svg
+│   ├── src
+│   │   ├── App.css
+│   │   ├── App.jsx
+│   │   ├── assets
+│   │   │   ├── img
+│   │   │   │   └── earth.png
+│   │   │   └── react.svg
+│   │   ├── components
+│   │   │   ├── BackButton
+│   │   │   │   ├── BackButton.css
+│   │   │   │   └── BackButton.jsx
+│   │   │   ├── DocumentPage
+│   │   │   │   ├── DocumentPage.jsx
+│   │   │   │   ├── sheets-of-paper-a4.css
+│   │   │   │   └── sheets-of-paper.css
+│   │   │   ├── JournalsHome
+│   │   │   │   ├── JournalsCard.css
+│   │   │   │   ├── JournalsCard.jsx
+│   │   │   │   ├── JournalsTable.css
+│   │   │   │   ├── JournalsTable.jsx
+│   │   │   │   └── TableOrCard.css
+│   │   │   ├── LinkItem.jsx
+│   │   │   ├── Loading.jsx
+│   │   │   ├── NavBar
+│   │   │   │   ├── Navbar.jsx
+│   │   │   │   ├── navBarStyle.css
+│   │   │   │   └── testjsfile.js
+│   │   │   ├── RoleButtons.jsx
+│   │   │   └── ShowJournal
+│   │   │       └── ShowJournal.css
+│   │   ├── index.css
+│   │   ├── main.jsx
+│   │   └── pages
+│   │       ├── CreateJournal.jsx
+│   │       ├── DeleteJournal.jsx
+│   │       ├── EditJournal.jsx
+│   │       ├── Home.jsx
+│   │       ├── JournalsHome.jsx
+│   │       ├── RoleSelect.jsx
+│   │       └── ShowJournal.jsx
+│   └── vite.config.js
+├── index.js
+├── mittTre.txt
+├── package-lock.json
+├── package.json
+├── pain.sh
+├── public
+│   ├── about.html
+│   ├── img
+│   │   └── nerddog.png
+│   ├── script.js
+│   └── style.css
+├── secrets.dir
+│   └── admin_pwd.txt
+├── sh
+│   ├── cp.compose.yaml.sh
+│   ├── deploy.sh
+│   └── run.docker.sh
+└── views
+    └── index.ejs
+
+21 directories, 59 files
