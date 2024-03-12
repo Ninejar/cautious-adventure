@@ -1,1 +1,1 @@
-console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+require("./src/App.jsx");
