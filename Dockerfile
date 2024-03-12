@@ -21,7 +21,7 @@
 # Stage 1: Build frontend
 FROM node:14.17.5 AS frontend-builder
 
-WORKDIR /app/frontend
+WORKDIR /frontend
 
 COPY frontend/package*.json ./
 RUN npm install
@@ -33,7 +33,7 @@ RUN npm run build
 # Stage 2: Build backend
 FROM node:14.17.5 AS backend-builder
 
-WORKDIR /app/backend
+WORKDIR /backend
 
 COPY backend/package*.json ./
 RUN npm install
