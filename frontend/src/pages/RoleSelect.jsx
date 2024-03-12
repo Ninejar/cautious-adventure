@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import RoleButtons from '../components/RoleButtons'
+import RoleButtons from '../components/RoleButtons/RoleButtons'
 
 const RoleSelect = () => {
   return (
