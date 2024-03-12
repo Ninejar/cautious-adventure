@@ -8,4 +8,4 @@ COPY --chown=user:group . /app
 
 RUN npm install
 
-CMD ["npm", "run", "serve"]
+CMD ["npm", "run", "dev"]
