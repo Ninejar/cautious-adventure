@@ -32,8 +32,8 @@ curl -sS "${REPO_URL}/${COMPOSE_FNAME}" |
     sed '/context: ./d' |
     sed '/dockerfile: /d' |
     sed 's|image: mongo:latest|image: ninejar/webproject-mongo:latest|' |
-    sed 's|container_name: backend|image: ninejar/webproject-backend:latest|' |
-    sed 's|container_name: frontend|image: ninejar/webproject-frontend:latest|' > "${WD}/compose.yaml"
+    sed 's|image: backend:latest|image: ninejar/webproject-backend:latest|' |
+    sed 's|image: frontend:latest|image: ninejar/webproject-frontend:latest|' > "${WD}/compose.yaml"
 for envF in "${ENV_FNAME[@]}"; do
     # echo "$envF"
     curl -sS "${REPO_URL}/${envF}" > "${WD}/${envF}"
