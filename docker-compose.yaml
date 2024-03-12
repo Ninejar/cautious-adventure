@@ -1,49 +1,21 @@
 services:
   mongodb:
     image: mongo:latest
-    container_name: mongodb_server
-
-#    env_file: ./.env
-#    environment:
-#      MONGO_INITDB_ROOT_PASSWORD_FILE: run/secrets/admin_pwd
-
-#    secrets:
-#      - ./secrets.dir/admin_pwd.txt
+    build: .
     ports:
       - "27017:27017"
-
-#    volumes:
-#      - ./mydata:/data/db
-    # deploy: 
-    #   restart_policy:
-    #     condition: on-failure
-    #     delay: 3s
-    #     max_attempts: 10
-    #     window: 15s
-    #   resources:
-    #     limits:
-    #       cpus: "0.75"
-    #       memory: 175M
-    #     reservations: 
-    #       cpus: "0.25"
-    #       memory: 75M
-
-
   backend:
+    image: backend:latest
     build:
       context: ./backend
       dockerfile: Dockerfile
     container_name: backend
     ports:
       - "1814:1814"
-#    env_file: ./.env
-#    environment:
-#      MONGO_INITDB_ROOT_PASSWORD_FILE: run/secrets/admin_pwd
-
     depends_on:
       - mongodb
-
   frontend:
+    image: frontend:latest
     build:
       context: ./frontend
       dockerfile: Dockerfile
@@ -52,6 +24,3 @@ services:
       - "8081:8081"
     depends_on:
       - backend
-
-#volumes:
-#  mydata:
