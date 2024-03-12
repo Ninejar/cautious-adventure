@@ -20,23 +20,17 @@
 
 FROM node:14.17.5-slim
 
-# Create a non-root user
-RUN groupadd -r app-group && useradd -r -g app-group usr
-
 # Set working directory
 WORKDIR /app
 
 # Copy project files
-COPY --chown=usr:app-group . .
+COPY --chown=node:node . .
 
 # Install dependencies
 RUN npm install
 
 # Expose the required port
 EXPOSE 8081/tcp
-
-# Switch to non-root user
-USER usr
 
 # Command to run the application
 CMD ["npm", "run", "serve"]
