@@ -1,5 +1,4 @@
 import React from "react";
-import "./Rolebuttons.css";
 
 const RoleButtons = () => {
   return (

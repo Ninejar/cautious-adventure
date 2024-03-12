@@ -1,4 +1,5 @@
-    #container {
+/* RoleButtons.css */
+#container {
     text-align: center;
   }
   
@@ -24,19 +25,22 @@
     padding: 30px;
     border: 2px solid #3498db;
     cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
+    transition: background-color 0.3s, color 0.3s, opacity 0.3s;
     background-color: #3498db; /* Default background color */
-    color: #fff; /* Default text color */
+    color: white; /* Default text color */
+    opacity: 0.6; /* Default opacity */
   }
   
   input[type="radio"]:checked + .roleLabel {
     background-color: #fff; /* Checked background color */
     color: rgb(36, 36, 36); /* Checked text color */
+    opacity: 1; /* Reset opacity for checked state */
   }
   
   .roleLabel:hover {
-    background-color: #fff; /* Hover background color */
-    color: rgb(36, 36, 36); /* Hover text color */
+    background-color: #3498db; /* Hover background color */
+    color: white; /* Hover text color */
+    opacity: 1; /* Set opacity on hover */
   }
   
   .roleIcon {
@@ -50,5 +54,16 @@
     font-size: 1.5rem; /* Adjust the font size as needed */
     font-weight: bolder;
     color: inherit;
+  }
+  
+  /* RoleSelect.css */
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: rgb(36, 36, 36);
+    padding: 20px;
   }
   
