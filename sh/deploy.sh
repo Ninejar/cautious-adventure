@@ -2,9 +2,15 @@
 
 set -e
 
-wd="$(cd "$(dirname "$0")" && pwd)"
+DEFAULT_WD="/home/team1/projectfolder"
+COMPOSE_FILE="docker-compose.yaml"
 
-bash "${wd}/cp.compose.yaml.sh"
-bash "${wd}/run.docker.sh"
+wd="${WD:-$DEFAULT_WD}"
+
+cd "$wd"
+
+docker compose -f "${wd}/${COMPOSE_FILE}" down
+docker compose -f "${wd}/${COMPOSE_FILE}" pull
+docker compose -f "${wd}/${COMPOSE_FILE}" up -d
 
 set +e
