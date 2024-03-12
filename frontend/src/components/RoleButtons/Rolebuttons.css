@@ -46,7 +46,7 @@
   .roleIcon {
     width: 10vw; /* Adjust the size as needed */
     height: 9vw; /* Adjust the size as needed */
-    margin-bottom: 10px; /* Added margin between image and text */
+    margin-bottom: 10px;
   }
   
   .roleText {
@@ -57,7 +57,7 @@
   }
   
   /* RoleSelect.css */
-  main {
+  #role_select_main {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -65,5 +65,25 @@
     height: 100vh;
     background-color: rgb(36, 36, 36);
     padding: 20px;
+    margin-top: 20px;
+  }
+  
+.link_item_container{
+    text-align: center;
+}
+
+  .link_item_container button {
+    background-color: #3498db;
+    color: #fff;
+    border: 2px solid #3498db;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .link_item_container button:hover {
+    background-color: #fff;
+    color: #3498db; /* Hover text color */
   }
   

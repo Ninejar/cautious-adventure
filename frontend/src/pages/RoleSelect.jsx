@@ -5,7 +5,7 @@ import '../components/RoleButtons/Rolebuttons.css'; // Import the CSS file
 
 const RoleSelect = () => {
   return (
-    <main>
+    <main id='role_select_main'>
       <RoleButtons />
 
       <div className="link_container">
