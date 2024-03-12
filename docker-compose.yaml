@@ -1,9 +1,9 @@
 services:
-  mongodb:
-    image: mongo:latest
-    build: .
-    ports:
-      - "27017:27017"
+  # mongodb:
+  #   image: mongo:latest
+  #   build: .
+  #   ports:
+  #     - "27017:27017"
   backend:
     image: backend:latest
     build:
