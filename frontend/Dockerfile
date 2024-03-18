@@ -1,11 +1,16 @@
-FROM node:20-alpine3.17
-
-EXPOSE 8081/tcp
+FROM node:18-alpine
 
 WORKDIR /app
 
-COPY --chown=user:group . /app
+# COPY --chown=user:group . /app
+COPY package.json .
 
 RUN npm install
 
-CMD ["npm", "run", "dev"]
+COPY . .
+
+RUN npm run build
+
+EXPOSE 8081/tcp
+
+CMD ["npm", "run", "preview"]
