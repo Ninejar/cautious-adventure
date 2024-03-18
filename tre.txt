@@ -61,7 +61,6 @@
 │   │       └── ShowJournal.jsx
 │   └── vite.config.js
 ├── index.js
-├── mittTre.txt
 ├── package-lock.json
 ├── package.json
 ├── pain.sh
@@ -77,6 +76,7 @@
 │   ├── cp.compose.yaml.sh
 │   ├── deploy.sh
 │   └── run.docker.sh
+├── tre.txt
 └── views
     └── index.ejs
 

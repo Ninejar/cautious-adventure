@@ -18,7 +18,7 @@ const Home = () => {
                 <div className="link_item">
                 <a href="" className="link_item_container">
                     <div>
-                        <p className="link_item_header" >Journal</p>
+                        <p className="link_item_header" >JournalOLANSK</p>
                         <p>Collection of all your journals</p>
                     </div>
                     
