@@ -18,6 +18,22 @@
         "mongoose": "^8.2.0"
     },
     "devDependencies": {
+        "eslint": "^8.57.0",
         "nodemon": "^3.1.0"
-    }
+    },
+    "eslintConfig": {
+        "extends": "airbnb-base",
+        "parserOptions": {
+          "ecmaVersion": 8,
+          "sourceType": "module"
+        },
+        "env": {
+          "node": true,
+          "es6": true
+        },
+        "rules": {
+          "no-console": 0,
+          "no-unused-vars": 1
+        }
+      }
 }

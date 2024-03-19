@@ -32,4 +32,15 @@ mongoose.connect(mongoDBURL)
 })
 .catch((error) => {
     console.log(error)
-})
+});
+
+// handling graceful shutdown
+function quit(eType){
+	console.log(`Received ${eType} signal. Expressjs Graceful shutdown.`);
+	server.close(()=>{
+		console.log("Express server closed.");
+		process.exit();
+	});
+	
+}
+['SIGINT', 'SIGQUIT', 'SIGTERM'].forEach(eType=>{console.log("Attaching for ", eType); process.on(eType, quit);});
