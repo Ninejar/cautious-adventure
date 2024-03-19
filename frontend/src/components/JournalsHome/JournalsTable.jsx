@@ -3,6 +3,9 @@ import { AiOutlineEdit } from "react-icons/ai";
 import { BsInfoCircle } from "react-icons/bs";
 import { MdOutlineAddBox, MdOutlineDelete } from "react-icons/md";
 import { IoCreateOutline } from "react-icons/io5"
+import { FaEye } from "react-icons/fa";
+import { IoIosLock } from "react-icons/io";
+import { IoIosUnlock } from "react-icons/io";
 import './JournalsTable.css'
 import './TableOrCard.css'
 
@@ -17,9 +20,9 @@ const journalsTable = ({journals}) => {
     <table>
             <thead>
               <tr>
-                <th>No</th>
+                {/* <th>No</th> */}
                 <th>Title</th>
-                <th>Content</th>
+                {/* <th>Content</th> */}
                 <th>Visibility</th>
                 <th>Operations</th>
               </tr>
@@ -27,10 +30,10 @@ const journalsTable = ({journals}) => {
             <tbody>
               {journals.map((journal, index) => (
                 <tr key={journal._id}>
-                  <td>{index + 1}</td>
+                  {/* <td>{index + 1}</td> */}
                   <td>{journal.title}</td>
-                  <td> <pre>{journal.content}</pre> </td>
-                  <td>{journal.visibility}</td>
+                  {/* <td> <pre>{journal.content}</pre> </td> */}
+                  <td> {journal.visibility === 'Public' ? <> <div className="visibility_container"> <span className="--public"> <abbr title="Public"><FaEye /></abbr> </span>  </div> </> : <div className="visibility_container"><><span className="--private"> <abbr title="Private"><IoIosLock /></abbr> </span> </></div>   } </td>
                   <td>
                     <div>
                       <Link to={`/journals/details/${journal._id}`}>

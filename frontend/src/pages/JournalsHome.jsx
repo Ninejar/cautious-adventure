@@ -15,7 +15,7 @@ import JournalsTable from "../components/JournalsHome/JournalsTable";
 const Home = () => {
   const [journals, setJournals] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [showType, setShowType] = useState('table')
+  const [showType, setShowType] = useState('card')
 
   useEffect(() => {
     setLoading(true);
@@ -37,22 +37,22 @@ const Home = () => {
         <div className="backbutton" ><BackButton /></div>
         <h1>Journal list</h1>
         <div className="table_or_card">
-          <button  
-            className={showType === 'table' ? 'selected_button' : ''}
-            onClick={() => setShowType('table')}>Table
-          </button>
-          <HiOutlineSwitchHorizontal />
           <button 
             className={showType === 'card' ? 'selected_button' : ''}
             onClick={() => setShowType('card')}>Card
+          </button>
+          <HiOutlineSwitchHorizontal />
+          <button  
+            className={showType === 'table' ? 'selected_button' : ''}
+            onClick={() => setShowType('table')}>Table
           </button>
         </div>
 
         {loading ? (
           <Loading />
-        ) : showType === 'table' ? (
-            <JournalsTable journals = {journals}/>
-        ) : (<JournalsCard journals = {journals}/>)}
+        ) : showType === 'card' ? (
+            <JournalsCard journals = {journals}/>
+        ) : (<JournalsTable journals = {journals}/>)}
       </div>
     </div>
   );

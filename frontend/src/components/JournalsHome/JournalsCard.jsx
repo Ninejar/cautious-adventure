@@ -5,6 +5,8 @@ import {AiOutlineEdit} from 'react-icons/ai'
 import {BsInfoCircle} from 'react-icons/bs'
 import {MdOutlineDelete} from 'react-icons/md'
 import { GoPlus } from "react-icons/go";
+import { FaEye } from "react-icons/fa";
+import { IoIosLock } from "react-icons/io";
 import './JournalsCard.css'
 
 const journalsCard = ({journals}) => {
@@ -22,17 +24,19 @@ const journalsCard = ({journals}) => {
         
         {journals.map((item) => (
             <div className='journal_card'  key = {item._id}> 
-                <h6 className='card_id'>{item._id}</h6>
-                <h2>{item.title}</h2>
+                {/* <h6 className='card_id'>{item._id}</h6> */}
+                <div className='visibility_container--card'>
+                    {/* <BiUserCircle /> */}
+                    <h2>{item.title}</h2>
+                    <h5>{item.visibility === 'Public' ? <> <div className="visibility_container"> <span className="--public"> <abbr title="Public"><FaEye /></abbr> </span>  </div> </> : <div className="visibility_container"><><span className="--private"> <abbr title="Private"><IoIosLock /></abbr> </span> </></div>   } </h5>
+                </div>
+                
                 
                 {/* <div>
                     <PiBookOpenTextLight />
                     <h2>{item.content}</h2>
                 </div> */}
-                <div>
-                    {/* <BiUserCircle /> */}
-                    <h5>{item.visibility}</h5>
-                </div>
+                
 
                 <div className='card_operations'>
                     <Link to={`/journals/details/${item._id}`}>

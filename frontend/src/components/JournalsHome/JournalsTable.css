@@ -66,4 +66,19 @@ table {
 
   }
 
+  .visibility_container--public,
+  .visibility_container--private{
+    display: flex;
+    align-items: center;
+  }
+  .--public{
+  
+    scale: 1.3;
+  }
+
+  .--private{
+
+    scale: 1.3;
+  }
+
   /* *{outline: 1px solid red} */
