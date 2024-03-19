@@ -13,7 +13,7 @@
     position: relative;
   }
   
-  input[type="radio"] {
+  .radio input[type="radio"] {
     display: none;
   }
   
