@@ -8,11 +8,11 @@ services:
     ports:
       - "1814:1814"
   frontend:
-    # image: frontend:latest
-    image: ninejar/webproject-frontend
-    # build:
-    #   context: ./frontend
-    #   dockerfile: Dockerfile
+    image: frontend:latest
+    # image: ninejar/webproject-frontend:local
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
     container_name: frontend
     ports:
       - "8081:8081"
