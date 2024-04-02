@@ -30,10 +30,11 @@ const Home = () => {
             </div>
             </Link>
             
+            <Link to = {`/profile`}>
             <div className="link_item">
                 <a href="" className="link_item_container">
                     <div>
-                        <p className="link_item_header" >Private</p>
+                        <p className="link_item_header" >Profile</p>
                         <p>Your portfolio and feedbacks</p>
                     </div>
                     
@@ -42,6 +43,8 @@ const Home = () => {
             
                 <div className="bottom"><div>Visit your private page</div><div></div></div>
             </div>
+            </Link>
+           
 
             <div className="link_item">
                 <a href="" className="link_item_container">

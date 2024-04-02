@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: rgb(35,37,39);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -25,7 +25,7 @@ a {
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: 1.3em;
   line-height: 1.1;
 }
 
@@ -108,6 +108,6 @@ main .other_container{
   border-radius: 8px;
 }
 
-h1{
+/* h1{
   margin: 3% 0;
-}
+} */

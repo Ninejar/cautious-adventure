@@ -1,6 +1,13 @@
+.backbutton{
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
 .backbutton a{
     color: #17A2B8;
   }
   .backbutton a:hover{
     color: #217dbb;
   }
+

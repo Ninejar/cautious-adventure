@@ -23,6 +23,9 @@ const journalsCard = ({journals}) => {
         </Link>
         
         {journals.map((item) => (
+            <Link to={`/journals/edit/${item._id}`}>
+            
+
             <div className='journal_card'  key = {item._id}> 
                 {/* <h6 className='card_id'>{item._id}</h6> */}
                 <div className='visibility_container--card'>
@@ -43,9 +46,9 @@ const journalsCard = ({journals}) => {
                         <BsInfoCircle />
                     </Link> 
 
-                    <Link to={`/journals/edit/${item._id}`}>
+                    {/* <Link to={`/journals/edit/${item._id}`}>
                         <AiOutlineEdit />
-                    </Link>
+                    </Link> */}
 
                     <Link to={`/journals/delete/${item._id}`}>
                         <MdOutlineDelete />
@@ -58,6 +61,7 @@ const journalsCard = ({journals}) => {
                 </div>
             
             </div>
+            </Link> 
         ))}
     </div>
   )
