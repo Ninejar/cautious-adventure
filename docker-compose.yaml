@@ -7,9 +7,9 @@ services:
     container_name: backend
     ports:
       - "1814:1814"
+    restart: unless-stopped
   frontend:
     image: frontend:latest
-    # image: ninejar/webproject-frontend:local
     build:
       context: ./frontend
       dockerfile: Dockerfile
@@ -18,3 +18,4 @@ services:
       - "8081:8081"
     depends_on:
       - backend
+    restart: unless-stopped
