@@ -34,18 +34,17 @@ const Home = () => {
     <div className="app">
       <Navbar />
       <div className="content">
-        <div className="backbutton" ><BackButton /></div>
-        <h1>Journal list</h1>
+        <div className="backbutton" ><BackButton /> <h1>Journal list</h1></div>
         <div className="table_or_card">
-          <button 
+          <div 
             className={showType === 'card' ? 'selected_button' : ''}
-            onClick={() => setShowType('card')}>Card
-          </button>
-          <HiOutlineSwitchHorizontal />
-          <button  
+            onClick={() => setShowType('card')}> <p>Card</p>
+          </div>
+          {/* <HiOutlineSwitchHorizontal /> */}
+          <div  
             className={showType === 'table' ? 'selected_button' : ''}
             onClick={() => setShowType('table')}>Table
-          </button>
+          </div>
         </div>
 
         {loading ? (

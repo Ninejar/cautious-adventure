@@ -65,14 +65,14 @@
     margin: 5% auto;
   }
   
-  .table_or_card{
+  /* .table_or_card{
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
     margin: 0 0 2% 0;
   }
-  
+   */
   
   .journal_cards {
     display: flex;

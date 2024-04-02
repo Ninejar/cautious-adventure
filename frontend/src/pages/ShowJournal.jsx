@@ -19,7 +19,7 @@ const ShowJournal = () => {
         console.log("Data from API:", res.data);
         console.log("Id:", journal._id);
         console.log("Title:", journal.title);
-        console.log("Content:", journal.content);
+        // console.log("Content:", journal.content);
         console.log("Visibility:", journal.visibility);
         setJournal(res.data.journal)
         setLoading(false)
@@ -33,9 +33,7 @@ const ShowJournal = () => {
     <div className='app'>
       <Navbar />
       <div className='content'>
-      <div className="backbutton" ><BackButton destination='/journals/list' /></div>
-        
-        <h1>Show journal</h1>
+      <div className="backbutton" ><BackButton destination='/journals/list' /> <h1>Show journal</h1></div>
         {loading ? (
           <Loading />
         ) : (
@@ -50,10 +48,10 @@ const ShowJournal = () => {
               <span>{journal.title}</span>
             </div>
 
-            <div className='journal_data'>
+            {/* <div className='journal_data'>
               <h2>Content: </h2>
               <span><pre>{journal.content}</pre></span>
-            </div>
+            </div> */}
 
             <div className='journal_data'>
               <h2>Time of creation: </h2>

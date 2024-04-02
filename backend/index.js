@@ -13,7 +13,7 @@ const app = express()
 app.use(express.json())
 
 // Middleware for handling CORS policy
-app.use(cors())
+app.use(cors()) 
 
 
 app.get('/', (req, res) => {

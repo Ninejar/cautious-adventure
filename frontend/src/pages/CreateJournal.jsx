@@ -38,9 +38,8 @@ const CreateJournal = () => {
     <div className='app'>
       <Navbar />
       <div className='content'>
-      <div className="backbutton" ><BackButton destination='/journals/list' /></div>
+      <div className="backbutton" ><BackButton destination='/journals/list' /> <h1>Create journal</h1></div>
       
-      {/* <h1>Create journal</h1> */}
       {loading ? <Loading /> : ''}
 
       <div className="create_journal">

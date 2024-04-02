@@ -24,6 +24,7 @@ const journalsTable = ({journals}) => {
                 <th>Title</th>
                 {/* <th>Content</th> */}
                 <th>Visibility</th>
+                <th>Last edited</th>
                 <th>Operations</th>
               </tr>
             </thead>
@@ -34,6 +35,7 @@ const journalsTable = ({journals}) => {
                   <td>{journal.title}</td>
                   {/* <td> <pre>{journal.content}</pre> </td> */}
                   <td> {journal.visibility === 'Public' ? <> <div className="visibility_container"> <span className="--public"> <abbr title="Public"><FaEye /></abbr> </span>  </div> </> : <div className="visibility_container"><><span className="--private"> <abbr title="Private"><IoIosLock /></abbr> </span> </></div>   } </td>
+                  <td>{new Date(journal.updatedAt).toLocaleString()}</td>
                   <td>
                     <div>
                       <Link to={`/journals/details/${journal._id}`}>

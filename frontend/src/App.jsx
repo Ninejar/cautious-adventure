@@ -7,6 +7,7 @@ import CreateJournal from './pages/CreateJournal'
 import ShowJournal from './pages/ShowJournal'
 import EditJournal from './pages/EditJournal'
 import DeleteJournal from './pages/DeleteJournal'
+import Profile from './pages/Profile'
 
 const App = () => {
   return (
@@ -18,6 +19,8 @@ const App = () => {
       <Route path = "/journals/details/:id" element = {<ShowJournal />} />
       <Route path = "/journals/edit/:id" element = {<EditJournal />} />
       <Route path = "/journals/delete/:id" element = {<DeleteJournal />} />
+
+      <Route path = "/profile" element = {<Profile />} />
     </Routes>
   )
 }
