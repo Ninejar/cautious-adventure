@@ -1,5 +1,6 @@
 import express from 'express'
 import { Journal } from '../models/journalModel.js'
+import auth from '../verifyToken.js'
 
 const router = express.Router()
 
@@ -36,7 +37,7 @@ router.post('/', async (req, res) => {
 })
 
 // Route to get all journals from database
-router.get('/', async (req, res) => {
+router.get('/', auth, async (req, res) => {
     try{
         const journals = await Journal.find({})
         return res.status(200).json({

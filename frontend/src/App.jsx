@@ -8,10 +8,16 @@ import ShowJournal from './pages/ShowJournal'
 import EditJournal from './pages/EditJournal'
 import DeleteJournal from './pages/DeleteJournal'
 import Profile from './pages/Profile'
+import Signup from './components/Signup/Signup'
+import Login from './components/Login/Login'
 
 const App = () => {
   return (
     <Routes>
+
+      <Route path = "/users/signup" element = {<Signup />} />
+      <Route path = "/users/login" element = {<Login />} />
+
       <Route path = "/" element = {<RoleSelect />}/>
       <Route path = "/journals" element = {<Home />}/>
       <Route path = "/journals/list" element = {<JournalsHome />} />

@@ -3,7 +3,11 @@ import {PORT, mongoDBURL} from "./config.js"
 //const dotenv = require("dotenv").config();
 import mongoose from 'mongoose'
 import journalsRoute from './routes/journalsRoute.js'
+import userRoutes from './routes/userRoutes.js';
 import cors from 'cors'
+
+import dotenv from 'dotenv';
+dotenv.config();
 
 //const PORT = process.env.PORT || 8089;
 const app = express() 
@@ -22,6 +26,8 @@ app.get('/', (req, res) => {
 })
 
 app.use('/journals', journalsRoute)
+
+app.use('/users', userRoutes);
 
 mongoose.connect(mongoDBURL)
 .then(() => {
