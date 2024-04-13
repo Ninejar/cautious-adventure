@@ -88,7 +88,7 @@ router.post('/login', async (req, res) => {
         if (!process.env.TOKEN_SECRET) {
             throw new Error('TOKEN_SECRET is not defined');
         }
-        const token = jwt.sign({ _id: user._id, role: user.role }, process.env.TOKEN_SECRET, { expiresIn: '5m' }); //EXPIRATION
+        const token = jwt.sign({ _id: user._id, role: user.role }, process.env.TOKEN_SECRET); //EXPIRATION
         res.json({ token });
     } catch (error) {
         res.status(400).send(error.message);

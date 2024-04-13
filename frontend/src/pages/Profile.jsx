@@ -30,6 +30,20 @@ const Profile = () => {
             });
     }, []);
 
+    const totalAchievementsUnlocked = () => {
+        const achievements = [
+            journals.length >= 1,
+            journals.length >= 5,
+            journals.length >= 10,
+            journals.length >= 15,
+            journals.length >= 20,
+            journals.length >= 35,
+            journals.length >= 100
+        ];
+        const unlockedCount = achievements.filter((achievement) => achievement).length;
+        return unlockedCount;
+    };
+
     const getAchievementTime = (entriesNeeded) => {
         if (journals.length >= entriesNeeded) {
             const unlockedAchievement = journals[entriesNeeded - 1]; // Get the entry at the required index
@@ -67,7 +81,7 @@ const Profile = () => {
                     <p className="profile_user_username">Username</p>
                     <div className="stats">
                         <div><span>{journals.length}</span> <p>Total journal entries</p></div>
-                        <div><span>X / Y</span> <p>Achievements unlocked</p></div>
+                        <div><span>{totalAchievementsUnlocked()} / 7</span> <p>Achievements unlocked</p></div>
                         
                     </div>
                 </div>

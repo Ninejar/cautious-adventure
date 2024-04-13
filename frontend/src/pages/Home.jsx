@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import {BsInfoCircle} from 'react-icons/bs'
 import Navbar from "../components/NavBar/Navbar";
-import LinkItem from '../components/LinkItem'
+import '../components/LinkItem/LinkItem.css'
 const Home = () => {
   return (
     <div className="app">
@@ -11,9 +11,6 @@ const Home = () => {
         <div className='content'>
         <main>
         <div className="link_container">
-        <LinkItem />
-
-
             <Link to = {`/journals/list`}>
                 <div className="link_item">
                 <a href="" className="link_item_container">

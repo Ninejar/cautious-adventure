@@ -82,21 +82,6 @@ const LinkItem = () => {
   return (
     <div>
     <style>{styles}</style>
-    <div className="link_container link_item">
-      <a href="" className="link_item_container">
-        <div>
-          <p className="link_item_header">Goals</p>
-          <p>The 17 sustainability goals</p>
-        </div>
-
-        <img src="" alt="" />
-      </a>
-
-      <div className="bottom">
-        <div>List all your journals</div>
-        <div></div>
-      </div>
-    </div>
   </div>
   )
 }

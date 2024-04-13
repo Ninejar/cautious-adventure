@@ -47,7 +47,7 @@ button:hover {
 button:focus,
 button:focus-visible {
   /* outline: 4px auto -webkit-focus-ring-color; */
-  background-color: #1591A5;
+  /* background-color: #1591A5; */
 }
 
 
@@ -93,14 +93,6 @@ main{
   padding: 4%;
   gap: 10px;
   height: 100%;
-}
-
-main .link_container{
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  justify-content: space-between;
-
 }
 
 main .other_container{
