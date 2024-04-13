@@ -1,14 +1,15 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import {useNavigate} from 'react-router-dom'
+import {useNavigate, Link} from 'react-router-dom'
 import Loading from '../Loading'
+import './Signup.css'
 
 
 const Signup = () => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [role, setRole] = useState('')
+  const [position, setPosition] = useState('')
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
 
@@ -17,14 +18,14 @@ const Signup = () => {
       name,
       email, 
       password,
-      role
+      position
     } 
     setLoading(true)
     axios
       .post('http://localhost:1814/users/signup', data)
       .then(()=>{
         setLoading(false)
-        navigate('/users/login')
+        navigate('/login')
       })
       .catch((error) => {
         setLoading(false)
@@ -34,35 +35,42 @@ const Signup = () => {
   }
   return (
     <div className='app'>
-      <div className='content'>
+      <div className='content signup'>
+      <h1>Sign up</h1>
       
       {loading ? <Loading /> : ''}
 
-      <div className="create_journal">
-        <input id="name" type="text" placeholder='name' value={name} onChange={(e) => setName(e.target.value)} />
-        <input id="email" type="email" placeholder='email' value={email} onChange={(e) => setEmail(e.target.value)} />
-        <input id="password" type="password" placeholder='password' value={password} onChange={(e) => setPassword(e.target.value)} />
+      
 
-        <div className='radio_container'>  
-           <label>Set visibility</label> 
+      <div className="signup_container">
+
+        <div className='input_container'>
+          <input id="name" type="text" placeholder='Name' value={name} onChange={(e) => setName(e.target.value)} />
+          <input id="email" type="email" placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} />
+          <input id="password" type="password" placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} />
+        </div>
+        
+        <label id='select_role_text' htmlFor="">Select your position</label>
+        
+        <div className='radio'>  
            <div> <input
               type="radio"
               id="student"
               value="student"
-              checked={role === 'student'}
-              onChange={(e) => setRole(e.target.value)}
+              checked={position === 'student'}
+              onChange={(e) => setPosition(e.target.value)}
             />
-            <label htmlFor="student">student</label></div>
+            <label htmlFor="student">Student</label></div>
            
            <div>  
              <input
               type="radio"
               id="teacher"
               value="teacher"
-              checked={role === 'teacher'}
-              onChange={(e) => setRole(e.target.value)}
+              checked={position === 'teacher'}
+              onChange={(e) => setPosition(e.target.value)}
             />
-            <label htmlFor="teacher">teacher</label>
+            <label htmlFor="teacher">Teacher</label>
 
 
            </div>
@@ -74,7 +82,11 @@ const Signup = () => {
           Signup
         </button>
       </div>
+      <p>
+          Already have an account? Log in <Link to={"/login"}>here</Link>
+        </p>
       </div>
+      
     
     </div>
   )

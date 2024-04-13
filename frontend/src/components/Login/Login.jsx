@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import {useNavigate} from 'react-router-dom'
+import {useNavigate, Link} from 'react-router-dom'
 import Loading from '../Loading'
+import './Login.css'
+import { useAuth } from "../../context/AuthContext";
+import { jwtDecode } from "jwt-decode";
 
 
 const Login = () => {
@@ -9,6 +12,7 @@ const Login = () => {
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
+  const { login } = useAuth();
 
   const handleLogin = async () => {
     setLoading(true);
@@ -17,34 +21,50 @@ const Login = () => {
         email,
         password,
       });
-
+  
       // Extract the token from the response
       const { token } = response.data;
-
-      localStorage.setItem('auth-token', token);
-
-      navigate('/');
+  
+      if (token) {
+        login(token); // Use the login function from AuthContext
+        // Decoding JWT token
+        const decoded = jwtDecode(token);
+  
+        // Redirect to URL, based on role
+        const redirectTo = decoded.role === "admin" ? "/teachers" : "/journals";
+        console.log(decoded.role)
+        navigate(redirectTo);
+      } else {
+        console.error("Token not found in response:", response.data);
+      }
     } catch (error) {
       setLoading(false);
       console.error('Login error:', error);
       // Handle login error
     }
   };
+  
   return (
     <div className='app'>
-      <div className='content'>
+      <div className='content login'>
+      <h1>Log in</h1>
       
       {loading ? <Loading /> : ''}
 
-      <div className="create_journal">
-        <input id="email" type="email" placeholder='email' value={email} onChange={(e) => setEmail(e.target.value)} />
-        <input id="password" type="password" placeholder='password' value={password} onChange={(e) => setPassword(e.target.value)} />
+      <div className="login_container">
+        <input id="email" type="email" placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} />
+        <input id="password" type="password" placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} />
          
-        </div>
-
         <button onClick={handleLogin}>
           Login
         </button>
+      </div>
+
+      <p>
+          Don't have a user? Sign up <Link to={"/signup"}>here</Link>
+        </p>
+
+       
       </div>
       </div>
   )
