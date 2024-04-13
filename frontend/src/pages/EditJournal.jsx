@@ -116,10 +116,18 @@ const EditJournal = () => {
   const navigate = useNavigate();
   const { id } = useParams();
 
+  const token = localStorage.getItem('auth-token'); // Retrieve token from local storage
+    const config = {
+      headers: {
+        'auth-token': token // Set the token in the request headers
+      }
+    };
+
+
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`http://localhost:1814/journals/${id}`)
+      .get(`http://localhost:1814/journals/${id}`, config)
       .then((res) => {
         setTitle(res.data.journal.title);
         setContent(res.data.journal.content);
@@ -141,7 +149,7 @@ const EditJournal = () => {
     };
     setLoading(true);
     axios
-      .put(`http://localhost:1814/journals/${id}`, data)
+      .put(`http://localhost:1814/journals/${id}`, data, config)
       .then(() => {
         setLoading(false);
         navigate('/journals/list');
