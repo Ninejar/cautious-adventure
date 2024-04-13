@@ -15,9 +15,15 @@ const userSchema = mongoose.Schema(
             required:true,
         min:8
         },
-        role: { 
+        position: { 
             type: String,
             enum: ["student", "teacher"],
+            required: true },
+        role: { 
+            type: String,
+            enum: ["user", "admin"],
+            default: "user",
+            lowercase: true,
             required: true },
         date:{
             type: Date,

@@ -10,13 +10,15 @@ import DeleteJournal from './pages/DeleteJournal'
 import Profile from './pages/Profile'
 import Signup from './components/Signup/Signup'
 import Login from './components/Login/Login'
+import TeacherHome from './pages/TeacherHome'
+import ProtectedRoute from './ProtectedRoute/ProtectedRoute'
 
 const App = () => {
   return (
     <Routes>
 
-      <Route path = "/users/signup" element = {<Signup />} />
-      <Route path = "/users/login" element = {<Login />} />
+      <Route path = "/signup" element = {<Signup />} />
+      <Route path = "/login" element = {<Login />} />
 
       <Route path = "/" element = {<RoleSelect />}/>
       <Route path = "/journals" element = {<Home />}/>
@@ -27,6 +29,8 @@ const App = () => {
       <Route path = "/journals/delete/:id" element = {<DeleteJournal />} />
 
       <Route path = "/profile" element = {<Profile />} />
+
+      <Route path = "/teachers" element = { <ProtectedRoute allowedRoles={'admin'}><TeacherHome/></ProtectedRoute> }/>
     </Routes>
   )
 }

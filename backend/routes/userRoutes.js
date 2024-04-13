@@ -33,28 +33,6 @@ router.get('/:id', async (req, res) => {
     
 })
 
-// POST add a new user (Create)
-// router.post('/', async (req, res) =>{
-//     // Create a new user based on the request body
-//     const newUser = new User({
-//         name: req.body.name,
-//         email: req.body.email,
-//         password:req.body.password,
-//         role: req.body.role,
-//         date: req.body.date
-//     })
-
-//     try{
-//         // Save the new user to database
-//         const saveUser = await newUser.save()
-//         res.send('User created')
-//         res.send(saveUser)
-//         // Provide error message
-//     } catch (error){
-//         res.status(400).send(error)
-//     }
-// })
-
 router.post('/signup', async (req, res) =>{
     // check if user already exists
     const emailExists = await User.findOne({email: req.body.email})
@@ -71,7 +49,7 @@ router.post('/signup', async (req, res) =>{
         name: req.body.name,
         email: req.body.email,
         password:hashedPassword,
-        role: req.body.role,
+        position: req.body.position,
         date: req.body.date
     })
 
@@ -110,7 +88,7 @@ router.post('/login', async (req, res) => {
         if (!process.env.TOKEN_SECRET) {
             throw new Error('TOKEN_SECRET is not defined');
         }
-        const token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET, { expiresIn: '5m' }); //EXPIRATION
+        const token = jwt.sign({ _id: user._id, role: user.role }, process.env.TOKEN_SECRET, { expiresIn: '5m' }); //EXPIRATION
         res.json({ token });
     } catch (error) {
         res.status(400).send(error.message);
