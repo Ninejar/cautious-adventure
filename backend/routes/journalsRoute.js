@@ -1,114 +1,168 @@
 import express from 'express'
 import { Journal } from '../models/journalModel.js'
 import auth from '../verifyToken.js'
+import jwt from 'jsonwebtoken';
 
 const router = express.Router()
 
-
-
 // Route to create a new journal
 router.post('/', auth, async (req, res) => {
+
     try{
         if (
-            !req.body.title || 
+            !req.body.title ||
             !req.body.content ||
             !req.body.visibility
         ) {
             return res.status(400).send({
-                message: 'Send all required fields, title, content, visibility'
-            })
+                message: 'Send all required fields: title, content, visibility'
+            });
         }
+
+        const token = req.header('auth-token'); // Retrieve the token from the request header
+
+        // Decode the token to access the user ID
+        const decodedToken = jwt.verify(token, process.env.TOKEN_SECRET);
+        const userId = decodedToken._id; // Accessing the user ID from the decoded token
 
         const newJournal = {
             title: req.body.title,
             content: req.body.content,
-            visibility: req.body.visibility
-        }
+            visibility: req.body.visibility,
+            createdBy: userId
+        };
 
-        const journal = await Journal.create(newJournal)
+        const journal = await Journal.create(newJournal);
 
-        return res.status(201).send(journal)
-        
-    } catch (error){
-        console.log(error.message)
-        res.status(500).send({message: error.message})
-
+        return res.status(201).send(journal);
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).send({ message: error.message });
     }
-})
+});
 
-// Route to get all journals from database
+// Route to get all journals from database for a specific user
 router.get('/', auth, async (req, res) => {
-    try{
-        const journals = await Journal.find({})
+    try {
+        const token = req.header('auth-token'); // Retrieve the token from the request header
+
+        // Decode the token to access the user ID
+        const decodedToken = jwt.verify(token, process.env.TOKEN_SECRET);
+        const userId = decodedToken._id; // Accessing the user ID from the decoded token
+
+        // Filter journals based on createdBy field
+        const journals = await Journal.find({ createdBy: userId });
+
         return res.status(200).json({
             count: journals.length,
             data: journals
-        })
-    } catch (error){
-        console.log(error.message)
-        res.status(500).send({message: error.message})
-         
+        });
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).send({ message: error.message });
     }
-})
+});
 
 // Route to get a single journal from database by id
-router.get('/:id', async (req, res) => {
-    try{
+router.get('/:id', auth, async (req, res) => {
+    try {
+        const { id } = req.params;
+        const token = req.header('auth-token'); // Retrieve the token from the request header
 
-        const {id} = req.params  
-        const journal = await Journal.findById(id)
-        return res.status(200).json({journal})
-    } catch (error){
-        console.log(error.message)
-        res.status(500).send({message: error.message})
-         
+        // Decode the token to access the user ID
+        const decodedToken = jwt.verify(token, process.env.TOKEN_SECRET);
+        const userId = decodedToken._id; // Accessing the user ID from the decoded token
+
+        const journal = await Journal.findById(id);
+
+        if (!journal) {
+            return res.status(404).json({ message: 'Journal not found' });
+        }
+
+        if (journal.createdBy.toString() !== userId) {
+            return res.status(403).json({ message: 'Unauthorized' });
+        }
+
+        return res.status(200).json({ journal });
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).send({ message: error.message });
     }
-})
+});
 
 // Route to update a journal
-router.put('/:id', async (req, res) => {
+router.put('/:id', auth, async (req, res) => {
     try {
+        const { id } = req.params;
+        const token = req.header('auth-token'); // Retrieve the token from the request header
+
+        // Decode the token to access the user ID
+        const decodedToken = jwt.verify(token, process.env.TOKEN_SECRET);
+        const userId = decodedToken._id; // Accessing the user ID from the decoded token
+
+        const journal = await Journal.findById(id);
+
+        if (!journal) {
+            return res.status(404).json({ message: 'Journal not found' });
+        }
+
+        if (journal.createdBy.toString() !== userId) {
+            return res.status(403).json({ message: 'Unauthorized' });
+        }
+
         if (
-            !req.body.title || 
+            !req.body.title ||
             !req.body.content ||
             !req.body.visibility
         ) {
             return res.status(400).send({
-                message: 'Send all required fields: title, content'
-            })
+                message: 'Send all required fields: title, content, visibility'
+            });
         }
 
-        const {id} = req.params
+        const updatedJournal = {
+            title: req.body.title,
+            content: req.body.content,
+            visibility: req.body.visibility,
+            createdBy: journal.createdBy // Preserve createdBy value
+        };
 
-        const result = await Journal.findByIdAndUpdate(id, req.body)
-        
-        if(!result){
-            return res.status(404).json({message: 'journal not found'})
-        }
+        await Journal.findByIdAndUpdate(id, updatedJournal);
 
-        return res.status(200).send({message: 'journal updated successfully'})
-    } catch (error){
-        console.log(error.message)
-        res.status(500).send({ message: error.message})
+        return res.status(200).send({ message: 'Journal updated successfully' });
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).send({ message: error.message });
     }
-})
+});
 
 // Route to delete a journal
-router.delete('/:id', async (req, res) => {
-    try{
-        const {id} = req.params
+router.delete('/:id', auth, async (req, res) => {
+    try {
+        const { id } = req.params;
+        const token = req.header('auth-token'); // Retrieve the token from the request header
 
-        const result = await Journal.findByIdAndDelete(id)
+        // Decode the token to access the user ID
+        const decodedToken = jwt.verify(token, process.env.TOKEN_SECRET);
+        const userId = decodedToken._id; // Accessing the user ID from the decoded token
 
-        if(!result){
-            return res.status(401).json({message: 'journal not found'})
+        const journal = await Journal.findById(id);
+
+        if (!journal) {
+            return res.status(404).json({ message: 'Journal not found' });
         }
 
-        return res.status(200).send({message: 'journal deleted successfully'})
-    } catch (error){
-        console.log(error.message)
-        res.status(500).send({message: error.message})
-    } 
-})
+        if (journal.createdBy.toString() !== userId) {
+            return res.status(403).json({ message: 'Unauthorized' });
+        }
 
- export default router
+        await Journal.findByIdAndDelete(id);
+
+        return res.status(200).send({ message: 'Journal deleted successfully' });
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).send({ message: error.message });
+    }
+});
+
+export default router;
