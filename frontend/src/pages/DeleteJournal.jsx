@@ -32,7 +32,7 @@ const DeleteJournal = () => {
         {loading ? <Loading /> : ''}
         <h3>Are you sure you want to delete this journal?</h3>
         <button onClick={handleDeleteJournal}>
-          Yes, delete
+          Yes, delete 
         </button>
 
       </div>

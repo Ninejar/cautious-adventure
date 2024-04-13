@@ -21,11 +21,9 @@ const Login = () => {
       // Extract the token from the response
       const { token } = response.data;
 
-      // Store the token in localStorage
       localStorage.setItem('auth-token', token);
 
-      // Redirect to the home page or any other desired route
-      navigate('/'); // Replace with your desired route
+      navigate('/');
     } catch (error) {
       setLoading(false);
       console.error('Login error:', error);
