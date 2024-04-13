@@ -22,8 +22,14 @@ const CreateJournal = () => {
       visibility,
     } 
     setLoading(true)
+    const token = localStorage.getItem('auth-token'); // Retrieve token from local storage
+    const config = {
+      headers: {
+        'auth-token': token // Set the token in the request headers
+      }
+    };
     axios
-      .post('http://localhost:1814/journals', data)
+      .post('http://localhost:1814/journals', data, config)
       .then(()=>{
         setLoading(false)
         navigate('/journals/list')
