@@ -12,8 +12,14 @@ const Profile = () => {
 
     useEffect(() => {
         setLoading(true);
+        const token = localStorage.getItem('auth-token'); // Retrieve token from local storage
+    const config = {
+      headers: {
+        'auth-token': token // Set the token in the request headers
+      }
+    };
         axios
-            .get("http://localhost:1814/journals")
+            .get("http://localhost:1814/journals", config)
             .then((res) => {
                 setJournals(res.data.data);
                 setLoading(false);

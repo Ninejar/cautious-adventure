@@ -7,7 +7,8 @@ const router = express.Router()
 
 // Route to create a new journal
 router.post('/', auth, async (req, res) => {
-    try {
+
+    try{
         if (
             !req.body.title ||
             !req.body.content ||

@@ -1,13 +1,13 @@
-FROM node:20-alpine3.17
-
-EXPOSE 1814/tcp
-
-RUN mkdir /app
+FROM node:21-alpine
 
 WORKDIR /app
 
-COPY --chown=user:group . /app
+COPY package.json /app
+COPY package-lock.json /app
+RUN npm ci
 
-RUN npm install
+COPY . /app
+
+EXPOSE 1814
 
 CMD ["npm", "start"]
