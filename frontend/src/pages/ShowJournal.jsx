@@ -11,10 +11,17 @@ const ShowJournal = () => {
   const [loading, setLoading] = useState(false)
   const {id} = useParams()
 
+  const token = localStorage.getItem('auth-token'); // Retrieve token from local storage
+    const config = {
+      headers: {
+        'auth-token': token // Set the token in the request headers
+      }
+    };
+
   useEffect(() => {
     setLoading(true)
     axios
-      .get(`http://localhost:1814/journals/${id}`)
+      .get(`http://localhost:1814/journals/${id}`, config)
       .then((res) => {
         console.log("Data from API:", res.data);
         console.log("Id:", journal._id);
