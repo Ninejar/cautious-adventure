@@ -19,10 +19,18 @@ const Navbar = () => {
     toggleSubMenu(subMenuId); // Call the imported function
   };
 
+  const token = localStorage.getItem('auth-token'); // Retrieve token from local storage
+  const config = {
+    headers: {
+      'auth-token': token // Set the token in the request headers
+    }
+  };
+
+
   // Function to fetch and log journal titles
   const fetchAndLogJournalTitles = async () => {
     try {
-      const response = await axios.get("http://localhost:1814/journals"); // Fetch journals data from API
+      const response = await axios.get("http://localhost:1814/journals", config); // Fetch journals data from API
       const sortedJournals = response.data.data.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
 
       // Get the first 6 journals after sorting
