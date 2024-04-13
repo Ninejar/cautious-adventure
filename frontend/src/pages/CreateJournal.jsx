@@ -15,6 +15,14 @@ const CreateJournal = () => {
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
 
+  const token = localStorage.getItem('auth-token'); // Retrieve token from local storage
+    const config = {
+      headers: {
+        'auth-token': token // Set the token in the request headers
+      }
+    };
+
+
   const handleSaveJournal = () => {
     const data = {
       title, 
@@ -23,7 +31,7 @@ const CreateJournal = () => {
     } 
     setLoading(true)
     axios
-      .post('http://localhost:1814/journals', data)
+      .post('http://localhost:1814/journals', data, config)
       .then(()=>{
         setLoading(false)
         navigate('/journals/list')
