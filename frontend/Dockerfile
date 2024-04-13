@@ -2,13 +2,12 @@ FROM node:21-alpine
 
 WORKDIR /app
 
-# COPY --chown=user:group . /app
-COPY . .
+COPY package.json /app
+COPY package-lock.json /app
+RUN npm ci
 
-RUN npm install
+COPY . /app
 
-RUN npm run build
+EXPOSE 8081
 
-EXPOSE 8081/tcp
-
-CMD ["npm", "run", "preview"]
+CMD ["npm", "run", "dev"]
