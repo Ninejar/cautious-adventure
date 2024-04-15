@@ -34,7 +34,7 @@ const journalsTable = ({journals}) => {
                   {/* <td>{index + 1}</td> */}
                   <td>{journal.title}</td>
                   {/* <td> <pre>{journal.content}</pre> </td> */}
-                  <td> {journal.visibility === 'Public' ? <> <div className="visibility_container"> <span className="--public"> <abbr title="Public"><FaEye /></abbr> </span>  </div> </> : <div className="visibility_container"><><span className="--private"> <abbr title="Private"><IoIosLock /></abbr> </span> </></div>   } </td>
+                  <td> {journal.visibility === 'Public' ? <> <div className="visibility_container"> <span className="--public"> <abbr title="Shared"><FaEye /></abbr> </span>  </div> </> : <div className="visibility_container"><><span className="--private"> <abbr title="Private"><IoIosLock /></abbr> </span> </></div>   } </td>
                   <td>{new Date(journal.updatedAt).toLocaleString()}</td>
                   <td>
                     <div>

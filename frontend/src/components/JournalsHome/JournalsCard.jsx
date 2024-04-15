@@ -31,7 +31,7 @@ const journalsCard = ({journals}) => {
                 <div className='visibility_container--card'>
                     {/* <BiUserCircle /> */}
                     <h2>{item.title}</h2>
-                    <h5>{item.visibility === 'Public' ? <> <div className="visibility_container"> <span className="--public"> <abbr title="Public"><FaEye /></abbr> </span>  </div> </> : <div className="visibility_container"><><span className="--private"> <abbr title="Private"><IoIosLock /></abbr> </span> </></div>   } </h5>
+                    <h5>{item.visibility === 'Public' ? <> <div className="visibility_container"> <span className="--public"> <abbr title="Shared"><FaEye /></abbr> </span>  </div> </> : <div className="visibility_container"><><span className="--private"> <abbr title="Private"><IoIosLock /></abbr> </span> </></div>   } </h5>
                 </div>
                 
                 
