@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Loading from "../components/Loading";
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Navbar from "../components/NavBar/Navbar";
 import BackButton from '../components/BackButton/BackButton';
+import { jwtDecode } from "jwt-decode";
 import '../components/Profile/Profile.css'
 
 const Profile = () => {
     const [journals, setJournals] = useState([]);
+    const [fname, setfName] = useState('')
+    const [lname, setlName] = useState('')
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
@@ -28,6 +31,17 @@ const Profile = () => {
                 console.log(error);
                 setLoading(false);
             });
+
+            if (token) {
+                const decoded = jwtDecode(token); 
+                setfName(decoded.fName);
+                setlName(decoded.lName)
+                setLoading(false);
+                console.log(decoded)
+            } else {
+                // Handle case where token is not present
+                setLoading(false);
+            }
     }, []);
 
     const totalAchievementsUnlocked = () => {
@@ -78,7 +92,7 @@ const Profile = () => {
 
                 <div className="profile_user"> 
                     <img src="../public/img/profile_user.png" alt="1 journal entries achievement" />
-                    <p className="profile_user_username">Username</p>
+                    <p className="profile_user_username">{fname} {lname}</p>
                     <div className="stats">
                         <div><span>{journals.length}</span> <p>Total journal entries</p></div>
                         <div><span>{totalAchievementsUnlocked()} / 7</span> <p>Achievements unlocked</p></div>

@@ -46,10 +46,11 @@ router.post('/signup', async (req, res) =>{
     const hashedPassword = await bcrypt.hash(req.body.password, salt)
 
     const newUser = new User({
-        name: req.body.name,
+        fName: req.body.fName,
+        lName: req.body.lName,
         email: req.body.email,
         password:hashedPassword,
-        position: req.body.position,
+        role: req.body.role,
         date: req.body.date
     })
 
@@ -88,7 +89,7 @@ router.post('/login', async (req, res) => {
         if (!process.env.TOKEN_SECRET) {
             throw new Error('TOKEN_SECRET is not defined');
         }
-        const token = jwt.sign({ _id: user._id, role: user.role }, process.env.TOKEN_SECRET); //EXPIRATION
+        const token = jwt.sign({ _id: user._id, role: user.role, fName: user.fName, lName: user.lName}, process.env.TOKEN_SECRET); //EXPIRATION
         res.json({ token });
     } catch (error) {
         res.status(400).send(error.message);
@@ -102,12 +103,12 @@ router.put('/:id', async (req, res) => {
         await User.updateOne({
                 _id:req.params.id},
             {$set:{
-                fname: req.body.fname,
-                lname:req.body.lname,
+                fName: req.body.fName,
+                lName:req.body.lName,
                 email: req.body.email,
                 university: req.body.university,
                 department: req.body.department,
-                position: req.body.position
+                role: req.body.role
             }})
         res.json(updUser)
         // Provide error message

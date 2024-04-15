@@ -31,7 +31,7 @@ const Login = () => {
         const decoded = jwtDecode(token);
   
         // Redirect to URL, based on role
-        const redirectTo = decoded.role === "admin" ? "/teachers" : "/journals";
+        const redirectTo = decoded.role === "teacher" ? "/teachers" : "/journals";
         console.log(decoded.role)
         navigate(redirectTo);
       } else {
