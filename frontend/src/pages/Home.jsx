@@ -57,6 +57,13 @@ const Home = () => {
             </div>
         </div>
         <div className="other_container">
+            <h3>Notification center</h3>
+            <br></br>
+            <p>"Teacher name" reviewed your reflection "Entry title"</p>
+            <br></br>
+            <p>"Teacher name" reviewed your reflection "Entry title"</p>
+            <br></br>
+            <p>"Teacher name" reviewed your reflection "Entry title"</p>
 
         </div>
 

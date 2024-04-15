@@ -73,7 +73,7 @@ button:focus-visible {
 
 .app{
   display: grid;
-  grid-template-columns: min-content 1fr;
+  grid-template-columns: 225px 1fr;
   grid-template-areas: "nav content ";
   height: 100vh;
 }

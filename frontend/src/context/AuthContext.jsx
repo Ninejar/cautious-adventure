@@ -22,7 +22,6 @@ export const AuthProvider = ({ children }) => {
         const decoded = jwtDecode(token);
         // Update the user role in the state
         setAuthState({ userRole: decoded.role });
-        console.log(decoded.role)
       } catch (error) {
         console.error("Error decoding token:", error);
         setAuthState({ userRole: "" });

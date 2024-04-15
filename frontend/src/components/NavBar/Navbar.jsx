@@ -7,7 +7,7 @@ import { useAuth } from "../../context/AuthContext";
 
 const Navbar = () => {
   // State to manage submenu visibility
-  const [subMenuVisible, setSubMenuVisible] = useState({ goalSubMenu: false, journalSubMenu: false, privateSubMenu: false, sharedSubMenu: false });
+  const [subMenuVisible, setSubMenuVisible] = useState({ goalSubMenu: false, journalSubMenu: false, privateSubMenu: false, sharedSubMenu: false, profileMenu: false });
 
   const { userRole, logout } = useAuth();
   // State to store fetched journal data
@@ -81,21 +81,16 @@ const Navbar = () => {
 
             {/* Journals submenu */}
             <div className={`nav-item ${subMenuVisible.journalSubMenu ? "active" : ""}`} id="journalNavItem">
-              <a href="#" onClick={() => toggleSubMenuLocal("journalSubMenu")}>Journals</a>
+              <a href="#" onClick={() => toggleSubMenuLocal("journalSubMenu")}>All Journals</a>
               <div className={`subnav ${subMenuVisible.journalSubMenu ? "active" : ""}`} id="journalSubMenu">
                 {/* Map through journals and display them */}
                 {journals.map((journal, index) => <Link key={index} to={`/journals/edit/${journal._id}`}>{journal.title}</Link>)}
               </div>
             </div>
 
-          
-            <div className={`nav-item ${subMenuVisible.journalSubMenu ? "active" : ""}`} id="journalNavItem">
-              <a href="/profile">Profile</a>
-            </div>
-
             {/* Private journals submenu */}
             <div className={`nav-item ${subMenuVisible.privateSubMenu ? "active" : ""}`} id="privateNavItem">
-              <a href="#" onClick={() => toggleSubMenuLocal("privateSubMenu")}>Private</a>
+              <a href="#" onClick={() => toggleSubMenuLocal("privateSubMenu")}>My Private Journals</a>
               <div className={`subnav ${subMenuVisible.privateSubMenu ? "active" : ""}`} id="privateSubMenu">
                 {/* Map through private journals and display them */}
                 {privateJournals.map((journal, index) => <Link key={index} to={`/journals/edit/${journal._id}`}>{journal.title}</Link>)}
@@ -104,15 +99,22 @@ const Navbar = () => {
 
             {/* Shared journals submenu */}
             <div className={`nav-item ${subMenuVisible.sharedSubMenu ? "active" : ""}`} id="sharedNavItem">
-              <a href="#" onClick={() => toggleSubMenuLocal("sharedSubMenu")}>Shared</a>
+              <a href="#" onClick={() => toggleSubMenuLocal("sharedSubMenu")}>My Public Journals</a>
               <div className={`subnav ${subMenuVisible.sharedSubMenu ? "active" : ""}`} id="sharedSubMenu">
                 {/* Map through shared journals and display them */}
                 {sharedJournals.map((journal, index) => <Link key={index} to={`/journals/edit/${journal._id}`}>{journal.title}</Link>)}
               </div>
             </div>
+            <br></br>
+            <br></br>
+            <br></br>
+
+            <div className={`nav-item ${subMenuVisible.profileMenu ? "active" : ""}`} id="profileMenu">
+              <a href="/profile">Profile</a>
+            </div>
 
             {userRole ? (
-              <div className={`nav-item ${subMenuVisible.journalSubMenu ? "active" : ""}`} id="journalNavItem">
+              <div className={`nav-item ${subMenuVisible.logout ? "active" : ""}`} id="">
               <a href="" className="logout" onClick={handleLogout}>
                     Log Out
                   </a>

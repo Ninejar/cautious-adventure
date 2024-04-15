@@ -6,19 +6,21 @@ import './Signup.css'
 
 
 const Signup = () => {
-  const [name, setName] = useState('')
+  const [fName, setfName] = useState('')
+  const [lName, setlName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [position, setPosition] = useState('')
+  const [role, setRole] = useState('')
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
 
   const handleSaveUser = () => {
     const data = {
-      name,
+      fName,
+      lName,
       email, 
       password,
-      position
+      role
     } 
     setLoading(true)
     axios
@@ -45,7 +47,8 @@ const Signup = () => {
       <div className="signup_container">
 
         <div className='input_container'>
-          <input id="name" type="text" placeholder='Name' value={name} onChange={(e) => setName(e.target.value)} />
+          <input id="fname" type="text" placeholder='First name' value={fName} onChange={(e) => setfName(e.target.value)} />
+          <input id="lname" type="text" placeholder='Last name' value={lName} onChange={(e) => setlName(e.target.value)} />
           <input id="email" type="email" placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} />
           <input id="password" type="password" placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} />
         </div>
@@ -57,8 +60,8 @@ const Signup = () => {
               type="radio"
               id="student"
               value="student"
-              checked={position === 'student'}
-              onChange={(e) => setPosition(e.target.value)}
+              checked={role === 'student'}
+              onChange={(e) => setRole(e.target.value)}
             />
             <label htmlFor="student">Student</label></div>
            
@@ -67,8 +70,8 @@ const Signup = () => {
               type="radio"
               id="teacher"
               value="teacher"
-              checked={position === 'teacher'}
-              onChange={(e) => setPosition(e.target.value)}
+              checked={role === 'teacher'}
+              onChange={(e) => setRole(e.target.value)}
             />
             <label htmlFor="teacher">Teacher</label>
 

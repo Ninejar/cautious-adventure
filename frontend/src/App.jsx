@@ -22,7 +22,7 @@ const App = () => {
 
       <Route path = "/" element = {<WelcomePage />}/>
 
-      <Route path = "/journals" element = { <ProtectedRoute allowedRoles={'user'}><Home /></ProtectedRoute>}/>
+      <Route path = "/journals" element = { <ProtectedRoute allowedRoles={'student'}><Home /></ProtectedRoute>}/>
       
       <Route path = "/journals/list" element = {<JournalsHome />} />
       <Route path = "/journals/create" element = {<CreateJournal />} />
@@ -32,7 +32,7 @@ const App = () => {
 
       <Route path = "/profile" element = {<Profile />} />
 
-      <Route path = "/teachers" element = { <ProtectedRoute allowedRoles={'admin'}><TeacherHome/></ProtectedRoute> }/>
+      <Route path = "/teachers" element = { <ProtectedRoute allowedRoles={'teacher'}><TeacherHome/></ProtectedRoute> }/>
     </Routes>
   )
 }

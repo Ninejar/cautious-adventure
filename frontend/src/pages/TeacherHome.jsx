@@ -29,7 +29,13 @@ const TeacherHome = () => {
            
         </div>
         <div className="other_container">
-
+        {/* <h3>Notification center</h3>
+            <br></br>
+            <p>"Student name" shared "Entry title" with you</p>
+            <br></br>
+            <p>"Student name" shared "Entry title" with you</p>
+            <br></br>
+            <p>"Student name" shared "Entry title" with you</p> */}
         </div>
 
     </main>
