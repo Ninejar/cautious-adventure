@@ -1,13 +1,22 @@
-.content.signup{
+.signup_wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.signup{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 100px;
+    gap: 25px;
 }
 
-.content.signup h1{
+.signup h1{
     font-size: 50pt;
+    margin-top: 50px;
 }
 
 .signup_container{
