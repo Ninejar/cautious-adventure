@@ -7,6 +7,9 @@ const WelcomePage = () => {
   return (
     <>
       <p>Welcome</p>
+
+      <a href="/login">Login</a>
+      <a href="/Signup">Signup</a>
     
     </>
   );

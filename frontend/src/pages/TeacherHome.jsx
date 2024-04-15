@@ -34,20 +34,20 @@ const TeacherHome = () => {
         <h3>Notifications</h3>
             <div className="notification">
                 <div className="notification_title"><h4>New student entry!</h4><span><FaCircle /></span></div>
-                <p>"Student name" shared "Entry title" with you</p>
+                <p>[Student name] shared [Entry title] with you</p>
             </div>
             <div className="notification">
                 <div className="notification_title"><h4>New student entry!</h4><span><FaCircle /></span></div>
-                <p>"Student name" shared "Entry title" with you</p>
+                <p>[Student name] shared [Entry title] with you</p>
             </div>
 
             <div className="notification">
-                <div className="notification_title"><h4>New student entry!</h4><span></span></div>
-                <p>"Student name" shared "Entry title" with you</p>
+                <div className="notification_title"><h4>New student entry!</h4><span><FaCircle /></span></div>
+                <p>[Student name] shared [Entry title] with you</p>
             </div>
             <div className="notification">
                 <div className="notification_title"><h4>New student entry!</h4><span></span></div>
-                <p>"Student name" shared "Entry title" with you</p>
+                <p>[Student name] shared [Entry title] with you</p>
             </div>
        </div>
 

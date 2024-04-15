@@ -14,20 +14,20 @@ const Notifications = () => {
             <h3>Notifications</h3>
             <div className="notification">
                 <div className="notification_title"><h4>Entry reviewed!</h4><span><FaCircle /></span></div>
-                <p>"Teacher name" reviewed your reflection "Entry title"</p>
+                <p>[Teacher name] reviewed your reflection [Entry title]</p>
             </div>
             <div className="notification">
                 <div className="notification_title"><h4>Entry reviewed!</h4><span><FaCircle /></span></div>
-                <p>"Teacher name" reviewed your reflection "Entry title"</p>
+                <p>[Teacher name] reviewed your reflection [Entry title]</p>
             </div>
 
             <div className="notification">
                 <div className="notification_title"><h4>Entry reviewed!</h4><span></span></div>
-                <p>"Teacher name" reviewed your reflection "Entry title"</p>
+                <p>[Teacher name] reviewed your reflection [Entry title]</p>
             </div>
             <div className="notification">
                 <div className="notification_title"><h4>Entry reviewed!</h4><span></span></div>
-                <p>"Teacher name" reviewed your reflection "Entry title"</p>
+                <p>[Teacher name] reviewed your reflection [Entry title]</p>
             </div>
            
         </div>

@@ -33,13 +33,13 @@ const Home = () => {
                 <a href="" className="link_item_container">
                     <div>
                         <p className="link_item_header" >Profile</p>
-                        <p>Your portfolio and feedbacks</p>
+                        <p>Your personal page</p>
                     </div>
                     
                     <img src="earth.png" alt=""/>
                 </a>
             
-                <div className="bottom"><div>Visit your private page</div><div></div></div>
+                <div className="bottom"><div>Visit your profile page</div><div></div></div>
             </div>
             </Link>
            
