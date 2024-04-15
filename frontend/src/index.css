@@ -95,11 +95,6 @@ main{
   height: 100%;
 }
 
-main .other_container{
-  width: 50%;
-  background-color: gray;
-  border-radius: 8px;
-}
 
 /* h1{
   margin: 3% 0;

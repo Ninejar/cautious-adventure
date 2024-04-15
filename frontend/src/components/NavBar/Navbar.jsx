@@ -99,7 +99,7 @@ const Navbar = () => {
 
             {/* Shared journals submenu */}
             <div className={`nav-item ${subMenuVisible.sharedSubMenu ? "active" : ""}`} id="sharedNavItem">
-              <a href="#" onClick={() => toggleSubMenuLocal("sharedSubMenu")}>My Public Journals</a>
+              <a href="#" onClick={() => toggleSubMenuLocal("sharedSubMenu")}>My Shared Journals</a>
               <div className={`subnav ${subMenuVisible.sharedSubMenu ? "active" : ""}`} id="sharedSubMenu">
                 {/* Map through shared journals and display them */}
                 {sharedJournals.map((journal, index) => <Link key={index} to={`/journals/edit/${journal._id}`}>{journal.title}</Link>)}

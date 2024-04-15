@@ -3,6 +3,8 @@ import {Link} from 'react-router-dom'
 import {BsInfoCircle} from 'react-icons/bs'
 import Navbar from "../components/NavBar/Navbar";
 import '../components/LinkItem/LinkItem.css'
+import '../components/Notifications/Notifications.css'
+import { FaCircle } from "react-icons/fa";
 const TeacherHome = () => {
   return (
     <div className="app">
@@ -29,14 +31,25 @@ const TeacherHome = () => {
            
         </div>
         <div className="other_container">
-        {/* <h3>Notification center</h3>
-            <br></br>
-            <p>"Student name" shared "Entry title" with you</p>
-            <br></br>
-            <p>"Student name" shared "Entry title" with you</p>
-            <br></br>
-            <p>"Student name" shared "Entry title" with you</p> */}
-        </div>
+        <h3>Notifications</h3>
+            <div className="notification">
+                <div className="notification_title"><h4>New student entry!</h4><span><FaCircle /></span></div>
+                <p>"Student name" shared "Entry title" with you</p>
+            </div>
+            <div className="notification">
+                <div className="notification_title"><h4>New student entry!</h4><span><FaCircle /></span></div>
+                <p>"Student name" shared "Entry title" with you</p>
+            </div>
+
+            <div className="notification">
+                <div className="notification_title"><h4>New student entry!</h4><span></span></div>
+                <p>"Student name" shared "Entry title" with you</p>
+            </div>
+            <div className="notification">
+                <div className="notification_title"><h4>New student entry!</h4><span></span></div>
+                <p>"Student name" shared "Entry title" with you</p>
+            </div>
+       </div>
 
     </main>
         </div>

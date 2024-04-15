@@ -180,24 +180,25 @@ const EditJournal = () => {
             <div>
               <input
                 type="radio"
-                id="public"
-                value="Public"
-                checked={visibility === 'Public'}
-                onChange={(e) => setVisibility(e.target.value)}
-              />
-              <label htmlFor="public">Public</label>
-            </div>
-
-            <div>
-              <input
-                type="radio"
                 id="private"
                 value="Private"
                 checked={visibility === 'Private'}
                 onChange={(e) => setVisibility(e.target.value)}
               />
-              <label htmlFor="private">Private</label>
+              <label htmlFor="private">Keep private</label>
             </div>
+            <div>
+              <input
+                type="radio"
+                id="public"
+                value="Public"
+                checked={visibility === 'Public'}
+                onChange={(e) => setVisibility(e.target.value)}
+              />
+              <label htmlFor="public">Share with teacher</label>
+            </div>
+
+            
           </div>
           <button onClick={handleEditJournal}>Save</button>
         </div>

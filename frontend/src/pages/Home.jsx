@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import {BsInfoCircle} from 'react-icons/bs'
 import Navbar from "../components/NavBar/Navbar";
 import '../components/LinkItem/LinkItem.css'
+import Notifications from '../components/Notifications/Notifications'
 const Home = () => {
   return (
     <div className="app">
@@ -42,7 +43,7 @@ const Home = () => {
             </div>
             </Link>
            
-
+{/* 
             <div className="link_item">
                 <a href="" className="link_item_container">
                     <div>
@@ -54,18 +55,9 @@ const Home = () => {
                 </a>
             
                 <div className="bottom"><div>Start communicating</div><div></div></div>
-            </div>
+            </div> */}
         </div>
-        <div className="other_container">
-            <h3>Notification center</h3>
-            <br></br>
-            <p>"Teacher name" reviewed your reflection "Entry title"</p>
-            <br></br>
-            <p>"Teacher name" reviewed your reflection "Entry title"</p>
-            <br></br>
-            <p>"Teacher name" reviewed your reflection "Entry title"</p>
-
-        </div>
+        <Notifications />
 
     </main>
         </div>

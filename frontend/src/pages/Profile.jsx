@@ -189,35 +189,35 @@ const Profile = () => {
                     </figure>
 
                     <figure>
-                        {journals.length >= 35 ? (
+                        {journals.length >= 25 ? (
                             <>
                                 <img src="../public/img/achievement_20.png" alt="placeholder" />
                                 <div className="figcaption_container">
-                                    <figcaption>You have 35 entries</figcaption>
-                                    <figcaption>Unlocked at {getAchievementTime(35)}</figcaption>
+                                    <figcaption>You have 25 entries</figcaption>
+                                    <figcaption>Unlocked at {getAchievementTime(25)}</figcaption>
                                 </div>
                             </>
                         ) : (
                             <>
                                 <img src="../public/img/locked.png" alt="locked" />
-                                <figcaption>You need 35 entries to unlock this</figcaption>
+                                <figcaption>You need 25 entries to unlock this</figcaption>
                             </>
                         )}
                     </figure>
 
                     <figure>
-                        {journals.length >= 100 ? (
+                        {journals.length >= 30 ? (
                             <>
                                 <img src="../public/img/achievement_20.png" alt="placeholder" />
                                 <div className="figcaption_container">
-                                    <figcaption>You have 100 entries</figcaption>
-                                    <figcaption>Unlocked at {getAchievementTime(20)}</figcaption>
+                                    <figcaption>You have 30 entries</figcaption>
+                                    <figcaption>Unlocked at {getAchievementTime(30)}</figcaption>
                                 </div>
                             </>
                         ) : (
                             <>
                                 <img src="../public/img/locked.png" alt="locked" />
-                                <figcaption>You need 100 entries to unlock this</figcaption>
+                                <figcaption>You need 30 entries to unlock this</figcaption>
                             </>
                         )}
                     </figure>

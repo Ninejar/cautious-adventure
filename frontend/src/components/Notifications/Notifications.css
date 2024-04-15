@@ -1,0 +1,37 @@
+.other_container{
+    width: 50%;
+    background-color: rgb(226, 224, 224);
+    border-radius: 8px;
+    color: black;
+    font-weight: 300;
+  }
+
+  .other_container h3{
+    margin: 1em;
+  } 
+
+ .other_container .notification{
+    border-bottom: solid 0.5px rgb(153, 153, 153);
+    padding: 1em;
+ } 
+
+ .notification .notification_title{
+    display: flex;
+    justify-content: space-between;
+ }
+
+ .notification_title span{
+    color: rgb(87,143,248);
+    scale: 0.7;
+ }
+
+ .notification p{
+    font-size: 10pt;
+ }
+
+ .notification h4{
+    font-weight: 500;
+
+ }
+  /* *{outline:1px solid red} */
+  
