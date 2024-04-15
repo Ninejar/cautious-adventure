@@ -13,7 +13,7 @@ const Home = () => {
         <main>
         <div className="link_container">
             <Link to = {`/journals/list`}>
-                <div className="link_item">
+                <div className="link_item journal">
                 <a href="" className="link_item_container">
                     <div>
                         <p className="link_item_header" >Journal</p>
@@ -29,7 +29,7 @@ const Home = () => {
             </Link>
             
             <Link to = {`/profile`}>
-            <div className="link_item">
+            <div className="link_item profile">
                 <a href="" className="link_item_container">
                     <div>
                         <p className="link_item_header" >Profile</p>

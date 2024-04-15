@@ -15,7 +15,7 @@ const TeacherHome = () => {
         <div className="link_container">
             
             <Link to = {`/teachers/shared`}>
-            <div className="link_item">
+            <div className="link_item shared">
                 <a href="" className="link_item_container">
                     <div>
                         <p className="link_item_header" >Shared</p>

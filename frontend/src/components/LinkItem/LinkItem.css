@@ -2,7 +2,8 @@
 display: flex;
   flex-direction: column;
   width: 100%;
-  justify-content: space-around;
+  justify-content: space-between;
+  height: 50%;
 
 }
 
@@ -35,7 +36,31 @@ display: flex;
     transition: transform 0.3s;
   }
 
-  .link_container .link_item:nth-child(1) {
+  .link_item.journal{
+    background-color: #17A2B8;
+  }
+
+  .link_item.journal .bottom {
+    background-color: #1591A5;
+  }
+
+  .link_item.profile{
+    background-color: #FFC107;
+  }
+
+  .link_item.profile .bottom {
+    background-color: #E5AD06;
+  }
+
+  .link_item.shared{
+    background-color: #A7289A;
+  }
+
+  .link_item.shared .bottom {
+    background-color: #8C1E81;
+  }
+
+  /* .link_container .link_item:nth-child(1) {
     background-color: #17A2B8;
   }
 
@@ -65,7 +90,7 @@ display: flex;
 
   .link_container .link_item:nth-child(4) .bottom {
     background-color: #8C1E81;
-  }
+  } */
 
   .link_item_container {
     display: flex;
