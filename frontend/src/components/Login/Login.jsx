@@ -45,7 +45,7 @@ const Login = () => {
   };
   
   return (
-    <div className='app'>
+    <div className='login_wrapper'>
       <div className='content login'>
       <h1>Log in</h1>
       

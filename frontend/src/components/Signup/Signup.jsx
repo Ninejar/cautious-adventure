@@ -36,8 +36,8 @@ const Signup = () => {
       })
   }
   return (
-    <div className='app'>
-      <div className='content signup'>
+    <div className='signup_wrapper'>
+      <div className='signup'>
       <h1>Sign up</h1>
       
       {loading ? <Loading /> : ''}
