@@ -19,3 +19,19 @@
     overflow: scroll;
     border: solid 1px white;
   }
+
+.file_uploads_container{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  gap: 15px;
+  overflow-X: scroll;
+  width: 50dvw;
+  border: solid 0.5px white;
+}
+
+.journal_data img.file{
+  width: 200px;
+}
+

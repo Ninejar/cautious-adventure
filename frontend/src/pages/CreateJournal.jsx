@@ -11,33 +11,39 @@ import '../components/DocumentPage/sheets-of-paper-a4.css'
 const CreateJournal = () => {
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
+  const [files, setFiles] = useState([])
   const [visibility, setVisibility] = useState('')
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
 
-  const token = localStorage.getItem('auth-token'); // Retrieve token from local storage
-    const config = {
-      headers: {
-        'auth-token': token // Set the token in the request headers
-      }
-    };
+  const handleFileChange = (e) => {
+    setFiles(e.target.files); // Set the file object
+  };
 
 
   const handleSaveJournal = () => {
-    const data = {
-      title, 
-      content,
-      visibility,
-    } 
+    // const data = {
+    //   title, 
+    //   content,
+    //   visibility,
+    // } 
+    const formData = new FormData(); // Create FormData object for file upload
+    formData.append('title', title);
+    formData.append('content', content);
+    formData.append('visibility', visibility);
+    for (let i = 0; i < files.length; i++) {
+      formData.append('file', files[i]); // Append each file to FormData
+    }
     setLoading(true)
     const token = localStorage.getItem('auth-token'); // Retrieve token from local storage
     const config = {
       headers: {
+        'Content-Type': 'multipart/form-data',
         'auth-token': token // Set the token in the request headers
       }
     };
     axios
-      .post('http://localhost:1814/journals', data, config)
+      .post('http://localhost:1814/journals', formData, config)
       .then(()=>{
         setLoading(false)
         navigate('/journals/list')
@@ -60,6 +66,11 @@ const CreateJournal = () => {
         <input id="title" type="text" placeholder='Untitled' value={title} onChange={(e) => setTitle(e.target.value)} />
 
         <Page content={content} onChange={(e) => setContent(e.target.value)} />
+
+        <div className='attachFile_container'>
+
+          <input type="file" multiple onChange={handleFileChange} />
+        </div>
 
         <div className='radio_container'>  
            <label>Set visibility</label> 

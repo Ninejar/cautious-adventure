@@ -19,6 +19,10 @@ const journalSchema = mongoose.Schema(
         createdBy: {
             type: String,
             required: false
+        },
+        fileURL: {
+            type: [String],
+            required: false
         }
     },
     {
