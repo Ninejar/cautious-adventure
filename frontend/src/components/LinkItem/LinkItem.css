@@ -59,6 +59,14 @@ display: flex;
   .link_item.goals .bottom {
     background-color: #8C1E81;
   }
+  
+  .link_item.shared{
+    background-color: #FA316E;
+  }
+
+  .link_item.shared .bottom {
+    background-color: #D72A5F;
+  }
 
   .link_item.tasks{
     background-color: #57df53;
