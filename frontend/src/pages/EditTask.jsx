@@ -99,8 +99,8 @@ const EditTask = () => {
     <div className="app">
       <Navbar />
       <div className="content">
-        <div className="backbutton">
-          <BackButton destination='/tasks/list' />
+      <div className="backbutton">
+          <BackButton destination="/teachers/TeacherTaskHome" />
           <h1>Edit Task</h1>
         </div>
 
