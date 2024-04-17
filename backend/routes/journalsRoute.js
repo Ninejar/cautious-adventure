@@ -5,11 +5,6 @@ import upload from '../multerSetup.js'
 const router = express.Router()
 
 
-import { Journal } from '../models/journalModel.js'
-import jwt from 'jsonwebtoken';
-
-
-
 // Route to create a new journal
 router.post('/', auth, upload.array('file', 10), createJournal);
 

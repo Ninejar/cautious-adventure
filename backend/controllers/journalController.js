@@ -1,5 +1,4 @@
 import { Journal } from '../models/journalModel.js'
-import upload from '../multerSetup.js'
 
 // Create a new journal
 const createJournal = async (req,res) => {
