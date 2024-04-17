@@ -4,7 +4,6 @@ display: flex;
   width: 100%;
   justify-content: space-between;
   height: 50%;
-
 }
 
 /* *{outline: 1px solid red} */
@@ -13,6 +12,7 @@ display: flex;
     width: 85%;
     height: 120px;
     border-radius: 8px;
+    margin-bottom: 10%; /*added for space between the containers*/
   }
 
   .bottom {
@@ -52,11 +52,11 @@ display: flex;
     background-color: #E5AD06;
   }
 
-  .link_item.shared{
+  .link_item.goals{
     background-color: #A7289A;
   }
 
-  .link_item.shared .bottom {
+  .link_item.goals .bottom {
     background-color: #8C1E81;
   }
 
