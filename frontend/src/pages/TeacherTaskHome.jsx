@@ -5,8 +5,9 @@ import { MdOutlineAddBox } from "react-icons/md";
 import Loading from "../components/Loading";
 import BackButton from "../components/BackButton/BackButton";
 import Navbar from "../components/NavBar/Navbar";
+import TasksCard from "../components/TasksHome/tasksCard";
 
-const TeacherTaskHome = () => {
+const TeacherHome = () => {
   const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -53,13 +54,7 @@ const TeacherTaskHome = () => {
             {tasks.length === 0 ? (
               <p>No tasks created yet.</p>
             ) : (
-              <ul>
-                {tasks.map((task) => (
-                  <li key={task._id}>
-                    <Link to={`/tasks/${task._id}`}>{task.title}</Link>
-                  </li>
-                ))}
-              </ul>
+              <TasksCard tasks={tasks} />
             )}
           </div>
         )}
@@ -68,4 +63,4 @@ const TeacherTaskHome = () => {
   );
 };
 
-export default TeacherTaskHome;
+export default TeacherHome;

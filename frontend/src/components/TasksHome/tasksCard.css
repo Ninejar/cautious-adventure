@@ -81,3 +81,62 @@
     background-color: rgb(252, 74, 74) !important;
   }
   
+
+
+  .task_cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 35px;
+    justify-content: space-around;
+  }
+  
+  .task_card {
+    background: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 250px;
+    height: 180px;
+    transition: transform 0.2s ease-in-out;
+    position: relative;
+  }
+  
+  .task_card.new {
+    background-color: #17a2b8;
+  }
+  
+  .task_card:hover {
+    transform: scale(1.05);
+  }
+  
+  .task_card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333333;
+  }
+  
+  .visibility_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .card_operations {
+    position: absolute;
+    bottom: 24px;
+  }
+  
+  .card_operations a {
+    color: #17a2b8;
+  }
+  
+  .last_edited {
+    display: flex;
+    position: absolute;
+    bottom: 10px;
+    justify-content: space-between;
+    width: 83%;
+  }
+  
+
+  

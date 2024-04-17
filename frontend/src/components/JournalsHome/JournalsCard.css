@@ -1,4 +1,4 @@
-.create_journal, .create_task{
+.create_journal {
     display: flex;
     flex-direction: column;
     gap: 25px;
@@ -10,14 +10,14 @@
     margin: 0 auto; 
   }
   
-  .create_journal label, .create_task label {
+  .create_journal label {
     margin-bottom: 8px;
     font-size: 20px;
     font-weight: bold;
   
   }
   
-  .create_journal input, .create_task input{
+  .create_journal input {
     padding: 10px;
     margin-bottom: 16px;
     border: 1px solid #dddddd;
@@ -26,7 +26,7 @@
     color: white;
   }
   
-  .create_journal .radio_container, .create_task .radio_container{
+  .create_journal .radio_container {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
