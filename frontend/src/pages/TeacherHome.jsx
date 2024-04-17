@@ -28,6 +28,21 @@ const TeacherHome = () => {
                 <div className="bottom"><div>Visit your Shared page</div><div></div></div>
             </div>
             </Link>
+
+            <Link to = {`/teachers/TeacherTaskHome`}>
+            <div className="link_item tasks">
+                <a href="" className="link_item_container">
+                    <div>
+                        <p className="link_item_header" >Tasks</p>
+                        <p>View your students entries</p>
+                    </div>
+                    
+                    <img src="earth.png" alt=""/>
+                </a>
+            
+                <div className="bottom"><div>Visit your Shared page</div><div></div></div>
+            </div>
+            </Link>
            
         </div>
         <div className="other_container">

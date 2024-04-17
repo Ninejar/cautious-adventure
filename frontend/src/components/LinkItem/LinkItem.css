@@ -60,6 +60,14 @@ display: flex;
     background-color: #8C1E81;
   }
 
+  .link_item.tasks{
+    background-color: #57df53;
+  }
+
+  .link_item.tasks .bottom {
+    background-color: #2bcb25;
+  }
+
   /* .link_container .link_item:nth-child(1) {
     background-color: #17A2B8;
   }
