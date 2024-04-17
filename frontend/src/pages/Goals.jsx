@@ -27,7 +27,6 @@ import BackButton from '../components/BackButton/BackButton';
                     <h2>Goal 3: Good Health and Well-being</h2>
                     <p>Ensure healthy lives and promote well-being for all at all ages.</p>
                 </div>
-                {/* Add more goals here as needed */}
             </div>
         </div>
     </div>
