@@ -20,7 +20,7 @@ const TasksCard = ({ tasks }) => {
       </Link>
 
       {tasks.map((item) => (
-        <Link to={`/tasks/edit/${item._id}`} key={item._id}>
+        <Link to={`/teachers/edit/${item._id}`} key={item._id}>
           <div className="task_card">
             <h2>{item.title}</h2>
             <div className="visibility_container">
