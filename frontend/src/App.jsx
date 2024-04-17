@@ -15,6 +15,7 @@ import TeacherCreateTask from './pages/TeacherCreateTask'
 import TeacherTaskHome from './pages/TeacherTaskHome'
 import ProtectedRoute from './ProtectedRoute/ProtectedRoute'
 import Goals from './pages/Goals'
+import EditTask from './pages/EditTask'
 
 const App = () => {
   return (
@@ -39,6 +40,7 @@ const App = () => {
       <Route path = "/teachers" element = { <ProtectedRoute allowedRoles={'teacher'}><TeacherHome/></ProtectedRoute> }/>
       <Route path = "/teachers/TeacherTaskHome" element = {<TeacherTaskHome />} />
       <Route path = "/teachers/TeacherCreateTask" element = {<TeacherCreateTask />} />
+      <Route path = "/teachers/edit/:id" element = {<EditTask />} />
     </Routes>
   )
 }

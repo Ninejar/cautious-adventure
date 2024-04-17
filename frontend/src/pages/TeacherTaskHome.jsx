@@ -35,9 +35,7 @@ const TeacherHome = () => {
     <div className="app">
       <Navbar />
       <div className="content">
-        <div className="backbutton">
-          <BackButton destination="/teachers" />
-        </div>
+        <div className="backbutton" ><BackButton destination="/teachers" /><h1>Your tasks list</h1></div>
 
         {loading ? <Loading /> : <TasksCard tasks={tasks} />}
       </div>

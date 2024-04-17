@@ -137,6 +137,20 @@
     justify-content: space-between;
     width: 83%;
   }
+
+  .visibility_radios {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .visibility_radios label {
+    margin-right: 20px; /* Add margin between radio buttons */
+  }
+  
+  .visibility_radios input[type="radio"] {
+    margin-right: 5px; /* Adjust spacing between radio button and label */
+  }
+  
   
 
   
