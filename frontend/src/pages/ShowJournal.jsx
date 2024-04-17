@@ -63,7 +63,7 @@ const ShowJournal = () => {
         ) {
           return (
             <div  key={index}>
-              <img className="file" src={`http://localhost:1814/${url}`} alt="" />
+              <img className="file" src={`http://localhost:1814/${url}`} alt="Attachment" />
             </div>
           );
         } else {
@@ -97,7 +97,8 @@ const ShowJournal = () => {
         {loading ? (
           <Loading />
         ) : (
-          <div>
+          <>
+          <div className='journal_data_container'>
             <div className="journal_data">
               <h2>Title: </h2>
               <span>{journal.title}</span>
@@ -111,17 +112,29 @@ const ShowJournal = () => {
               <span>{new Date(journal.updatedAt).toString()}</span>
             </div>
             <div className="journal_data">
-              <h2>File uploads</h2>
+              <h2>Visibility: </h2>
+              <span>{journal.visibility}</span>
+            </div>
+            <div className="journal_data">
+              <h2>File uploads:</h2>
               <div className='file_uploads_container'>
               {renderAttachment()}
               </div>
               
             </div>
-            <div className="journal_data">
-              <h2>Visibility: </h2>
-              <span>{journal.visibility}</span>
+
+            <div className="journal_data journal_content_wrapper">
+              <h2>Content: </h2>
+              <div className='journal_content'>
+                <div dangerouslySetInnerHTML={{ __html: journal.content }} />
+              </div>
+              
             </div>
           </div>
+          
+
+            
+          </>
         )}
       </div>
     </div>

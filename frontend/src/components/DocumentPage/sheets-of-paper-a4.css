@@ -33,3 +33,29 @@
 	margin-right: 2cm;
 	margin-bottom: 2cm;
 }
+
+/* *{outline: 1px solid red;} */
+
+.quill{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.ql-container{
+	width: 21cm;
+	min-height: 29.7cm;
+	padding: 2cm;
+	background: #fff;
+	box-shadow: 0 4px 5px rgba(75, 75, 75, 0.2);
+	color:black;
+
+}
+
+.ql-toolbar{
+	width: 21cm;
+	background-color: rgb(232, 232, 232);
+}
+

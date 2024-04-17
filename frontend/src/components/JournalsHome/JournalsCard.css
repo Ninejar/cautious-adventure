@@ -178,11 +178,17 @@
   /* *{outline: 1px solid red} */
 
 .attachFile_container {
+  width: 21cm;
   display: flex;
   justify-content: space-around;
   gap: 50px;
   margin: 0 auto;
   flex-wrap: wrap;
+}
+
+.attachFile_container input{
+  width: 21cm;
+  margin: 0;
 }
 
 .attachment-container{
