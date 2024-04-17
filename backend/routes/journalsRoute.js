@@ -2,13 +2,15 @@ import express from 'express'
 import { Journal } from '../models/journalModel.js'
 import auth from '../verifyToken.js'
 import jwt from 'jsonwebtoken';
+import upload from '../multerSetup.js'
 
 const router = express.Router()
 
 // Route to create a new journal
-router.post('/', auth, async (req, res) => {
+router.post('/', auth, upload.array('file', 10), async (req, res) => {
 
     try{
+        console.log('Received files:', req.files)
         if (
             !req.body.title ||
             !req.body.content ||
@@ -25,11 +27,14 @@ router.post('/', auth, async (req, res) => {
         const decodedToken = jwt.verify(token, process.env.TOKEN_SECRET);
         const userId = decodedToken._id; // Accessing the user ID from the decoded token
 
+        const fileURLs = req.files.map(file => file.path);
+
         const newJournal = {
             title: req.body.title,
             content: req.body.content,
             visibility: req.body.visibility,
-            createdBy: userId
+            createdBy: userId,
+            fileURL: fileURLs
         };
 
         const journal = await Journal.create(newJournal);
@@ -91,7 +96,7 @@ router.get('/:id', auth, async (req, res) => {
 });
 
 // Route to update a journal
-router.put('/:id', auth, async (req, res) => {
+router.put('/:id', auth, upload.array('file', 10), async (req, res) => {
     try {
         const { id } = req.params;
         const token = req.header('auth-token'); // Retrieve the token from the request header
@@ -100,6 +105,7 @@ router.put('/:id', auth, async (req, res) => {
         const decodedToken = jwt.verify(token, process.env.TOKEN_SECRET);
         const userId = decodedToken._id; // Accessing the user ID from the decoded token
 
+        // Fetch the existing journal from the database
         const journal = await Journal.findById(id);
 
         if (!journal) {
@@ -120,11 +126,15 @@ router.put('/:id', auth, async (req, res) => {
             });
         }
 
+        // If new files are uploaded, use their paths; otherwise, use existing file URLs
+        const fileURLs = req.files.length > 0 ? req.files.map(file => file.path) : journal.fileURL;
+
         const updatedJournal = {
             title: req.body.title,
             content: req.body.content,
             visibility: req.body.visibility,
-            createdBy: journal.createdBy // Preserve createdBy value
+            createdBy: journal.createdBy,
+            fileURL: [...journal.fileURL, ...fileURLs] 
         };
 
         await Journal.findByIdAndUpdate(id, updatedJournal);
@@ -135,6 +145,7 @@ router.put('/:id', auth, async (req, res) => {
         res.status(500).send({ message: error.message });
     }
 });
+
 
 // Route to delete a journal
 router.delete('/:id', auth, async (req, res) => {

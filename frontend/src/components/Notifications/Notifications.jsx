@@ -17,8 +17,8 @@ const Notifications = () => {
                 <p>[Teacher name] reviewed your reflection [Entry title]</p>
             </div>
             <div className="notification">
-                <div className="notification_title"><h4>Entry reviewed!</h4><span><FaCircle /></span></div>
-                <p>[Teacher name] reviewed your reflection [Entry title]</p>
+                <div className="notification_title"><h4>New achievement unlocked!</h4><span><FaCircle /></span></div>
+                <p>You have unlocked the [Achievement name]</p>
             </div>
 
             <div className="notification">

@@ -176,3 +176,38 @@
   }
 
   /* *{outline: 1px solid red} */
+
+.attachFile_container {
+  display: flex;
+  justify-content: space-around;
+  gap: 50px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.attachment-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.display_attachment_img_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+}
+
+img.display_attachment_img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.remove_attachment{
+  background-color: rgb(252, 74, 74) !important;
+}
+/* *{outline: 1px solid red} */

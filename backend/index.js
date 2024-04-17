@@ -4,9 +4,14 @@ import mongoose from 'mongoose'
 import journalsRoute from './routes/journalsRoute.js'
 import userRoutes from './routes/userRoutes.js';
 import cors from 'cors'
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 import dotenv from 'dotenv';
 dotenv.config();
+
+const __filename = fileURLToPath(import.meta.url); // Get the filename of the current module
+const __dirname = path.dirname(__filename); //
 
 const PORT = process.env.PORT || 8089;
 const app = express() 
@@ -18,6 +23,7 @@ app.use(express.json())
 // Middleware for handling CORS policy
 app.use(cors()) 
 
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.get('/', (req, res) => {
     console.log(req)
