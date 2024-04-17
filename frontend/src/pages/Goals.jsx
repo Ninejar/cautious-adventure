@@ -14,73 +14,73 @@ import BackButton from '../components/BackButton/BackButton';
             </div>
 
             <div className="goals-container">
-                <div className="goal">
+                <div className="goal one">
                     <h2>Goal 1: No Poverty</h2>
-                    <p>Eradicate extreme poverty for all people everywhere, currently measured as people living on less than $1.25 a day.</p>
+                    <p>End poverty in all its forms everywhere</p>
                 </div>
-                <div className="goal">
+                <div className="goal two">
                     <h2>Goal 2: Zero Hunger</h2>
-                    <p>End hunger, achieve food security and improved nutrition, and promote sustainable agriculture.</p>
+                    <p>End hunger, achieve food security and improved nutrition and promote sustainable agriculture</p>
                 </div>
-                <div className="goal">
+                <div className="goal three">
                     <h2>Goal 3: Good Health and Well-being</h2>
-                    <p>Ensure healthy lives and promote well-being for all at all ages.</p>
+                    <p>Ensure healthy lives and promote well-being for all at all ages</p>
                 </div>
-                <div className="goal">
-                    <h2>Goal 4: No Poverty</h2>
-                    <p>Eradicate extreme poverty for all people everywhere, currently measured as people living on less than $1.25 a day.</p>
+                <div className="goal four">
+                    <h2>Goal 4: Quality education</h2>
+                    <p>Ensure inclusive and equitable quality education and promote lifelong learning opportunities for all</p>
                 </div>
-                <div className="goal">
-                    <h2>Goal 5: Zero Hunger</h2>
-                    <p>End hunger, achieve food security and improved nutrition, and promote sustainable agriculture.</p>
+                <div className="goal five">
+                    <h2>Goal 5: Gender equality</h2>
+                    <p>Achieve gender equality and empower all women and girls</p>
                 </div>
-                <div className="goal">
-                    <h2>Goal 6: Good Health and Well-being</h2>
-                    <p>Ensure healthy lives and promote well-being for all at all ages.</p>
+                <div className="goal six">
+                    <h2>Goal 6: Clean water and sanitation</h2>
+                    <p>Ensure availability and sustainable management of water and sanitation for all</p>
                 </div>
-                <div className="goal">
-                    <h2>Goal 7: No Poverty</h2>
-                    <p>Eradicate extreme poverty for all people everywhere, currently measured as people living on less than $1.25 a day.</p>
+                <div className="goal seven">
+                    <h2>Goal 7: Affordable and clean energy</h2>
+                    <p>Ensure access to affordable, reliable, sustainable and modern energy for all</p>
                 </div>
-                <div className="goal">
-                    <h2>Goal 8: Zero Hunger</h2>
-                    <p>End hunger, achieve food security and improved nutrition, and promote sustainable agriculture.</p>
+                <div className="goal eight">
+                    <h2>Goal 8: Decent work and economic growth</h2>
+                    <p>Promote sustained, inclusive and sustainable economic growth, full and productive employment and decent work for all</p>
                 </div>
-                <div className="goal">
-                    <h2>Goal 9: Good Health and Well-being</h2>
-                    <p>Ensure healthy lives and promote well-being for all at all ages.</p>
+                <div className="goal nine">
+                    <h2>Goal 9: Industry, Innovation and Infrastructure</h2>
+                    <p>Build resilient infrastructure, promote inclusive and sustainable industrialization and foster innovation</p>
                 </div>
-                <div className="goal">
-                    <h2>Goal 10: No Poverty</h2>
-                    <p>Eradicate extreme poverty for all people everywhere, currently measured as people living on less than $1.25 a day.</p>
+                <div className="goal ten">
+                    <h2>Goal 10: Reduces inequality</h2>
+                    <p>Reduce inequality within and among countries</p>
                 </div>
-                <div className="goal">
-                    <h2>Goal 11: Zero Hunger</h2>
-                    <p>End hunger, achieve food security and improved nutrition, and promote sustainable agriculture.</p>
+                <div className="goal eleven">
+                    <h2>Goal 11: Sustainable cities and communities</h2>
+                    <p>Make cities and human settlements inclusive, safe, resilient and sustainable</p>
                 </div>
-                <div className="goal">
-                    <h2>Goal 12: Good Health and Well-being</h2>
-                    <p>Ensure healthy lives and promote well-being for all at all ages.</p>
+                <div className="goal tewlve">
+                    <h2>Goal 12: Responsible consumption and production</h2>
+                    <p>Ensure sustainable consumption and production patterns</p>
                 </div>
-                <div className="goal">
-                    <h2>Goal 13: No Poverty</h2>
-                    <p>Eradicate extreme poverty for all people everywhere, currently measured as people living on less than $1.25 a day.</p>
+                <div className="goal thirteen">
+                    <h2>Goal 13: Climate action</h2>
+                    <p>Take urgent action to combat climate change and its impacts</p>
                 </div>
-                <div className="goal">
-                    <h2>Goal 14: Zero Hunger</h2>
-                    <p>End hunger, achieve food security and improved nutrition, and promote sustainable agriculture.</p>
+                <div className="goal fourteen">
+                    <h2>Goal 14: Life below water</h2>
+                    <p>Conserve and sustainably use the oceans, seas and marine resources for sustainable development</p>
                 </div>
-                <div className="goal">
-                    <h2>Goal 15: Good Health and Well-being</h2>
-                    <p>Ensure healthy lives and promote well-being for all at all ages.</p>
+                <div className="goal fifteen">
+                    <h2>Goal 15: Life on land</h2>
+                    <p>Protect, restore and promote sustainable use of terrestrial ecosystems, sustainably manage forests, combat desertification, and halt and reverse land degradation and halt biodiversity loss</p>
                 </div>
-                <div className="goal">
-                    <h2>Goal 16: No Poverty</h2>
-                    <p>Eradicate extreme poverty for all people everywhere, currently measured as people living on less than $1.25 a day.</p>
+                <div className="goal sixteen">
+                    <h2>Goal 16: Peace, justice and strong institutions</h2>
+                    <p>Promote peaceful and inclusive societies for sustainable development, provide access to justice for all and build effective, accountable and inclusive institutions at all levels</p>
                 </div>
-                <div className="goal">
-                    <h2>Goal 17: Zero Hunger</h2>
-                    <p>End hunger, achieve food security and improved nutrition, and promote sustainable agriculture.</p>
+                <div className="goal seventeen">
+                    <h2>Goal 17: Partnership for the goals</h2>
+                    <p>Strengthen the means of implementation and revitalize the Global Partnership for Sustainable Development</p>
                 </div>
             </div>
         </div>

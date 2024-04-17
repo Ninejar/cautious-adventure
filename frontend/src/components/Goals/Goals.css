@@ -7,11 +7,61 @@
   }
   
   .goal {
-    width: 60%;
+    max-width: 70%;
     min-height:50%;
     background-color: aquamarine;
     padding:5%;
     border-radius: 15%;
     margin-bottom: 10%;
   }
-  
+  .one{
+    background-color: #E5233D;
+  }
+  .two{
+    background-color:#DDA73A;
+  }
+  .three{
+    background-color: #4CA146;
+  }
+  .four{
+    background-color: #C7212F;
+  }
+  .five{
+    background-color: #EF402D;
+  }
+  .six{
+    background-color: #32C1E6;
+  }
+  .seven{
+    background-color: #FBC412;
+  }
+  .eight{
+    background-color: #A31C44;
+  }
+  .nine{
+    background-color:#F26A2E;
+  }
+  .ten{
+    background-color: #E01483;
+  }
+  .eleven{
+    background-color: #F89D2A;
+  }
+  .twelve{
+    background-color: #BF8D2C;
+  }
+  .thirteen{
+    background-color: #407F46;
+  }
+  .fourteen{
+    background-color: #1F97D4;
+  }
+  .fifteen{
+    background-color: #59BA47;
+  }
+  .sixteen{
+    background-color: #136A9F;
+  }
+  .seventeen{
+    background-color: #14496B;
+  }
