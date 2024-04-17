@@ -1,0 +1,17 @@
+.goals-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .goal {
+    margin-bottom: 20px;
+  }
+  
+  .goal h2 {
+    color: #333;
+  }
+  
+  .goal p {
+    color: #666;
+  }
