@@ -11,7 +11,7 @@ nav{
 
 .sidenav {
   font-family: sans-serif;
-  
+  display: none;
   height: 100vh;
   z-index: 1;
   background-color: #2c3237;
@@ -20,9 +20,8 @@ nav{
   margin-top: -72px;
 }
 
-.sidenav a,
-.subnav a {
-  padding: 8px 8px 8px 32px;
+.sidenav a {
+  padding: 8px 8px 8px 20px;
   text-decoration: none;
   font-size: 1.2rem;
   color: white;
@@ -43,11 +42,13 @@ nav{
 
 .subnav a {
   padding: 8px 16px;
+  width: 80%;
+  margin: 0 auto;
   text-decoration: none;
   color: white;
   display: block;
   font-size: 1rem;
-  border-bottom: solid gray 1px;
+  /* border-bottom: solid gray 1px; */
 }
 
 .subnav a:hover {
@@ -67,13 +68,14 @@ nav{
 
 
 #menuToggle {
-  padding-top: 30px;
+  padding-top: 20px;
   display: block;
   position: relative;
   
 
   z-index: 1;
 }
+
 
 #menuToggle a {
   text-decoration: none;
@@ -106,7 +108,7 @@ nav{
   width: 33px;
   height: 4px;
   margin-bottom: 5px;
-  margin-left: 50px;
+  margin-left: 20px;
   position: relative;
 
   background: #cdcdcd;
@@ -134,7 +136,7 @@ nav{
 }
 
 input{
-  margin-left: 50px;
+  margin-left: 20px;
 }
 
 #menuToggle input:checked ~ span:nth-last-child(3) {
@@ -164,3 +166,10 @@ input{
 #menuToggle input:checked ~ #menu {
   width: 250px;
 }
+
+#menuToggle input:checked ~ #menu #sidenav {
+  display: block !important;
+
+}
+
+/* *{outline: 1px solid red} */
