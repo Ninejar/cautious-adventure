@@ -27,6 +27,21 @@ const Home = () => {
                 
             </div>
             </Link>
+
+            <Link to = {`/tasks`}>
+            <div className="link_item tasks">
+                <a href="" className="link_item_container">
+                    <div>
+                        <p className="link_item_header" >Tasks</p>
+                        <p>Published tasks from teachers</p>
+                    </div>
+                    
+                    <img src="earth.png" alt=""/>
+                </a>
+            
+                <div className="bottom tasks"><div>Visit the tasks page</div><div></div></div>
+            </div>
+            </Link>
             
             <Link to = {`/profile`}>
             <div className="link_item profile">

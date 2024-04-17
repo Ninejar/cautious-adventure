@@ -37,9 +37,9 @@ table {
     color: #217dbb;
   }
 
-  /* .new_journal_btn_container{
-    width: 133px;
-  } */
+  .new_journal_btn_container{
+    margin-top: -62px;
+  }
 
   /* *{outline: 1px solid red;} */
 

@@ -69,11 +69,11 @@ display: flex;
   }
 
   .link_item.tasks{
-    background-color: #57df53;
+    background-color: #28A745;
   }
 
   .link_item.tasks .bottom {
-    background-color: #2bcb25;
+    background-color: #24963E;
   }
 
   /* .link_container .link_item:nth-child(1) {
