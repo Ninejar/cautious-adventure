@@ -13,6 +13,7 @@ const TeacherCreateTask = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [files, setFiles] = useState([]);
+  const [visibility, setVisibility] = useState('Draft'); // Default visibility
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -24,6 +25,7 @@ const TeacherCreateTask = () => {
     const formData = new FormData(); // Create FormData object for file upload
     formData.append('title', title);
     formData.append('content', content);
+    formData.append('visibility', visibility); // Add visibility to form data
     for (let i = 0; i < files.length; i++) {
       formData.append('file', files[i]); // Append each file to FormData
     }
@@ -39,7 +41,7 @@ const TeacherCreateTask = () => {
       .post('http://localhost:1814/tasks', formData, config) // Assuming the endpoint is different for tasks
       .then(() => {
         setLoading(false);
-        navigate('/tasks/list'); // Redirect to tasks list after successful save
+        navigate('/teachers/TeacherTaskHome'); // Redirect to tasks list after successful save
       })
       .catch((error) => {
         setLoading(false);
@@ -62,6 +64,28 @@ const TeacherCreateTask = () => {
         <div className="create_task">
           <input id="title" type="text" placeholder='Untitled' value={title} onChange={(e) => setTitle(e.target.value)} />
           <Page content={content} onChange={(e) => setContent(e.target.value)} />
+
+          <div className='visibility_radios'>
+  <label>
+    <input 
+      type="radio" 
+      value="Draft" 
+      checked={visibility === 'Draft'} 
+      onChange={() => setVisibility('Draft')} 
+    />
+    Draft
+  </label>
+  <label>
+    <input 
+      type="radio" 
+      value="Publish" 
+      checked={visibility === 'Publish'} 
+      onChange={() => setVisibility('Publish')} 
+    />
+    Published
+  </label>
+</div>
+
 
           <div className='attachFile_container'>
             <input type="file" multiple onChange={handleFileChange} />

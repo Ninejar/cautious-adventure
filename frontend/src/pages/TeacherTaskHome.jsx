@@ -13,11 +13,11 @@ const TeacherHome = () => {
 
   useEffect(() => {
     setLoading(true);
-    const token = localStorage.getItem('auth-token');
+    const token = localStorage.getItem("auth-token");
     const config = {
       headers: {
-        'auth-token': token
-      }
+        "auth-token": token,
+      },
     };
     axios
       .get("http://localhost:1814/tasks", config)
@@ -36,28 +36,10 @@ const TeacherHome = () => {
       <Navbar />
       <div className="content">
         <div className="backbutton">
-        <BackButton destination='/teachers' />
-          <h1>Task List</h1>
+          <BackButton destination="/teachers" />
         </div>
 
-        <div className="create_button">
-          <Link to="/teachers/TeacherCreateTask">
-            <MdOutlineAddBox /> Create New Task
-          </Link>
-        </div>
-
-        {loading ? (
-          <Loading />
-        ) : (
-          <div>
-            <h2>Your Tasks</h2>
-            {tasks.length === 0 ? (
-              <p>No tasks created yet.</p>
-            ) : (
-              <TasksCard tasks={tasks} />
-            )}
-          </div>
-        )}
+        {loading ? <Loading /> : <TasksCard tasks={tasks} />}
       </div>
     </div>
   );

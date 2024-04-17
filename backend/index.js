@@ -1,6 +1,7 @@
 import express, { response } from "express";
 // import {PORT, mongoDBURL} from "./config.js"
 import mongoose from 'mongoose'
+import tasksRoute from './routes/tasksRoute.js'
 import journalsRoute from './routes/journalsRoute.js'
 import userRoutes from './routes/userRoutes.js';
 import cors from 'cors'
@@ -29,6 +30,8 @@ app.get('/', (req, res) => {
     console.log(req)
     return res.status(234).send('Welcome MERN')
 })
+
+app.use('/tasks', tasksRoute)
 
 app.use('/journals', journalsRoute)
 

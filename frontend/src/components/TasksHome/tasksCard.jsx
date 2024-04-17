@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 import { MdOutlineDelete } from 'react-icons/md';
 import { FaEye } from 'react-icons/fa';
 import { IoIosLock } from 'react-icons/io';
-import {BsInfoCircle} from 'react-icons/bs'
-import PropTypes from 'prop-types'; // Import PropTypes
+import { BsInfoCircle } from 'react-icons/bs';
+import PropTypes from 'prop-types';
 import './tasksCard.css';
 
 const TasksCard = ({ tasks }) => {
   return (
     <div className="task_cards">
-      <Link to="/tasks/create">
+      <Link to="/teachers/TeacherCreateTask">
         <div className="task_card new">
           <div className="create_new">
             <div className="plus">+</div>
@@ -24,13 +24,13 @@ const TasksCard = ({ tasks }) => {
           <div className="task_card">
             <h2>{item.title}</h2>
             <div className="visibility_container">
-              {item.visibility === 'Public' ? (
-                <span className="--public" title="Shared">
-                  <FaEye />
+              {item.visibility === 'Draft' ? (
+                <span className="--public" title="Published">
+                  <IoIosLock />
                 </span>
               ) : (
-                <span className="--private" title="Private">
-                  <IoIosLock />
+                <span className="--private" title="Draft">
+                  <FaEye />
                 </span>
               )}
             </div>
@@ -57,7 +57,15 @@ const TasksCard = ({ tasks }) => {
 };
 
 TasksCard.propTypes = {
-    tasks: PropTypes.array.isRequired, // Define PropTypes for tasks prop
-  };
+  tasks: PropTypes.arrayOf(
+    PropTypes.shape({
+      _id: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      visibility: PropTypes.string.isRequired,
+      updatedAt: PropTypes.string.isRequired, // Assuming updatedAt is a string
+      // Add more PropTypes as needed for other properties
+    })
+  ).isRequired,
+};
 
 export default TasksCard;
