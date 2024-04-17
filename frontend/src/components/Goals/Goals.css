@@ -1,0 +1,17 @@
+.goals-container {
+    max-width: 90%;
+    margin-top: 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-left: 5%;
+  }
+  
+  .goal {
+    width: 60%;
+    min-height:50%;
+    background-color: aquamarine;
+    padding:5%;
+    border-radius: 15%;
+    margin-bottom: 10%;
+  }
+  

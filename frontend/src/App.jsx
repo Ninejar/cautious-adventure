@@ -14,6 +14,7 @@ import TeacherHome from './pages/TeacherHome'
 import TeacherCreateTask from './pages/TeacherCreateTask' 
 import TeacherTaskHome from './pages/TeacherTaskHome'
 import ProtectedRoute from './ProtectedRoute/ProtectedRoute'
+import Goals from './pages/Goals'
 
 const App = () => {
   return (
@@ -33,6 +34,7 @@ const App = () => {
       <Route path = "/journals/delete/:id" element = {<DeleteJournal />} />
 
       <Route path = "/profile" element = {<Profile />} />
+      <Route path = "/goals" element = {<Goals />} />
 
       <Route path = "/teachers" element = { <ProtectedRoute allowedRoles={'teacher'}><TeacherHome/></ProtectedRoute> }/>
       <Route path = "/teachers/TeacherTaskHome" element = {<TeacherTaskHome />} />

@@ -43,19 +43,19 @@ const Home = () => {
             </div>
             </Link>
            
-{/* 
-            <div className="link_item">
+          <Link to = {`/goals`}>
+            <div className="link_item goals">
                 <a href="" className="link_item_container">
                     <div>
-                        <p className="link_item_header" >Shared</p>
-                        <p>Your place to communicate</p>
+                        <p className="link_item_header" >Goals</p>
+                        <p>Overview of the sustanibility goals</p>
                     </div>
                     
                     <img src="earth.png" alt="" />
                 </a>
             
-                <div className="bottom"><div>Start communicating</div><div></div></div>
-            </div> */}
+                <div className="bottom"><div>Learn about them</div><div></div></div>
+            </div></Link>
         </div>
         <Notifications />
 
