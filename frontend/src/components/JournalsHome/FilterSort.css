@@ -1,0 +1,24 @@
+.sorting_filters {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Align to the right */
+    margin-bottom: 20px;
+  }
+  
+  .sorting_filters select {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-left: 10px; /* Add margin on the left to separate options */
+    font-size: 16px;
+  }
+  
+  .sorting_filters select:first-child {
+    margin-left: 0; /* Remove margin from the first select element */
+  }
+  
+  /* Optional: Style for the selected option */
+  .sorting_filters select option:checked {
+    font-weight: bold;
+  }
+  

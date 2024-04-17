@@ -11,32 +11,53 @@ import BackButton from "../components/BackButton/BackButton";
 import Navbar from "../components/NavBar/Navbar";
 import JournalsCard from "../components/JournalsHome/JournalsCard";
 import JournalsTable from "../components/JournalsHome/JournalsTable";
+import '../components/JournalsHome/FilterSort.css'
+
 
 const Home = () => {
   const [journals, setJournals] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [showType, setShowType] = useState('card')
+  const [showType, setShowType] = useState('card');
+  const [sortType, setSortType] = useState('newest'); // Default sorting type
+  const [filterType, setFilterType] = useState('all'); // Default filtering type
 
   useEffect(() => {
     setLoading(true);
-    const token = localStorage.getItem('auth-token'); // Retrieve token from local storage
+    const token = localStorage.getItem('auth-token');
     const config = {
       headers: {
-        'auth-token': token // Set the token in the request headers
+        'auth-token': token
       }
     };
     axios
-      // .get("http://localhost:1814/journals")
       .get("http://localhost:1814/journals", config)
       .then((res) => {
-        setJournals(res.data.data);
+        let sortedJournals = [...res.data.data];
+        if (sortType === 'newest') {
+          sortedJournals.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
+        } else if (sortType === 'oldest') {
+          sortedJournals.sort((a, b) => new Date(a.updatedAt) - new Date(b.updatedAt));
+        }
+        if (filterType !== 'all') {
+          sortedJournals = sortedJournals.filter(item => item.visibility === filterType);
+        }
+        setJournals(sortedJournals);
         setLoading(false);
       })
       .catch((error) => {
         console.log(error);
         setLoading(false);
       });
-  }, []);
+  }, [sortType, filterType]);
+
+  const handleSortChange = (type) => {
+    setSortType(type);
+  };
+
+  const handleFilterChange = (type) => {
+    setFilterType(type);
+  };
+
   return (
     <div className="app">
       <Navbar />
@@ -47,18 +68,29 @@ const Home = () => {
             className={showType === 'card' ? 'selected_button' : ''}
             onClick={() => setShowType('card')}> <p>Card</p>
           </div>
-          {/* <HiOutlineSwitchHorizontal /> */}
           <div  
             className={showType === 'table' ? 'selected_button' : ''}
             onClick={() => setShowType('table')}>Table
           </div>
         </div>
+        <div className="sorting_filters">
+          <p>Sort by:</p>
+          <select value={sortType} onChange={(e) => handleSortChange(e.target.value)}>
+            <option value="newest">Newest</option>
+            <option value="oldest">Oldest</option>
+          </select>
+          <select value={filterType} onChange={(e) => handleFilterChange(e.target.value)}>
+            <option value="all">All</option>
+            <option value="Private">Private</option>
+            <option value="Public">Shared</option>
+          </select>
+        </div>
 
         {loading ? (
           <Loading />
         ) : showType === 'card' ? (
-            <JournalsCard journals = {journals}/>
-        ) : (<JournalsTable journals = {journals}/>)}
+            <JournalsCard journals={journals}/>
+        ) : (<JournalsTable journals={journals}/>)}
       </div>
     </div>
   );
