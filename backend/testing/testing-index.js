@@ -1,5 +1,5 @@
 import express, { response } from "express";
-import {PORT, baseURL, database, parameters} from "./config.js";
+import {PORT, baseURL, parameters} from "./config.js";
 import mongoose from 'mongoose'
 import tasksRoute from './routes/tasksRoute.js'
 import journalsRoute from './routes/journalsRoute.js'
@@ -8,7 +8,8 @@ import cors from 'cors'
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-const MONGO_URI = `${baseURL}/${database}?${parameters}`
+const database = "testDB";
+const MONGO_URI = `${baseURL}/${database}?${parameters}`;
 
 
 import dotenv from 'dotenv';
@@ -51,13 +52,4 @@ mongoose.connect(MONGO_URI)
     console.log(error)
 });
 
-// handling graceful shutdown
-function quit(eType){
-	console.log(`Received ${eType} signal. Expressjs Graceful shutdown.`);
-	server.close(()=>{
-		console.log("Express server closed.");
-		process.exit();
-	});
-	
-}
-['SIGINT', 'SIGQUIT', 'SIGTERM'].forEach(eType=>{console.log("Attaching for ", eType); process.on(eType, quit);});
+export default app;
