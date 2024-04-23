@@ -3,13 +3,17 @@ import { Journal } from '../models/journalModel.js'
 // Create a new journal
 const createJournal = async (req,res) => {
     try{
-        if (
-            !req.body.title ||
-            !req.body.content ||
-            !req.body.visibility
-        ) {
+        if(!req.body.title){
             return res.status(400).send({
-                message: 'Send all required fields: title, content, visibility'
+                message: 'Please choose a title.'
+            });
+        } else if (!req.body.content){
+            return res.status(400).send({
+                message: 'Please add content.'
+            });
+        } else if (!req.body.visibility){
+            return res.status(400).send({
+                message: 'Please select visibility.'
             });
         }
 

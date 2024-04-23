@@ -4,20 +4,26 @@ const userSchema = mongoose.Schema(
     {
         fName:{
             type: String,
-            required:true
+            required:true,
+            maxLength: 50
+
         },
         lName:{
             type: String,
-            required:true
+            required:true,
+            maxLength: 50
         },
         email:{
             type: String,
             required:true,
+            match: /^\S+@\S+\.\S+$/,
+            maxLength: 62
+
         },
         password:{
             type: String,
             required:true,
-        min:8
+            minLength: 8
         },
         role: { 
             type: String,
