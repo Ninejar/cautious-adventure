@@ -1,0 +1,44 @@
+import { User } from '../models/userModel.js';
+
+
+// describe('Boundary ')
+describe('User Model', () => {
+  const userSchema = User.schema.obj;
+
+  it('should have fName field of type String with maximum length 50', () => {
+    expect(userSchema.fName).toBeDefined();
+    expect(userSchema.fName.type).toBe(String);
+    expect(userSchema.fName.maxLength).toBe(50);
+  });
+
+  it('should have lName field of type String with maximum length 50', () => {
+    expect(userSchema.lName).toBeDefined();
+    expect(userSchema.lName.type).toBe(String);
+    expect(userSchema.lName.maxLength).toBe(50);
+  });
+
+  it('should have email field of type String with valid format and maximum length 62', () => {
+    expect(userSchema.email).toBeDefined();
+    expect(userSchema.email.type).toBe(String);
+    expect(userSchema.email.match).toEqual(/^\S+@\S+\.\S+$/);
+    expect(userSchema.email.maxLength).toBe(62);
+  });
+  
+  it('should have password field of type String with minimum length 8', () => {
+    expect(userSchema.password).toBeDefined();
+    expect(userSchema.password.type).toBe(String);
+    expect(userSchema.password.minLength).toBe(8);
+  });
+
+  it('should have role field with valid enum values ["student", "teacher"]', () => {
+    expect(userSchema.role).toBeDefined();
+    expect(userSchema.role.type).toBe(String);
+    expect(userSchema.role.enum).toEqual(['student', 'teacher']);
+  });
+
+  it('should have date field of type Date with default value Date.now', () => {
+    expect(userSchema.date).toBeDefined();
+    expect(userSchema.date.type).toBe(Date);
+    expect(userSchema.date.default).toBe(Date.now);
+  });
+});

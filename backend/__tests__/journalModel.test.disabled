@@ -1,0 +1,21 @@
+import { Journal } from '../models/journalModel.js'
+
+describe('Journal Model', () => {
+  const journalSchema = Journal.schema.obj // Get the schema object
+  
+  it('should have the fileURL field as an array', () => {
+    expect(journalSchema.fileURL).toBeDefined(); // Check if fileURL field is defined
+    expect(Array.isArray(journalSchema.fileURL.type)).toBe(true); // Check if the type of fileURL is an array
+  })
+
+  it('should have the visibility field with valid enum values', () => {
+    expect(journalSchema.visibility).toBeDefined(); // Check if visibility field is defined
+    expect(journalSchema.visibility.enum).toEqual(['Private', 'Public']); // Check if visibility field has the specified enum values
+  })
+
+  it('should have the default visibility set to Private', () => {
+    expect(journalSchema.visibility).toBeDefined(); // Check if visibility field is defined
+    expect(journalSchema.visibility.default).toBe('Private'); // Check if default value is set to 'Private'
+  });
+})
+

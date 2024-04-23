@@ -1,0 +1,145 @@
+import { before, after, describe, it, beforeEach, afterEach } from "node:test";
+import assert from "node:assert";
+import puppeteer, { launch } from "puppeteer";
+
+describe("Sustainable diary", () => {
+  let browser, page;
+  before(async () => {
+    browser = await puppeteer.launch({
+      headless: false,
+      args: [
+        "--window-size=1440,1000",
+        // "--no-sandbox"
+      ],
+      slowMo: 25,
+    });
+  });
+
+  after(async () => {
+    await browser.close();
+  });
+
+  beforeEach(async () => {
+    page = await browser.newPage();
+    await page.setViewport({
+      width: 1440,
+      height: 900,
+      isMobile: false,
+      isLandscape: true,
+    });
+    // await page.waitForNavigation({waitUtil: "load"});
+    await page.goto("http://localhost:8081/login", { waitUtil: "load" });
+  });
+
+  // cleanup - closing all pages after each test
+  afterEach(async () => {
+    const allPages = await browser.pages();
+    for (const aPage of allPages) {
+      await aPage.close();
+    }
+  });
+
+  // simple page open and load
+//   it("should load", async () => {
+//     const title = await page.title();
+//     await page.screenshot({ path: "screenshots/tmp.png", fullPage: true });
+//     assert.strictEqual(title, "Sustainable Diary");
+//   });
+
+  //   it("should render ok on mobile", async () => {
+  //     await page.setViewport({
+  //       width: 360,
+  //       height: 800,
+  //       isMobile: true,
+  //       isLandscape: false,
+  //     });
+  //   });
+
+//   it("log in", async () => {
+//     // Fill in the email and password fields
+//     await page.type("#email", "integration@testing.jest");
+//     await page.type("#password", "integration@testing.jest");
+
+//     // Click the login button
+//     await page.click("button");
+
+//     // Wait for navigation or some element that indicates successful login
+//     await page.waitForNavigation();
+
+//     // Check for the presence of a dashboard page title or any other element indicating successful login
+//     const pageURL = await page.url();
+//     assert.strictEqual(pageURL, "http://localhost:8081/journals");
+//   });
+
+//   it("log in with wrong credentials", async () => {
+//     // Fill in the email and password fields with wrong credentials
+//     await page.type("#email", "wrong@email.jest");
+//     await page.type("#password", "wrong_password");
+
+//     // Click the login button
+//     await page.click("button");
+
+//     // Wait for navigation or some element that indicates login error
+//     // await page.waitForNavigation();
+
+//     // Intercept console.log messages
+//     page.on("console", async (msg) => {
+//       const args = await Promise.all(msg.args().map((arg) => arg.jsonValue()));
+//       if (args.length && args[0].startsWith("Login error:")) {
+//         // Extract the error message from the console log
+//         const errorMessage = args[0];
+
+//         // Assert that the console log matches the expected error message
+//         assert.strictEqual(
+//           errorMessage,
+//           "Login error: AxiosError {message: 'Request failed with status code 400', name: 'AxiosError', code: 'ERR_BAD_REQUEST', config: {...}, request: XMLHttpRequest, response: {...}, ...}"
+//         );
+//       }
+//     });
+//   });
+
+  it("log in, ", async () => {
+    // Fill in the email and password fields
+    await page.type("#email", "integration@testing.jest");
+    await page.type("#password", "integration@testing.jest");
+
+    // Click the login button
+    await page.click("button");
+
+    // Wait for navigation or some element that indicates successful login
+    await page.waitForNavigation();
+
+    const prArr = [];
+    prArr.push( page.click(".link_item.journal"))
+    prArr.push(page.waitForNavigation())
+    await Promise.all(prArr)
+
+
+    await page.click(".journal_card.new");
+
+    // /journals/create
+    await page.waitForNavigation();
+  });
+});
+
+
+// async function f(){
+//     return new Promise((resolve, reject)=>{
+//         console.log("hi 1");
+//     }).then(()=>{
+//         return new Promise((resolve, reject)=>{
+//             console.log("hi from pr1");
+//             setTimeout(()=>{console.log("hi fro resolved pr1"); resolve("hi 2")}, 2000);
+//             console.log("hi 2.5")
+//         });
+//     }).then(()=>{
+        
+//     })
+
+    
+    // await pr1;
+    // console.log("hi 3");
+    // pr1.then(()=>{
+    //     console.log("hi 3")
+    // })
+// }
