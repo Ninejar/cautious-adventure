@@ -34,8 +34,29 @@ const signup = async (req, res) => {
     const emailExists = await User.findOne({email: req.body.email})
 
     if(emailExists){
-        return res.status(400).send('email already exists')
+        return res.status(400).send('Email already exists')
     }
+
+    if (!req.body.fName) {
+        return res.status(400).send('Please enter your first name.');
+    }
+
+    if (!req.body.lName) {
+        return res.status(400).send('Please enter your last name.');
+    }
+
+    if (!req.body.email) {
+        return res.status(400).send('Please enter your email.');
+    }
+
+    if (!req.body.password) {
+        return res.status(400).send('Please choose a password');
+    }
+
+    if (!req.body.role) {
+        return res.status(400).send('You must choose a role.');
+    }
+
 
     // encrypt password
     const salt = await bcrypt.genSalt(10)
@@ -54,7 +75,7 @@ const signup = async (req, res) => {
     try{
         // Save the new user to database
         const saveUser = await newUser.save()
-        res.send('User created')
+        res.send(saveUser)
         // res.send(saveUser)
         // Provide error message
     } catch (error){

@@ -5,6 +5,7 @@ const journalSchema = mongoose.Schema(
         title: {
             type: String,
             required: true,
+            maxLength: 64
         },
         content: {
             type: String,
