@@ -35,7 +35,10 @@ describe("Integration tests - journals", () => {
 
     // Get a JWT before running tests
     beforeAll(async () => {
-        const payload = {email: "integration@testing.jest", password: "integration@testing.jest"};
+        const payload = {
+            email: "integration@testing.jest",
+            password: "integration@testing.jest"
+        };
         const response = await request(app)
             .post("/users/login")
             .send(payload);
@@ -52,8 +55,6 @@ describe("Integration tests - journals", () => {
         });
     });
 
-    let journalId;
-
     describe("Create journal", () => {
         it("should return 201 and create a new journal", async () => {
             const payload = {
@@ -68,8 +69,6 @@ describe("Integration tests - journals", () => {
             expect(response.status).toBe(201);
             // Title checked to confirm they're the same, the other properties in the payload object could also be checked
             expect(response.body.title).toBe(payload.title);
-
-            journalId = response.body._id;
         });
 
         it("should return 200 and response length should now be at least 1", async () => {
@@ -133,7 +132,7 @@ describe("Integration tests - journals", () => {
         it("should return 201 and create a new journal", async () => {
             const payload = {
                 title: "Test5",
-                content: "I avoided using a backslash, since that would almost certainly break something: as such it would be more suited for a negative test case.",
+                content: "Surely that went well :).",
                 visibility: "Private"
             };
             const response = await request(app)
@@ -182,7 +181,7 @@ describe("Integration tests - journals", () => {
         });
     });
 
-    describe("Boundry cases", () => {
+    describe("Boundary cases", () => {
         // maxLength
         it("should return 201 as the title field is one less than the maxLength property (64)", async () => {
             const payload = {
@@ -221,10 +220,6 @@ describe("Integration tests - journals", () => {
             expect(response.status).toBe(500);
         });
     });
-
-    // describe("Edge cases", () => {
-    //     //
-    // });
 
     describe("Negative cases", () => {
         // Missing required fields
@@ -481,7 +476,7 @@ describe("Integration tests - users", () => {
         });
     });
 
-    describe("Boundry cases", () => {
+    describe("Boundary cases", () => {
         describe("first name max length", () => {
             it("should return 200 as the fName field is one less than the maxLength property (50)", async () => {
                 const payload = {
