@@ -1,7 +1,6 @@
 import express, { response } from "express";
 import {baseURL, parameters} from "../config.js";
 import mongoose from 'mongoose'
-import tasksRoute from '../routes/tasksRoute.js'
 import journalsRoute from '../routes/journalsRoute.js'
 import userRoutes from '../routes/userRoutes.js';
 import cors from 'cors'
@@ -28,13 +27,6 @@ app.use(express.json())
 app.use(cors()) 
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-
-app.get('/', (req, res) => {
-    console.log(req)
-    return res.status(234).send('Welcome MERN')
-})
-
-app.use('/tasks', tasksRoute)
 
 app.use('/journals', journalsRoute)
 
