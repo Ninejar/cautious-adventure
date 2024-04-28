@@ -2,7 +2,7 @@
 import request from "supertest";
 import app from '../../testing/testing-index-chris';
 
-describe("Integration Tests: Journal endpoints", () => {
+describe("Christopher - Integration Tests: Journal endpoints", () => {
   let authToken;
   let journalIdMadeByTest;
 

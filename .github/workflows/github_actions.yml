@@ -65,7 +65,7 @@ jobs:
           npm install
         working-directory: ./backend
 
-      - name: Christopher - Backend tests
+      - name: Backend tests
         run: |
           npm test
           npm start &
@@ -76,7 +76,7 @@ jobs:
           npm install
         working-directory: ./frontend
 
-      - name: Christopher - Frontend tests
+      - name: Frontend tests
         run: |
           npm test
         working-directory: ./frontend
