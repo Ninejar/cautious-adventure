@@ -52,31 +52,73 @@ jobs:
   #     - name: Actually triggering deployment
   #       run: ssh -tt ${{ secrets.PROD_SERVER_USERNAME }}@${{ secrets.PROD_SERVER_HOSTNAME }}
   run-tests:
-    runs-on: ubuntu-latest
-    #needs: [build-backend, build-frontend]  # Ensure backend and frontend builds are complete
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-        with:
-          node-version: '20'
+    # runs-on: ubuntu-latest
+    # #needs: [build-backend, build-frontend]  # Ensure backend and frontend builds are complete
+    # steps:
+    #   - name: Checkout code
+    #     uses: actions/checkout@v2
+    #     with:
+    #       node-version: '20'
 
-      - name: Install backend dependencies
-        run: |
-          npm install
-        working-directory: ./backend
+    #   - name: Install backend dependencies
+    #     run: |
+    #       npm install
+    #     working-directory: ./backend
 
-      - name: Run backend tests
-        run: |
-          npm test
-          npm start
-        working-directory: ./backend
+    #   - name: Run backend tests
+    #     run: |
+    #       npm test
+    #       npm start & sleep 10
+    #     working-directory: ./backend
 
-      - name: Install frontend dependencies
-        run: |
-          npm install
-        working-directory: ./frontend
+    #   - name: Install frontend dependencies
+    #     run: |
+    #       npm install
+    #     working-directory: ./frontend
 
-      - name: Run frontend tests
-        run: |
-          npm test
-        working-directory: ./frontend
+    #   - name: Run frontend tests
+    #     run: |
+    #       until curl -s http://localhost:1814; do sleep 5; done
+    #       npm test
+    #     working-directory: ./frontend
+    run-tests:
+      runs-on: ubuntu-latest
+      needs: [run-backend]
+
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v2
+          with:
+            node-version: '20'
+
+        - name: Install frontend dependencies
+          run: |
+            npm install
+          working-directory: ./frontend
+
+        - name: Wait for backend server
+          run: |
+            until curl -s http://localhost:1814; do sleep 5; done
+
+        - name: Run frontend tests
+          run: |
+            npm test
+          working-directory: ./frontend
+
+    run-backend:
+      runs-on: ubuntu-latest
+
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v2
+
+        - name: Install backend dependencies
+          run: |
+            npm install
+          working-directory: ./backend
+
+        - name: Run backend tests
+          run: |
+            npm test
+            npm start
+          working-directory: ./backend
