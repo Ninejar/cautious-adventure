@@ -1,7 +1,7 @@
 import request from "supertest";
 import app from '../../testing/testing-index-chris';
 
-describe("User Controller Tests", () => {
+describe("Christopher - User Controller Tests", () => {
   let testUser;
 
   describe("Realistic cases", () => {

@@ -17,7 +17,7 @@ const mockResponse = () => {
 
 const mockNext = jest.fn();
 
-describe('Auth Middleware Unit Tests', () => {
+describe('Christopher -  Auth Middleware Unit Tests', () => {
     const OLD_ENV = process.env; // Storing the current environment variables
 
     beforeEach(() => {
