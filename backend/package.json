@@ -5,7 +5,8 @@
     "type": "module",
     "main": "index.js",
     "scripts": {
-        "test": "node --experimental-vm-modules ./node_modules/.bin/jest",
+        "test": "node --experimental-vm-modules ./node_modules/.bin/jest --verbose",
+        "test-e2e": "node --test __tests__/christopher/e2e.test.js",
         "start": "node index.js",
         "dev": "nodemon index.js"
     },
@@ -26,7 +27,9 @@
         "@types/jest": "^29.5.12",
         "eslint": "^8.57.0",
         "jest": "^29.7.0",
-        "nodemon": "^3.1.0"
+        "nodemon": "^3.1.0",
+        "puppeteer": "^22.7.0",
+        "supertest": "^6.3.4"
     },
     "eslintConfig": {
         "extends": "airbnb-base",
