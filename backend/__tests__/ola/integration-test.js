@@ -605,7 +605,7 @@ describe("Integration tests - users", () => {
 
         // They all return 200, likely because the "minLength" that is checked is the length after salting and hashing
         describe("password min length", () => {
-            it("should return 200, even through the password field is one less than the minLength property (8)", async () => {
+            it("should return 200, even though the password field is one less than the minLength property (8)", async () => {
                 const payload = {
                     fName: "Test",
                     lName: "Test",
@@ -644,6 +644,22 @@ describe("Integration tests - users", () => {
                     .send(payload);
                 expect(response.status).toBe(200);
             });
+        });
+    });
+
+    describe("Edge cases", () => {
+        it("should return 200, even though the given password is far shorter than should be permitted (8 characters)", async () => {
+            const payload = {
+                fName: "Test",
+                lName: "Test",
+                email: "edge@case.test",
+                password: "1",
+                role: "student"
+            };
+            const response = await request(app)
+                .post("/users/signup")
+                .send(payload);
+            expect(response.status).toBe(200);
         });
     });
 
