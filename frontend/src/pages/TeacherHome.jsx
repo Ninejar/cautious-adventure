@@ -12,6 +12,7 @@ const TeacherHome = () => {
 
         <div className='content'>
         <main>
+        <div className='react-testing' data-testid="TeacherHome" >TeacherHome</div>
         <div className="link_container">
             
             <Link to = {`/teachers/shared`}>

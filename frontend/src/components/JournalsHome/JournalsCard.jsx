@@ -1,3 +1,4 @@
+import React from 'react'
 import {Link} from 'react-router-dom'
 import {PiBookOpenTextLight} from 'react-icons/pi'
 import {BiUserCircle} from 'react-icons/bi'
@@ -26,7 +27,7 @@ const journalsCard = ({journals}) => {
             <Link to={`/journals/edit/${item._id}`}>
             
 
-            <div className='journal_card'  key = {item._id}> 
+            <div  data-testid="journal_card" className='journal_card'  key = {item._id}> 
                 {/* <h6 className='card_id'>{item._id}</h6> */}
                 <div className='visibility_container--card'>
                     {/* <BiUserCircle /> */}

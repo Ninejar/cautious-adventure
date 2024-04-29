@@ -2,3 +2,4 @@ secrets.dir
 node_modules/
 keys
 uploads/*
+.DS_Store

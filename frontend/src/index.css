@@ -92,6 +92,11 @@ main{
   height: 100%;
 }
 
+.react-testing{
+  display: none;
+}
+
+
 
 /* h1{
   margin: 3% 0;
