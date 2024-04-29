@@ -47,7 +47,7 @@ const Login = () => {
   return (
     <div className='login_wrapper'>
       <div className='content login'>
-      <h1>Log in</h1>
+      <h1 data-testid="login-header">Log in</h1>
       
       {loading ? <Loading /> : ''}
 
@@ -55,7 +55,7 @@ const Login = () => {
         <input id="email" type="email" placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} />
         <input id="password" type="password" placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} />
          
-        <button onClick={handleLogin}>
+        <button onClick={handleLogin} data-testid="login-button">
           Login
         </button>
       </div>
