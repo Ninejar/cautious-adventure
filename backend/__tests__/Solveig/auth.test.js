@@ -1,8 +1,12 @@
 import auth from '../../verifyToken';
 import { createRequest, createResponse } from 'node-mocks-http';
 import jwt from 'jsonwebtoken';
+import {jest} from "@jest/globals"
 
-describe('Authentication', () => {
+import dotenv from 'dotenv'
+dotenv.config()
+
+describe('Solveig - Authentication', () => {
     // Realistic Usage Cases
     describe("User Authentication", () => {
         it("assigns user info from valid tokens to request", () => {
