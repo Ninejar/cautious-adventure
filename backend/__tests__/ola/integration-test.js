@@ -30,7 +30,7 @@ beforeAll(async () => {
 });
 
 
-describe("Integration tests - journals", () => {
+describe("Ola - Integration tests - journals", () => {
     let token;
 
     // Get a JWT before running tests
@@ -316,7 +316,7 @@ describe("Integration tests - journals", () => {
     });
 });
 
-describe("Integration tests - users", () => {
+describe("Ola - Integration tests - users", () => {
     describe("Get initial users", () => {
         it("should return 200 and 1 user", async () => {
             const response = await request(app)

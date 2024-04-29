@@ -2,7 +2,7 @@ import auth from "../../verifyToken";
 import {jest} from "@jest/globals"
 
 
-describe("No authentification test", () => {
+describe("Ola - No authentification test", () => {
     it("should return 401 since no token is provided", () => {
         const req = { header: () => undefined };
         const next = jest.fn();
