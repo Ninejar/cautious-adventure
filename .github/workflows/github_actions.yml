@@ -1,6 +1,6 @@
 on:
   push:
-    branches: ["chrisoblig2"]
+    branches: ["main"]
 
 jobs:
   build-backend:
