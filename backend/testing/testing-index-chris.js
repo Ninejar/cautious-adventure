@@ -1,14 +1,14 @@
 import express, { response } from "express";
-import {PORT, baseURL, parameters} from "./config.js";
+import {PORT, baseURL, parameters} from "../config.js";
 import mongoose from 'mongoose'
-import tasksRoute from './routes/tasksRoute.js'
-import journalsRoute from './routes/journalsRoute.js'
-import userRoutes from './routes/userRoutes.js';
+import tasksRoute from '../routes/tasksRoute.js'
+import journalsRoute from '../routes/journalsRoute.js'
+import userRoutes from '../routes/userRoutes.js';
 import cors from 'cors'
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-const database = "testDB";
+const database = "journalsDB";
 const MONGO_URI = `${baseURL}/${database}?${parameters}`;
 
 
@@ -30,11 +30,6 @@ app.use(cors())
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-app.get('/', (req, res) => {
-    console.log(req)
-    return res.status(234).send('Welcome MERN')
-})
-
 app.use('/tasks', tasksRoute)
 
 app.use('/journals', journalsRoute)
@@ -43,13 +38,11 @@ app.use('/users', userRoutes);
 
 mongoose.connect(MONGO_URI)
 .then(() => {
-    console.log('App connected to database!')
-    app.listen(PORT,  () => {
-        console.log(`app is listening to port: ${PORT}`)
-    })
+    app.listen(0)
 })
 .catch((error) => {
     console.log(error)
 });
 
 export default app;
+

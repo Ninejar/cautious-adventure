@@ -64,7 +64,7 @@ const CreateJournal = () => {
         <div className="create_journal">
           <input id="title" type="text" placeholder='Untitled' value={title} onChange={(e) => setTitle(e.target.value)} />
 
-          <Page content={content} onChange={(value) => setContent(value)} />
+          <Page data-testid="document-page" content={content} onChange={(value) => setContent(value)} />
 
           <div className='attachFile_container'>
             <input type="file" multiple onChange={handleFileChange} />

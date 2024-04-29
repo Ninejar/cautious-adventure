@@ -11,12 +11,13 @@ const Home = () => {
 
         <div className='content'>
         <main>
+            <div className='react-testing' data-testid="Student_log_in" >Journal</div>
         <div className="link_container">
             <Link to = {`/journals/list`}>
-                <div className="link_item journal">
+                <div className="link_item journal" >
                 <a href="" className="link_item_container">
                     <div>
-                        <p className="link_item_header" >Journal</p>
+                        <p className="link_item_header">Journal</p>
                         <p>Collection of all your journals</p>
                     </div>
                     
