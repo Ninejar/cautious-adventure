@@ -6,7 +6,7 @@ import './BackButton.css'
 const BackButton = ({destination = '/journals/'}) => {
   return (
     <div>
-        <Link to = {destination}>
+        <Link to={destination} data-testid="back-button">
             <BsArrowLeft />
         </Link>
     </div>
