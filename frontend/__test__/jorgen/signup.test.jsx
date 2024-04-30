@@ -27,7 +27,7 @@ describe('Signup component', () => {
       // Trigger signup
       fireEvent.click(getByText('Signup'));
   
-      // Wait for a confirmation message to appear
+      // Wait for a confirmation message to disapear
       await waitFor(() => {
         expect(queryByText('Signup successful!')).toBe(null);
       });
