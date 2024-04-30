@@ -30,7 +30,7 @@ const Home = () => {
       }
     };
     axios
-      .get("http://localhost:1814/journals", config)
+      .get("http://localhost:5353/journals", config)
       .then((res) => {
         let sortedJournals = [...res.data.data];
         if (sortType === 'newest') {

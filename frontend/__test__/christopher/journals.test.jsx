@@ -12,7 +12,7 @@ import axios from "axios";
 describe("React components", () => {
   beforeAll(async () => {
     try {
-      const response = await axios.post("http://localhost:1814/users/login", {
+      const response = await axios.post("http://localhost:5353/users/login", {
         email: "integration@testing.jest",
         password: "integration@testing.jest",
       });
