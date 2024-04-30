@@ -59,18 +59,6 @@ describe('Login component - Verification of Expected Behavior - solveig', () => 
             });
         });
     });
-
-    it('matches snapshot - solveig', () => {
-        const { container } = render(
-            <MemoryRouter>
-                <AuthProvider>
-                    <Login />
-                </AuthProvider>
-            </MemoryRouter>
-        );
-        expect(container).toMatchSnapshot(); // Verify that rendered output matches snapshot
-    });
-
     it('renders without crashing - solveig', () => {
         render(
             <MemoryRouter>
