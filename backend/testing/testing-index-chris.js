@@ -8,7 +8,7 @@ import cors from 'cors'
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-const database = "journalsDB";
+const database = "chris-testing-db";
 const MONGO_URI = `${baseURL}/${database}?${parameters}`;
 
 
