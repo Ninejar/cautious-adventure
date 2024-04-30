@@ -7,7 +7,6 @@ import BackButton from '../components/BackButton/BackButton';
 import Loading from '../components/Loading';
 import Page from '../components/DocumentPage/DocumentPage';
 import ConfirmationModal from '../components/ConfirmationModal/ConfirmationModal'; // Import the ConfirmationModal component
-import 'react-quill/dist/quill.snow.css'; 
 import '../components/DocumentPage/sheets-of-paper.css';
 import '../components/DocumentPage/sheets-of-paper-a4.css';
 
@@ -117,7 +116,7 @@ const EditJournal = () => {
 
         <div className="create_journal">
           <input id="title" type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
-          <Page content={content} onChange={(value) => setContent(value)} />
+          <Page content={content} onChange={(e) => setContent(e.target.value)} />
           <div className="attachFile_container">
             {/* Display old attachments */}
             {attachments.map((attachment, index) => (

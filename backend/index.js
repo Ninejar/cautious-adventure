@@ -61,3 +61,5 @@ function quit(eType){
 	
 }
 ['SIGINT', 'SIGQUIT', 'SIGTERM'].forEach(eType=>{console.log("Attaching for ", eType); process.on(eType, quit);});
+
+export { app }; // Export the app object

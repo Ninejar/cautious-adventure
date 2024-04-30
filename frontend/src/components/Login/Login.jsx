@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import axios from 'axios'
 import {useNavigate, Link} from 'react-router-dom'
 import Loading from '../Loading'
@@ -61,7 +61,7 @@ const Login = () => {
       </div>
 
       <p>
-          Don't have a user? Sign up <Link to={"/signup"}>here</Link>
+          Don´t have a user? Sign up <Link to={"/signup"}>here</Link>
         </p>
 
        

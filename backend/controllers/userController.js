@@ -8,11 +8,10 @@ import jwt from 'jsonwebtoken';
 const getAllUsers = async (req, res) => {
     try {
         // Find all users in the database
-        const showUsers = await User.find()
-        res.json(showUsers)
-        // Provide error message
+        const showUsers = await User.find();
+        res.status(200).json(showUsers); // Set status code to 200
     } catch (error){
-        res.json(error)
+        res.status(400).json(error);
     }
 }
 
@@ -20,13 +19,16 @@ const getAllUsers = async (req, res) => {
 const getOneUser = async (req, res) => {
     try {
         // Find one user by the ID
-        const showUser = await User.find({_id: req.params.id})
-        res.json(showUser)
-        // Provide error message
+        const showUser = await User.findOne({ _id: req.params.id });
+        if (!showUser) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+        res.status(200).json(showUser); // Set status code to 200
     } catch (error){
-        res.json(error)
+        res.status(400).json(error);
     }
 }
+
 
 // Sign up
 const signup = async (req, res) => {
@@ -126,7 +128,7 @@ const updateUser = async (req, res) => {
                 department: req.body.department,
                 role: req.body.role
             }})
-        res.json(updUser)
+        res.status(200).json(updUser)
         // Provide error message
     } catch (error){
         res.status(400).json({message: error})
