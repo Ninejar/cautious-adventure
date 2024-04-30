@@ -1,13 +1,16 @@
-FROM node:21-alpine
+FROM node:20 AS build
 
 WORKDIR /app
 
 COPY package.json /app
 COPY package-lock.json /app
-RUN npm ci
 
-COPY . /app
+RUN npm install
+
+COPY . .
+
+RUN npm run build
 
 EXPOSE 8081
 
-CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "serve"]

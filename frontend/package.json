@@ -9,7 +9,8 @@
         "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
         "preview": "vite preview",
         "test:ui": "vitest --ui",
-        "test": "vitest"
+        "test": "vitest",
+        "serve": "vite --host 0.0.0.0 --port 8081"
     },
     "dependencies": {
         "@types/react": "^18.2.56",
