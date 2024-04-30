@@ -8,8 +8,8 @@ dotenv.config()
 
 describe('Solveig - Authentication', () => {
     // Realistic Usage Cases
-    describe("User Authentication", () => {
-        it("assigns user info from valid tokens to request", () => {
+    describe("User Authentication - solveig", () => {
+        it("assigns user info from valid tokens to request - solveig", () => {
             const user = { id: 1, name: 'Test User' };
             const token = jwt.sign(user, process.env.TOKEN_SECRET);
             const req = createRequest({
@@ -28,8 +28,8 @@ describe('Solveig - Authentication', () => {
     });
 
     // Boundary Cases
-    describe("Token expiration", () => {
-        it("blocks access when token expires", () => {
+    describe("Token expiration - solveig", () => {
+        it("blocks access when token expires - solveig", () => {
             const user = { id: 1, name: 'Test User' };
             const token = jwt.sign(user, process.env.TOKEN_SECRET, { expiresIn: '0s' });
             const req = createRequest({
@@ -46,8 +46,8 @@ describe('Solveig - Authentication', () => {
         });
     });
 
-    describe("Large Token Handling", () => {
-        it("handle very long tokens", () => {
+    describe("Large Token Handling - solveig", () => {
+        it("handle very long tokens - solveig", () => {
             const user = { id: 1, name: 'Test User' };
             const longData = new Array(10000).fill('a').join('');
             const token = jwt.sign({ ...user, longData }, process.env.TOKEN_SECRET);
@@ -66,8 +66,8 @@ describe('Solveig - Authentication', () => {
     });
 
     // Negative Cases
-    describe("Invalid token responses", () => {
-        it("denies access without a token", () => {
+    describe("Invalid token responses - solveig", () => {
+        it("denies access without a token - solveig", () => {
             const req = createRequest();
             const res = createResponse();
             const next = jest.fn();
@@ -77,7 +77,7 @@ describe('Solveig - Authentication', () => {
             expect(next).not.toBeCalled();
         });
 
-        it("rejects invalid tokens", () => {
+        it("rejects invalid tokens - solveig", () => {
             const req = createRequest({
                 headers: {
                     'auth-token': 'invalid-token'
@@ -91,7 +91,7 @@ describe('Solveig - Authentication', () => {
             expect(next).not.toBeCalled();
         });
 
-        it("blocks improper formatted tokens", () => {
+        it("blocks improper formatted tokens - solveig", () => {
             const req = createRequest({
                 headers: {
                     'auth-token': 'malformed.token.here'

@@ -4,8 +4,8 @@ import { render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import BackButton from '../../src/components/BackButton/BackButton';
 
-describe('BackButton component', () => {
-  it('renders correctly with default props', () => {
+describe('BackButton component - solveig', () => {
+  it('renders correctly with default props - solveig', () => {
     const { getByTestId } = render(
       <MemoryRouter>
         <BackButton />
@@ -15,7 +15,7 @@ describe('BackButton component', () => {
     expect(link.getAttribute('href')).toBe('/journals/');
   });
 
-  it('links to a custom path when provided', () => {
+  it('links to a custom path when provided - solveig', () => {
     const customPath = '/custom-path';
     const { getAllByTestId } = render(
       <MemoryRouter>

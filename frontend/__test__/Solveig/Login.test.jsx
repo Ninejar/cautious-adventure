@@ -12,7 +12,7 @@ vi.mock('../../src/context/AuthContext', () => ({
     AuthProvider: ({ children }) => <div>{children}</div>
 }));
 
-describe('Login component - Verification of Expected Behavior', () => {
+describe('Login component - Verification of Expected Behavior - solveig', () => {
     beforeEach(() => {
         vi.resetAllMocks();
         // dummy JWT for testing
@@ -22,7 +22,7 @@ describe('Login component - Verification of Expected Behavior', () => {
 
     afterEach(cleanup);
 
-    it('renders only one login button', () => {
+    it('renders only one login button - solveig', () => {
         render(
             <MemoryRouter>
                 <AuthProvider>
@@ -34,7 +34,7 @@ describe('Login component - Verification of Expected Behavior', () => {
         expect(loginButtons.length).toBe(1);
     });
 
-    it('sends correct data when login button is clicked with valid input', async () => {
+    it('sends correct data when login button is clicked with valid input - solveig', async () => {
         render(
             <MemoryRouter>
                 <AuthProvider>
@@ -59,7 +59,7 @@ describe('Login component - Verification of Expected Behavior', () => {
         });
     });
 
-    it('matches snapshot', () => {
+    it('matches snapshot - solveig', () => {
         const { container } = render(
             <MemoryRouter>
                 <AuthProvider>
@@ -70,7 +70,7 @@ describe('Login component - Verification of Expected Behavior', () => {
         expect(container).toMatchSnapshot();
     });
 
-    it('renders without crashing', () => {
+    it('renders without crashing - solveig', () => {
         render(
             <MemoryRouter>
                 <AuthProvider>
@@ -80,7 +80,7 @@ describe('Login component - Verification of Expected Behavior', () => {
         );
     });
 
-    it('renders with custom props', () => {
+    it('renders with custom props - solveig', () => {
         render(
             <MemoryRouter>
                 <AuthProvider>
@@ -91,7 +91,7 @@ describe('Login component - Verification of Expected Behavior', () => {
         // Add assertions based on the custom props
     });
 
-    it('performs action on button click', () => {
+    it('performs action on button click - solveig', () => {
         render(
             <MemoryRouter>
                 <AuthProvider>
@@ -103,7 +103,7 @@ describe('Login component - Verification of Expected Behavior', () => {
         fireEvent.click(button);
     });
 
-    it('handles realistic usage cases', async () => {
+    it('handles realistic usage cases - solveig', async () => {
         render(
             <MemoryRouter>
                 <AuthProvider>
@@ -134,7 +134,7 @@ describe('Login component - Verification of Expected Behavior', () => {
         });
     });
 
-    it('handles boundary cases', async () => {
+    it('handles boundary cases - solveig', async () => {
         render(
             <MemoryRouter>
                 <AuthProvider>
@@ -152,7 +152,7 @@ describe('Login component - Verification of Expected Behavior', () => {
         fireEvent.click(screen.getByTestId('login-button'));
     });
 
-    it('handles edge cases', async () => {
+    it('handles edge case - solveig', async () => {
         render(
             <MemoryRouter>
                 <AuthProvider>
@@ -170,7 +170,7 @@ describe('Login component - Verification of Expected Behavior', () => {
         fireEvent.click(screen.getByTestId('login-button'));
     });
 
-    it('handles negative cases', async () => {
+    it('handles negative cases - solveig', async () => {
         render(
             <MemoryRouter>
                 <AuthProvider>

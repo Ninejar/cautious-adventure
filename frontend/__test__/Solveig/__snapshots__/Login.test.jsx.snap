@@ -48,3 +48,52 @@ exports[`Login component - Verification of Expected Behavior > matches snapshot 
   </div>
 </div>
 `;
+
+exports[`Login component - Verification of Expected Behavior - solveig > matches snapshot - solveig 1`] = `
+<div>
+  <div>
+    <div
+      class="login_wrapper"
+    >
+      <div
+        class="content login"
+      >
+        <h1
+          data-testid="login-header"
+        >
+          Log in
+        </h1>
+        <div
+          class="login_container"
+        >
+          <input
+            id="email"
+            placeholder="Email"
+            type="email"
+            value=""
+          />
+          <input
+            id="password"
+            placeholder="Password"
+            type="password"
+            value=""
+          />
+          <button
+            data-testid="login-button"
+          >
+            Login
+          </button>
+        </div>
+        <p>
+          Don't have a user? Sign up 
+          <a
+            href="/signup"
+          >
+            here
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
