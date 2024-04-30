@@ -1,12 +1,9 @@
 services:
   frontend:
-    image: ninejar/webproject-frontend:local
+    image: ninejar/webproject-frontend:latest
     ports:
       - 8081:8081
     stdin_open: true
-    volumes:
-      - ./frontend:/app
-      - /app/node_modules
     restart: unless-stopped
     networks:
       - react-express
@@ -15,13 +12,10 @@ services:
   backend:
     image: ninejar/webproject-backend:latest
     restart: unless-stopped
-    volumes:
-      - ./backend:/app
-      - /app/node_modules
     networks:
       - react-express
     ports:
-      - 1814:1814
+      - 8091:8091
 
 networks:
   react-express:

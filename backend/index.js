@@ -1,21 +1,21 @@
-import express, { response } from "express";
-import {PORT, baseURL, database, parameters} from "./config.js";
-import mongoose from 'mongoose'
-import tasksRoute from './routes/tasksRoute.js'
-import journalsRoute from './routes/journalsRoute.js'
-import userRoutes from './routes/userRoutes.js';
-import cors from 'cors'
-import path from 'path';
-import { fileURLToPath } from 'url';
+const express = require("express");
+const {PORT, baseURL, database, parameters} = require("./config.js");
+const mongoose = require('mongoose');
+const tasksRoute = require('./routes/tasksRoute.js');
+const journalsRoute = require('./routes/journalsRoute.js');
+const userRoutes = require('./routes/userRoutes.js');
+const cors = require('cors');
+const path = require('path');
+const { fileURLToPath }  = require('url');
 
 const MONGO_URI = `${baseURL}/${database}?${parameters}`
 
 
-import dotenv from 'dotenv';
+const dotenv = require('dotenv');
 dotenv.config();
 
-const __filename = fileURLToPath(import.meta.url); // Get the filename of the current module
-const __dirname = path.dirname(__filename); //
+// const __filename = fileURLToPath(import.meta.url); // Get the filename of the current module
+// const __dirname = path.dirname(__filename); //
 
 // const PORT = PORT || 8089;
 const app = express() 

@@ -1,7 +1,10 @@
-export const PORT = 1814
+const PORT = 8091
 
-export const baseURL = "mongodb+srv://group1:group1@webproject.ruid65p.mongodb.net"
+const baseURL = "mongodb+srv://group1:group1@webproject.ruid65p.mongodb.net"
 
-export const database = "journalsDB"
+const database = "journalsDB"
 
-export const parameters = "retryWrites=true&w=majority&appName=webproject"
+const parameters = "retryWrites=true&w=majority&appName=webproject"
+
+
+module.exports = { PORT, baseURL, database, parameters }

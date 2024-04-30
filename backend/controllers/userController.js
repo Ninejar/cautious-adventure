@@ -1,7 +1,7 @@
-import { User } from '../models/userModel.js'
-import { validationResult } from 'express-validator';
-import bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken';
+const User = require('../models/userModel.js');
+const { validationResult } = require('express-validator');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
 
 // Show all users
@@ -145,4 +145,4 @@ const deleteUser = async (req, res) => {
 }
 
 
-export { getAllUsers, getOneUser, signup, login, updateUser, deleteUser }
+module.exports = { getAllUsers, getOneUser, signup, login, updateUser, deleteUser }

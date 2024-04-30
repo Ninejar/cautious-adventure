@@ -13,8 +13,9 @@ import JournalsCard from "../components/JournalsHome/JournalsCard";
 import JournalsTable from "../components/JournalsHome/JournalsTable";
 import '../components/JournalsHome/FilterSort.css'
 
-
 const Home = () => {
+  const viteURL = import.meta.env.VITE_URL;
+
   const [journals, setJournals] = useState([]);
   const [loading, setLoading] = useState(false);
   const [showType, setShowType] = useState('card');
@@ -30,7 +31,7 @@ const Home = () => {
       }
     };
     axios
-      .get("http://localhost:1814/journals", config)
+      .get(`${viteURL}/journals`, config)
       .then((res) => {
         let sortedJournals = [...res.data.data];
         if (sortType === 'newest') {

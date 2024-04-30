@@ -1,8 +1,8 @@
-import express from 'express';
-import { Task } from '../models/taskModel.js';
-import auth from '../verifyToken.js';
-import jwt from 'jsonwebtoken';
-import upload from '../multerSetup.js';
+const express = require('express');
+const Task = require('../models/taskModel.js');
+const auth = require('../verifyToken.js');
+const jwt = require('jsonwebtoken');
+const upload = require('../multerSetup.js');
 
 const router = express.Router();
 
@@ -174,4 +174,4 @@ router.delete('/:id', auth, async (req, res) => {
     }
 });
 
-export default router;
+module.exports = router;

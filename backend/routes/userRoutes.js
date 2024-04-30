@@ -1,5 +1,5 @@
-import express from 'express';
-import { getAllUsers, getOneUser, signup, login, updateUser, deleteUser } from '../controllers/userController.js';
+const express = require('express');
+const { getAllUsers, getOneUser, signup, login, updateUser, deleteUser } = require('../controllers/userController.js');
 
 const router = express.Router();
 
@@ -22,4 +22,4 @@ router.put('/:id', updateUser);
 // Route to delete a user
 router.delete('/:id', deleteUser);
 
-export default router;
+module.exports = router;

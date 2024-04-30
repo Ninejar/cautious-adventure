@@ -8,6 +8,8 @@ import Navbar from "../components/NavBar/Navbar";
 import TasksCard from "../components/TasksHome/tasksCard";
 
 const TeacherHome = () => {
+  const viteURL = import.meta.env.VITE_URL;
+
   const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -20,7 +22,7 @@ const TeacherHome = () => {
       },
     };
     axios
-      .get("http://localhost:1814/tasks", config)
+      .get(`${viteURL}/tasks`, config)
       .then((res) => {
         setTasks(res.data.data);
         setLoading(false);

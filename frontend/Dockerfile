@@ -2,14 +2,13 @@ FROM node:20 AS build
 
 WORKDIR /app
 
-COPY package.json /app
-COPY package-lock.json /app
+COPY . /app
 
-RUN npm install
-
-COPY . .
+RUN npm ci
 
 RUN npm run build
+
+RUN echo "$(pwd)" && echo "$(ls)"
 
 EXPOSE 8081
 

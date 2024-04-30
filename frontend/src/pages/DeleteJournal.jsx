@@ -6,6 +6,8 @@ import axios from 'axios'
 import { useNavigate, useParams } from 'react-router-dom'
 
 const DeleteJournal = () => {
+  const viteURL = import.meta.env.VITE_URL;
+
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
   const {id} = useParams()
@@ -19,7 +21,7 @@ const DeleteJournal = () => {
   const handleDeleteJournal = () => {
     setLoading(true)
     axios
-      .delete(`http://localhost:1814/journals/${id}`,config)
+      .delete(`${viteURL}/journals/${id}`,config)
       .then(() => {
         setLoading(false)
         navigate('/journals/list')

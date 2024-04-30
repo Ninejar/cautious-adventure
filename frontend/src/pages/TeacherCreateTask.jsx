@@ -10,6 +10,8 @@ import "../components/DocumentPage/sheets-of-paper-a4.css";
 import "../components/TasksHome/tasksCard.css";
 
 const TeacherCreateTask = () => {
+  const viteURL = import.meta.env.VITE_URL;
+
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [files, setFiles] = useState([]);
@@ -38,7 +40,7 @@ const TeacherCreateTask = () => {
       },
     };
     axios
-      .post("http://localhost:1814/tasks", formData, config) // Assuming the endpoint is different for tasks
+      .post(`${viteURL}/tasks`, formData, config) // Assuming the endpoint is different for tasks
       .then(() => {
         setLoading(false);
         navigate("/teachers/TeacherTaskHome"); // Redirect to tasks list after successful save

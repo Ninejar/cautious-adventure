@@ -10,6 +10,8 @@ import '../components/DocumentPage/sheets-of-paper.css';
 import '../components/DocumentPage/sheets-of-paper-a4.css';
 
 const CreateJournal = () => {
+  const viteURL = import.meta.env.VITE_URL;
+
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [files, setFiles] = useState([]);
@@ -38,7 +40,7 @@ const CreateJournal = () => {
       }
     };
     axios
-      .post('http://localhost:1814/journals', formData, config)
+      .post(`${viteURL}/journals`, formData, config)
       .then(() => {
         setLoading(false);
         navigate('/journals/list');

@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 const journalSchema = mongoose.Schema(
     {
@@ -31,4 +31,4 @@ const journalSchema = mongoose.Schema(
     }
 );
 
-export const Journal = mongoose.model('Journal', journalSchema);
+module.exports = mongoose.model('Journal', journalSchema);

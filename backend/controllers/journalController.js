@@ -1,4 +1,4 @@
-import { Journal } from '../models/journalModel.js'
+const Journal = require('../models/journalModel.js')
 
 // Create a new journal
 const createJournal = async (req,res) => {
@@ -147,4 +147,4 @@ const deleteJournal = async (req, res) => {
     }
 }
 
-export { createJournal, getAllJournals, getOneJournal, updateJournal, deleteJournal }
+module.exports = { createJournal, getAllJournals, getOneJournal, updateJournal, deleteJournal }

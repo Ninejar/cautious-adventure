@@ -1,7 +1,7 @@
-import express from 'express'
-import auth from '../verifyToken.js'
-import { createJournal, getAllJournals, getOneJournal, updateJournal, deleteJournal } from '../controllers/journalController.js'
-import upload from '../multerSetup.js'
+const express = require('express')
+const auth = require('../verifyToken.js')
+const { createJournal, getAllJournals, getOneJournal, updateJournal, deleteJournal } = require('../controllers/journalController.js')
+const upload = require('../multerSetup.js')
 const router = express.Router()
 
 
@@ -20,4 +20,4 @@ router.put('/:id', auth, upload.array('file', 10), updateJournal);
 // Route to delete a journal
 router.delete('/:id', auth, deleteJournal);
 
-export default router;
+module.exports = router;

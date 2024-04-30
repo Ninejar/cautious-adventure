@@ -7,6 +7,8 @@ import Navbar from "../components/NavBar/Navbar";
 import '../components/ShowJournal/ShowJournal.css'
 
 const ShowJournal = () => {
+  const viteURL = import.meta.env.VITE_URL;
+
   const [journal, setJournal] = useState({});
   const [loading, setLoading] = useState(false);
   const [uniqueAttachments, setUniqueAttachments] = useState([]);
@@ -22,7 +24,7 @@ const ShowJournal = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`http://localhost:1814/journals/${id}`, config)
+      .get(`${viteURL}/journals/${id}`, config)
       .then((res) => {
         setJournal(res.data.journal);
         setLoading(false);
@@ -47,7 +49,7 @@ const ShowJournal = () => {
             <div key={index}>
               <a
                 className="file"
-                href={`http://localhost:1814/${url}`}
+                href={`${viteURL}/${url}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -63,7 +65,7 @@ const ShowJournal = () => {
         ) {
           return (
             <div  key={index}>
-              <img className="file" src={`http://localhost:1814/${url}`} alt="Attachment" />
+              <img className="file" src={`${viteURL}/${url}`} alt="Attachment" />
             </div>
           );
         } else {
@@ -71,7 +73,7 @@ const ShowJournal = () => {
             <div key={index}>
               <a
                 className="file"
-                href={`http://localhost:1814/${url}`}
+                href={`${viteURL}/${url}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >

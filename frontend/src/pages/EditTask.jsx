@@ -11,6 +11,8 @@ import '../components/DocumentPage/sheets-of-paper.css';
 import '../components/DocumentPage/sheets-of-paper-a4.css';
 
 const EditTask = () => {
+  const viteURL = import.meta.env.VITE_URL;
+
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [visibility, setVisibility] = useState('');
@@ -31,7 +33,7 @@ const EditTask = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`http://localhost:1814/tasks/${id}`, config)
+      .get(`${viteURL}/tasks/${id}`, config)
       .then((res) => {
         setTitle(res.data.task.title);
         setContent(res.data.task.content);
@@ -58,7 +60,7 @@ const EditTask = () => {
   
     setLoading(true);
     axios
-      .put(`http://localhost:1814/tasks/${id}`, formData, config)
+      .put(`${viteURL}/tasks/${id}`, formData, config)
       .then(() => {
         setLoading(false);
         navigate('/teachers/TeacherTaskHome');
@@ -134,10 +136,10 @@ const EditTask = () => {
             {attachments.map((attachment, index) => (
               <div key={index}>
                 <div className='attachFile_container'>
-                  <a href={`http://localhost:1814/${attachment}`} target="_blank" rel="noopener noreferrer">
+                  <a href={`${viteURL}/${attachment}`} target="_blank" rel="noopener noreferrer">
                     <div className='display_attachment_img_container'>
                       File {index + 1}
-                      <img className="display_attachment_img" src={`http://localhost:1814/${attachment}`} alt={`Attachment ${index + 1}`} />
+                      <img className="display_attachment_img" src={`${viteURL}/${attachment}`} alt={`Attachment ${index + 1}`} />
                     </div>
                   </a>
                   <button className='remove_attachment' onClick={() => handleRemoveAttachment(index)}><MdOutlineDelete /></button>
