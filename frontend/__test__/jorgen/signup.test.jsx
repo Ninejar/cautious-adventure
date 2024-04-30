@@ -6,24 +6,6 @@ import axios from 'axios';
 import Signup from '../../src/components/Signup/Signup';
 
 describe('Signup component', () => {
-  beforeAll(async () => {
-    try {
-      const response = await axios.post('http://localhost:1814/users/login', {
-        email: 'integration@testing.jest',
-        password: 'integration@testing.jest',
-      });
-
-      const { token } = response.data;
-
-      if (token) {
-        localStorage.setItem('auth-token', token);
-      } else {
-        console.error('Token not found in response:', response.data);
-      }
-    } catch (error) {
-      console.error('Login error:', error);
-    }
-  });
 
   describe('Signup process', () => {
     it('allows user to sign up', async () => {
