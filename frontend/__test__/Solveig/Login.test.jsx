@@ -6,6 +6,7 @@ import { AuthProvider } from "../../src/context/AuthContext";
 import Login from '../../src/components/Login/Login';
 import axios from 'axios';
 
+// Mock axios and AuthContext for controlled testing environment
 vi.mock('axios');
 vi.mock('../../src/context/AuthContext', () => ({
     useAuth: () => ({ login: vi.fn() }),
@@ -14,13 +15,13 @@ vi.mock('../../src/context/AuthContext', () => ({
 
 describe('Login component - Verification of Expected Behavior - solveig', () => {
     beforeEach(() => {
-        vi.resetAllMocks();
+        vi.resetAllMocks(); // Reset mocks to clean state before each test
         // dummy JWT for testing
         const dummyToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidGVhY2hlciIsImlhdCI6MTUxNjIzOTAyMn0.invalidsignature";
         axios.post.mockResolvedValue({ data: { token: dummyToken } });
     });
 
-    afterEach(cleanup);
+    afterEach(cleanup); // Clean up DOM after each test to prevent leakage
 
     it('renders only one login button - solveig', () => {
         render(
@@ -67,7 +68,7 @@ describe('Login component - Verification of Expected Behavior - solveig', () => 
                 </AuthProvider>
             </MemoryRouter>
         );
-        expect(container).toMatchSnapshot();
+        expect(container).toMatchSnapshot(); // Verify that rendered output matches snapshot
     });
 
     it('renders without crashing - solveig', () => {
@@ -78,6 +79,7 @@ describe('Login component - Verification of Expected Behavior - solveig', () => 
                 </AuthProvider>
             </MemoryRouter>
         );
+         // Implicit test, successful render without errors
     });
 
     it('renders with custom props - solveig', () => {
@@ -88,7 +90,7 @@ describe('Login component - Verification of Expected Behavior - solveig', () => 
                 </AuthProvider>
             </MemoryRouter>
         );
-        // Add assertions based on the custom props
+        // add props to check behaviors or effects of custom props
     });
 
     it('performs action on button click - solveig', () => {
@@ -100,7 +102,7 @@ describe('Login component - Verification of Expected Behavior - solveig', () => 
             </MemoryRouter>
         );
         const button = screen.getByTestId('login-button');
-        fireEvent.click(button);
+        fireEvent.click(button); // Simulate button click and check resulting action
     });
 
     it('handles realistic usage cases - solveig', async () => {
