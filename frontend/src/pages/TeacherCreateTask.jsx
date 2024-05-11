@@ -11,6 +11,7 @@ import "../components/TasksHome/tasksCard.css";
 
 const TeacherCreateTask = () => {
   const [title, setTitle] = useState("");
+  const [shortDesc, setShortDesc] = useState("");
   const [content, setContent] = useState("");
   const [files, setFiles] = useState([]);
   const [visibility, setVisibility] = useState("Draft"); // Default visibility
@@ -24,6 +25,7 @@ const TeacherCreateTask = () => {
   const handleSaveTask = () => {
     const formData = new FormData(); // Create FormData object for file upload
     formData.append("title", title);
+    formData.append("shortDesc", shortDesc);
     formData.append("content", content);
     formData.append("visibility", visibility); // Add visibility to form data
     for (let i = 0; i < files.length; i++) {
@@ -69,10 +71,9 @@ const TeacherCreateTask = () => {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
-          <Page
-            content={content}
-            onChange={(e) => setContent(e.target.value)}
-          />
+
+          <input id="shortDesc" type="text" placeholder="Short description of task..." value={shortDesc} onChange={(e) => setShortDesc(e.target.value)}></input>
+          <Page data-testid="document-page" content={content} onChange={(value) => setContent(value)} />
 
           <div className="visibility_radios">
             <label>

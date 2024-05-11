@@ -1,140 +1,424 @@
-.student_tasks_container{
-    width: 80%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  color: black;
 }
 
-.student_tasks_wrapper{
-    width: 100%;
-    display: flex;
-    gap: 10px;
-    justify-content: center;
+.modal.create{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  color: black;
 }
 
-.student_tasks_wrapper .student_tasks{
-    width: 60%;
-    height: 120px;
-    border-radius: 8px;
-    background-color: rgb(77, 77, 77);
-    padding: 1em;
+.closeCreate{
+  position: absolute;
 }
 
-.student_tasks_wrapper .interested{
-    padding: 1em;
-    width: auto;
-    height: auto;
-    border-radius: 8px;
-    background-color: rgb(77, 77, 77);
+.container { 
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 500px;
+  grid-template-rows: 1.9fr 1.6fr 0.3fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "Create Task"
+    "Create Task"
+    "Create Task";
+}
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 10px;
+.Task { grid-area: Task; }
+
+.Create { grid-area: Create; }
+
+
+.showTaskInCreate{
+  width: 25%;
+  height: 100%;
+  background-color: red;
+}
+
+.create_journal.create{
+  background-color: white;
+  height: 100%;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  overflow: scroll;
+  margin: 0 auto;
+}
+
+.taskSlideInButton{
+  position: fixed;
+  z-index: 999999999999999;
+  min-height: 100vh;
+  margin-left: -31px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.create_journal.create #title,
+.create_journal.create .attachFile_container{
+  width: 100%;
+}
+
+.createEntry{
+  height: 100%;
+  width: 100%;
+}
+
+.createEntryWrapper{
+  height: 100%;
+  width: 100%;
+}
+
+
+.taskRoom_wrapper {
+  width: 90%;
+  margin: 0 auto;
+  color: black;
+}
+
+.taskSlideInButton:hover .taskDescriptionContainer{
+  right: 0;
+}
+.modal.create .taskDescriptionContainer{
+  margin: 0;
+  position: relative;
+  right: -470px;
+  overflow: scroll;
+  height: 100vh;
+  width: auto;
+  transition: 0.5s ease-in-out;
+  box-shadow: 0 4px 5px rgba(75, 75, 75, 0.2);
+  background-color: rgb(195, 195, 195);
+  padding: 2em;
+  border-radius: 0px;
+  
+}
+
+
+.modal.create .taskDescriptionContainer .description{
+  word-break: break-all;
+}
+
+.taskDescriptionContainer {
+  margin: 0 auto;
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  padding: 0 2em;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+}
+
+.taskDescriptionContainer .interested {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  color: black;
+  align-items: center;
+}
+
+.taskDescriptionContainer .interested .interestedContent {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding: 0.5em;
+  box-shadow: 0 4px 5px rgba(75, 75, 75, 0.2);
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.taskDescriptionContainer .interested span {
+  color: black;
+}
+
+.taskDescriptionContainer .title {
+  background-color: white;
+  color: black;
+  padding: 1em 0;
+}
+
+.taskDescriptionContainer .description {
+  background-color: white;
+  color: black;
+  padding: 2em;
+  box-shadow: 0 4px 5px rgba(75, 75, 75, 0.2);
+}
+
+.taskDescriptionContainer .attachments {
+  margin-top: 5%;
+}
+
+.taskDescriptionContainer .file_uploads_container img {
+  width: 200px;
+}
+
+.taskEntriesContainerWrapper{
+  margin-top: 120px;
+  width: 100%;
+}
+
+.taskEntriesContainerWrapper h2{
+  color: white;
+  margin-bottom: 1.7em;
+}
+.taskEntriesContainer {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 280px);
+  grid-gap: 1rem;
+}
+
+.sharpEdge{
+  width: 279.5px;
+  height: 249.5px;
+  overflow: hidden;
+}
+
+.taskEntry {
+  width: 280px;
+  height: 250px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  overflow-y: hidden;
+  padding: 1em;
+  transition: 0.12s ease-in-out;
+}
+
+
+
+.taskEntry.createNew{
+  background-color:#17A2B8 ;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.taskEntry:hover{
+  scale: 1.02;
+  cursor: pointer;
+}
+
+.student_tasks_container {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.student_tasks_wrapper {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.student_tasks_wrapper.taskPage {
+  justify-content: flex-start;
+}
+
+.student_tasks_wrapper .student_tasks {
+  width: 60%;
+  height: 120px;
+  border-radius: 8px;
+  background-color: rgb(77, 77, 77);
+  padding: 1em;
+}
+
+.student_tasks_wrapper .interested {
+  padding: 1em;
+  width: auto;
+  height: auto;
+  border-radius: 8px;
+  background-color: rgb(77, 77, 77);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.student_tasks_wrapper.taskPage .interested {
+  background-color: transparent;
+  width: 150px;
+  height: auto;
+}
+
+.file_uploads_container.taskPage {
+  margin-bottom: 1em;
 }
 
 /* *{outline: 1px solid red;} */
 
-
 .checkbox-wrapper-34 {
-    --blue: #0D7EFF;
-    --g08: #E1E5EB;
-    --g04: #848ea1;
-  }
+  --blue: #0d7eff;
+  --g08: #e1e5eb;
+  --g04: #848ea1;
+}
 
-  .checkbox-wrapper-34 .tgl {
-    display: none;
-  }
-  .checkbox-wrapper-34 .tgl,
-  .checkbox-wrapper-34 .tgl:after,
-  .checkbox-wrapper-34 .tgl:before,
-  .checkbox-wrapper-34 .tgl *,
-  .checkbox-wrapper-34 .tgl *:after,
-  .checkbox-wrapper-34 .tgl *:before,
-  .checkbox-wrapper-34 .tgl + .tgl-btn {
-    box-sizing: border-box;
-  }
-  .checkbox-wrapper-34 .tgl::selection,
-  .checkbox-wrapper-34 .tgl:after::selection,
-  .checkbox-wrapper-34 .tgl:before::selection,
-  .checkbox-wrapper-34 .tgl *::selection,
-  .checkbox-wrapper-34 .tgl *:after::selection,
-  .checkbox-wrapper-34 .tgl *:before::selection,
-  .checkbox-wrapper-34 .tgl + .tgl-btn::selection {
-    background: none;
-  }
-  .checkbox-wrapper-34 .tgl + .tgl-btn {
-    outline: 0;
-    display: block;
-    width: 57px;
-    height: 27px;
-    position: relative;
-    cursor: pointer;
-    user-select: none;
-    font-size: 12px;
-    font-weight: 400;
-    color: #fff;
-  }
-  .checkbox-wrapper-34 .tgl + .tgl-btn:after,
-  .checkbox-wrapper-34 .tgl + .tgl-btn:before {
-    position: relative;
-    display: block;
-    content: "";
-    width: 44%;
-    height: 100%;
-  }
-  .checkbox-wrapper-34 .tgl + .tgl-btn:after {
-    left: 0;
-  }
-  .checkbox-wrapper-34 .tgl + .tgl-btn:before {
-    display: inline;
-    position: absolute;
-    top: 7px;
-  }
-  .checkbox-wrapper-34 .tgl:checked + .tgl-btn:after {
-    left: 56.5%;
-  }
+.checkbox-wrapper-34 .tgl {
+  display: none;
+}
+.checkbox-wrapper-34 .tgl,
+.checkbox-wrapper-34 .tgl:after,
+.checkbox-wrapper-34 .tgl:before,
+.checkbox-wrapper-34 .tgl *,
+.checkbox-wrapper-34 .tgl *:after,
+.checkbox-wrapper-34 .tgl *:before,
+.checkbox-wrapper-34 .tgl + .tgl-btn {
+  box-sizing: border-box;
+}
+.checkbox-wrapper-34 .tgl::selection,
+.checkbox-wrapper-34 .tgl:after::selection,
+.checkbox-wrapper-34 .tgl:before::selection,
+.checkbox-wrapper-34 .tgl *::selection,
+.checkbox-wrapper-34 .tgl *:after::selection,
+.checkbox-wrapper-34 .tgl *:before::selection,
+.checkbox-wrapper-34 .tgl + .tgl-btn::selection {
+  background: none;
+}
+.checkbox-wrapper-34 .tgl + .tgl-btn {
+  outline: 0;
+  display: block;
+  width: 57px;
+  height: 27px;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  font-size: 12px;
+  font-weight: 400;
+  color: #fff;
+}
+.checkbox-wrapper-34 .tgl + .tgl-btn:after,
+.checkbox-wrapper-34 .tgl + .tgl-btn:before {
+  position: relative;
+  display: block;
+  content: "";
+  width: 44%;
+  height: 100%;
+}
+.checkbox-wrapper-34 .tgl + .tgl-btn:after {
+  left: 0;
+}
+.checkbox-wrapper-34 .tgl + .tgl-btn:before {
+  display: inline;
+  position: absolute;
+  top: 7px;
+}
+.checkbox-wrapper-34 .tgl:checked + .tgl-btn:after {
+  left: 56.5%;
+}
 
-  .checkbox-wrapper-34 .tgl-ios + .tgl-btn {
-    background: var(--g08);
-    border-radius: 20rem;
-    padding: 2px;
-    transition: all 0.4s ease;
-    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
-  }
-  .checkbox-wrapper-34 .tgl-ios + .tgl-btn:after {
-    border-radius: 2em;
-    background: #fff;
-    transition: left 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), padding 0.3s ease, margin 0.3s ease;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
-  }
-  .checkbox-wrapper-34 .tgl-ios + .tgl-btn:before {
-    content: "No";
-    left: 28px;
-    color: var(--g04);
-    transition: left 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  }
-  .checkbox-wrapper-34 .tgl-ios + .tgl-btn:active {
-    box-shadow: inset 0 0 0 30px rgba(0, 0, 0, 0.1);
-  }
-  .checkbox-wrapper-34 .tgl-ios + .tgl-btn:active:after {
-    padding-right: 0.4em;
-  }
-  .checkbox-wrapper-34 .tgl-ios:checked + .tgl-btn {
-    background: var(--blue);
-  }
-  .checkbox-wrapper-34 .tgl-ios:checked + .tgl-btn:active {
-    box-shadow: inset 0 0 0 30px rgba(0, 0, 0, 0.1);
-  }
-  .checkbox-wrapper-34 .tgl-ios:checked + .tgl-btn:active:after {
-    margin-left: -0.4em;
-  }
-  .checkbox-wrapper-34 .tgl-ios:checked + .tgl-btn:before {
-    content: "Yes";
-    left: 4px;
-    color: #fff;
-  }
+.checkbox-wrapper-34 .tgl-ios + .tgl-btn {
+  background: var(--g08);
+  border-radius: 20rem;
+  padding: 2px;
+  transition: all 0.4s ease;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+.checkbox-wrapper-34 .tgl-ios + .tgl-btn:after {
+  border-radius: 2em;
+  background: #fff;
+  transition: left 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    padding 0.3s ease, margin 0.3s ease;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+}
+.checkbox-wrapper-34 .tgl-ios + .tgl-btn:before {
+  content: "No";
+  left: 28px;
+  color: var(--g04);
+  transition: left 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.checkbox-wrapper-34 .tgl-ios + .tgl-btn:active {
+  box-shadow: inset 0 0 0 30px rgba(0, 0, 0, 0.1);
+}
+.checkbox-wrapper-34 .tgl-ios + .tgl-btn:active:after {
+  padding-right: 0.4em;
+}
+.checkbox-wrapper-34 .tgl-ios:checked + .tgl-btn {
+  background: var(--blue);
+}
+.checkbox-wrapper-34 .tgl-ios:checked + .tgl-btn:active {
+  box-shadow: inset 0 0 0 30px rgba(0, 0, 0, 0.1);
+}
+.checkbox-wrapper-34 .tgl-ios:checked + .tgl-btn:active:after {
+  margin-left: -0.4em;
+}
+.checkbox-wrapper-34 .tgl-ios:checked + .tgl-btn:before {
+  content: "Yes";
+  left: 4px;
+  color: #fff;
+}
 
+
+.blurred {
+  filter: blur(5px);
+}
+
+.postToSee {
+  width: 280px;
+  height: 250px;
+  border-radius: 1px;
+  position: absolute;
+  margin-top: -250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.55);
+  padding: 1em;
+  color: white;
+}
+
+.postToSee span{
+  text-align: center;
+}
+
+
+.openTaskEntryContainer{
+  position: absolute;
+  z-index: 100000000000;
+  background-color: white;
+  width: 50%;
+  height: 95%;
+  padding: 2em;
+  box-shadow: 0 4px 5px rgba(255, 255, 255, 0.3);
+}
+
+.createdBy{
+  color: white;
+}
+
+.truncate {
+  overflow: hidden;
+  width: 50%;
+  height: 2ch;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.taskEntryDesc{
+  /* outline: 1px solid red; */
+  display: flex;
+}

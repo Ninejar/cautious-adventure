@@ -1,17 +1,13 @@
 import React, { useState, useEffect } from "react";
-import BackButton from "../components/BackButton/BackButton";
-import Loading from "../components/Loading";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../components/NavBar/Navbar";
-import Page from "../components/DocumentPage/DocumentPage";
+import Page from "../DocumentPage/DocumentPage";
 import { useParams } from "react-router-dom";
 import "react-quill/dist/quill.snow.css";
+import Loading from "../Loading";
 import { jwtDecode } from "jwt-decode";
-import "../components/DocumentPage/sheets-of-paper.css";
-import "../components/DocumentPage/sheets-of-paper-a4.css";
 
-const CreateJournal = () => {
+const Create = ({taskId,onDone}) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [files, setFiles] = useState([]);
@@ -53,7 +49,7 @@ const CreateJournal = () => {
     formData.append("title", title);
     formData.append("content", content);
     formData.append("visibility", visibility);
-    formData.append("taskId", selectedTask);
+    formData.append("taskId", taskId);
     for (let i = 0; i < files.length; i++) {
       formData.append("file", files[i]);
     }
@@ -69,8 +65,8 @@ const CreateJournal = () => {
       .post("http://localhost:1814/journals", formData, config)
       .then(() => {
         setLoading(false);
-
-        navigate("/journals/list");
+        onDone();
+        
       })
       .catch((error) => {
         setLoading(false);
@@ -80,17 +76,10 @@ const CreateJournal = () => {
   };
 
   return (
-    <div className="app">
-      <Navbar />
-      <div className="content">
-        <div className="backbutton">
-          <BackButton destination="/journals/list" />
-          <h1>Create journal</h1>
-        </div>
 
-        {loading ? <Loading /> : ""}
+  
 
-        <div className="create_journal">
+        <div className="create_journal create">
           <input
             id="title"
             type="text"
@@ -133,24 +122,10 @@ const CreateJournal = () => {
               <label htmlFor="public">Share with teacher</label>
             </div>
           </div>
-
-          <select
-            name="taskId"
-            onChange={(e) => setSelectedTask(e.target.value)}
-          >
-            <option value="">Select a task</option>
-            {interestedTasks.map((task) => (
-              <option key={task._id} value={task._id}>
-                {task.title}
-              </option>
-            ))}
-          </select>
-
           <button onClick={handleSaveJournal}>Save</button>
         </div>
-      </div>
-    </div>
+      
   );
 };
 
-export default CreateJournal;
+export default Create;

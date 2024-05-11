@@ -29,7 +29,7 @@ const Home = () => {
             </div>
             </Link>
 
-            <Link to = {`/tasks`}>
+            <Link to = {`/tasksOverview`}>
             <div className="link_item tasks">
                 <a href="" className="link_item_container">
                     <div>

@@ -24,6 +24,10 @@ const journalSchema = mongoose.Schema(
         fileURL: {
             type: [String],
             required: false
+        },
+        taskId: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Task'
         }
     },
     {

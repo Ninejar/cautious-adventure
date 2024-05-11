@@ -28,7 +28,8 @@ const createJournal = async (req,res) => {
             content: req.body.content,
             visibility: req.body.visibility,
             createdBy: req.user._id,
-            fileURL: fileURLs
+            fileURL: fileURLs,
+            taskId: req.body.taskId
         };
 
         const journal = await Journal.create(newJournal);
@@ -147,4 +148,18 @@ const deleteJournal = async (req, res) => {
     }
 }
 
-export { createJournal, getAllJournals, getOneJournal, updateJournal, deleteJournal }
+    const getSharedJournals = async (req, res) => {
+        try {
+            const journals = await Journal.find({ visibility: 'Public' });
+    
+            return res.status(200).json({
+                count: journals.length,
+                data: journals
+            });
+        } catch (error) {
+            console.log(error.message);
+            res.status(500).send({ message: error.message });
+        }
+    };
+
+    export { createJournal, getAllJournals, getOneJournal, updateJournal, deleteJournal, getSharedJournals }

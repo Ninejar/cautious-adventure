@@ -45,9 +45,9 @@
 }
 
 .ql-container{
-	width: 21cm;
-	min-height: 29.7cm;
-	padding: 2cm;
+	width: 100%;
+	height: 300px;
+	padding: 0.2cm;
 	background: #fff;
 	box-shadow: 0 4px 5px rgba(75, 75, 75, 0.2);
 	color:black;
@@ -55,7 +55,7 @@
 }
 
 .ql-toolbar{
-	width: 21cm;
+	width: 100%;
 	background-color: rgb(232, 232, 232);
 }
 

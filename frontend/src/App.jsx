@@ -16,7 +16,9 @@ import TeacherTaskHome from './pages/TeacherTaskHome'
 import ProtectedRoute from './ProtectedRoute/ProtectedRoute'
 import Goals from './pages/Goals'
 import EditTask from './pages/EditTask'
-import Tasks from './pages/Tasks'
+import TasksOverview from './pages/TasksOverview'
+import Task from './pages/Task'
+import TeacherSharedByStudents from './pages/TeacherSharedByStudents'
 
 const App = () => {
   return (
@@ -37,12 +39,14 @@ const App = () => {
 
       <Route path = "/profile" element = {<Profile />} />
       <Route path = "/goals" element = {<Goals />} />
-      <Route path = "/tasks" element = {<Tasks />} />
+      <Route path = "/tasksOverview" element = {<TasksOverview />} />
+      <Route path = "/tasksOverview/task/:id" element = {<Task />} />
 
       <Route path = "/teachers" element = { <ProtectedRoute allowedRoles={'teacher'}><TeacherHome/></ProtectedRoute> }/>
       <Route path = "/teachers/TeacherTaskHome" element = {<TeacherTaskHome />} />
       <Route path = "/teachers/TeacherCreateTask" element = {<TeacherCreateTask />} />
       <Route path = "/teachers/edit/:id" element = {<EditTask />} />
+      <Route path = "/teachers/shared" element = {<TeacherSharedByStudents />}></Route>
     </Routes>
   )
 }

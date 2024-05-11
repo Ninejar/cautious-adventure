@@ -1,5 +1,5 @@
 import express from 'express';
-import { getAllUsers, getOneUser, signup, login, updateUser, deleteUser } from '../controllers/userController.js';
+import { getAllUsers, getOneUser, signup, login, updateUser, deleteUser, updateInterestedTask, getAllInterestedTasks, deleteInterestedTask } from '../controllers/userController.js';
 
 const router = express.Router();
 
@@ -21,5 +21,9 @@ router.put('/:id', updateUser);
 
 // Route to delete a user
 router.delete('/:id', deleteUser);
+
+router.get('/:userId/interestedTasks/', getAllInterestedTasks);
+router.put('/:userId/interestedTasks/:taskId', updateInterestedTask);
+router.delete('/:userId/interestedTasks/:taskId', deleteInterestedTask);
 
 export default router;
