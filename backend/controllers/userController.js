@@ -2,6 +2,7 @@ import { User } from '../models/userModel.js'
 import { validationResult } from 'express-validator';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+import { Task } from '../models/taskModel.js'; 
 
 
 // Show all users
@@ -144,5 +145,64 @@ const deleteUser = async (req, res) => {
     }
 }
 
+const updateInterestedTask = async (req, res) => {
+    try {
+        const { userId, taskId } = req.params;
 
-export { getAllUsers, getOneUser, signup, login, updateUser, deleteUser }
+        // Find the user by ID and update interestedTasks array
+        const updatedUser = await User.findByIdAndUpdate(userId, { $addToSet: { interestedTasks: taskId } }, { new: true });
+
+        if (!updatedUser) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        return res.status(200).json({ message: 'Task added to interestedTasks successfully', user: updatedUser });
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).send({ message: error.message });
+    }
+};
+
+const getAllInterestedTasks = async (req, res) => {
+    try {
+      const { userId } = req.params;
+  
+      // Find the user by ID
+      const user = await User.findById(userId);
+  
+      if (!user) {
+        return res.status(404).json({ message: 'User not found' });
+      }
+  
+      // Get the interestedTasks array from the user document
+      const interestedTaskIds = user.interestedTasks;
+  
+      // Fetch the details of all interested tasks
+      const interestedTasks = await Task.find({ _id: { $in: interestedTaskIds } });
+  
+      return res.status(200).json({ interestedTasks });
+    } catch (error) {
+      console.log(error.message);
+      res.status(500).send({ message: error.message });
+    }
+  };
+
+  const deleteInterestedTask = async (req, res) => {
+    try {
+      const { userId, taskId } = req.params;
+  
+      // Find the user by ID and update interestedTasks array to remove the specified task ID
+      const updatedUser = await User.findByIdAndUpdate(userId, { $pull: { interestedTasks: taskId } }, { new: true });
+  
+      if (!updatedUser) {
+        return res.status(404).json({ message: 'User not found' });
+      }
+  
+      return res.status(200).json({ message: 'Task removed from interestedTasks successfully', user: updatedUser });
+    } catch (error) {
+      console.log(error.message);
+      res.status(500).send({ message: error.message });
+    }
+  };
+
+export { getAllUsers, getOneUser, signup, login, updateUser, deleteUser,updateInterestedTask, getAllInterestedTasks, deleteInterestedTask }

@@ -13,7 +13,8 @@ router.post('/', auth, upload.array('file', 10), async (req, res) => {
         if (
             !req.body.title ||
             !req.body.content ||
-            !req.body.visibility
+            !req.body.visibility ||
+            !req.body.shortDesc
         ) {
             return res.status(400).send({
                 message: 'Send all required fields: title, content, visibility'
@@ -30,6 +31,7 @@ router.post('/', auth, upload.array('file', 10), async (req, res) => {
 
         const newTask = {
             title: req.body.title,
+            shortDesc: req.body.shortDesc,
             content: req.body.content,
             visibility: req.body.visibility,
             createdBy: userId,
@@ -61,6 +63,39 @@ router.get('/', auth, async (req, res) => {
             count: tasks.length,
             data: tasks
         });
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).send({ message: error.message });
+    }
+});
+
+router.get('/published', async (req, res) => {
+    try {
+        // Filter tasks based on visibility
+        const tasks = await Task.find({ visibility: 'Publish' });
+
+        return res.status(200).json({
+            count: tasks.length,
+            data: tasks
+        });
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).send({ message: error.message });
+    }
+});
+
+router.get('/published/:id', async (req, res) => {
+    try {
+        // Filter tasks based on visibility
+        const { id } = req.params;
+
+        const task = await Task.findById(id);
+
+        if (!task) {
+            return res.status(404).json({ message: 'Task not found' });
+        }
+
+        return res.status(200).json({ task });
     } catch (error) {
         console.log(error.message);
         res.status(500).send({ message: error.message });
@@ -118,7 +153,8 @@ router.put('/:id', auth, upload.array('file', 10), async (req, res) => {
         if (
             !req.body.title ||
             !req.body.content ||
-            !req.body.visibility
+            !req.body.visibility ||
+            !req.body.shortDesc
         ) {
             return res.status(400).send({
                 message: 'Send all required fields: title, content, visibility'
@@ -130,6 +166,7 @@ router.put('/:id', auth, upload.array('file', 10), async (req, res) => {
 
         const updatedTask = {
             title: req.body.title,
+            shortDesc: req.body.shortDesc,
             content: req.body.content,
             visibility: req.body.visibility,
             createdBy: task.createdBy,

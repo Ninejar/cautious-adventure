@@ -1,10 +1,10 @@
 import express from 'express'
 import auth from '../verifyToken.js'
-import { createJournal, getAllJournals, getOneJournal, updateJournal, deleteJournal } from '../controllers/journalController.js'
+import { createJournal, getAllJournals, getOneJournal, updateJournal, deleteJournal, getSharedJournals } from '../controllers/journalController.js'
 import upload from '../multerSetup.js'
 const router = express.Router()
 
-
+router.get('/shared', getSharedJournals)
 // Route to create a new journal
 router.post('/', auth, upload.array('file', 10), createJournal);
 
@@ -19,5 +19,6 @@ router.put('/:id', auth, upload.array('file', 10), updateJournal);
 
 // Route to delete a journal
 router.delete('/:id', auth, deleteJournal);
+
 
 export default router;

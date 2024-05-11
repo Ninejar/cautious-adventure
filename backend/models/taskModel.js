@@ -6,6 +6,10 @@ const taskSchema = mongoose.Schema(
             type: String,
             required: true,
         },
+        shortDesc:{
+            type: String,
+            required: true,
+        },
         content: {
             type: String,
             required: true
