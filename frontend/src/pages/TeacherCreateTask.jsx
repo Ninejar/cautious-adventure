@@ -72,9 +72,21 @@ const TeacherCreateTask = () => {
             onChange={(e) => setTitle(e.target.value)}
           />
 
-          <input id="shortDesc" type="text" placeholder="Short description of task..." value={shortDesc} onChange={(e) => setShortDesc(e.target.value)}></input>
-          <Page data-testid="document-page" content={content} onChange={(value) => setContent(value)} />
-
+          <input
+            id="shortDesc"
+            type="text"
+            placeholder="Short description of task..."
+            value={shortDesc}
+            onChange={(e) => setShortDesc(e.target.value)}
+          ></input>
+          <Page
+            data-testid="document-page"
+            content={content}
+            onChange={(value) => setContent(value)}
+          />
+          <div className="attachFile_container">
+            <input type="file" multiple onChange={handleFileChange} />
+          </div>
           <div className="visibility_radios">
             <label>
               <input
@@ -94,10 +106,6 @@ const TeacherCreateTask = () => {
               />
               Publish
             </label>
-          </div>
-
-          <div className="attachFile_container">
-            <input type="file" multiple onChange={handleFileChange} />
           </div>
 
           <button onClick={handleSaveTask}>Save</button>

@@ -56,14 +56,30 @@ const Task = () => {
     fetchUserData();
   }, []);
 
+  const fetchUserNameById = async (userId) => {
+    try {
+      const response = await axios.get(
+        `http://localhost:1814/users/${userId}`,
+        config
+      );
+      const fName = response.data[0].fName;
+      const lName = response.data[0].lName;
+      const fullName = `${fName} ${lName}`;
+      return fullName;
+    } catch (error) {
+      console.error("Error fetching user:", error);
+      return ""; // Return empty string if user not found
+    }
+  };
   useEffect(() => {
     setLoading(true);
 
     // Fetch the task details
     axios
       .get(`http://localhost:1814/tasks/published/${id}`, config)
-      .then((res) => {
+      .then(async (res) => {
         setTask(res.data.task);
+        console.log(task);
         setLoading(false);
 
         const uniqueUrls = Array.isArray(res.data.task.fileURL)
@@ -94,6 +110,58 @@ const Task = () => {
   const renderAttachment = () => {
     if (uniqueAttachments.length > 0) {
       return uniqueAttachments.map((url, index) => {
+        const fileExtension = url.split(".").pop().toLowerCase();
+        if (fileExtension === "pdf") {
+          return (
+            <div key={index}>
+              <a
+                className="file"
+                href={`http://localhost:1814/${url}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View Attachment
+              </a>
+            </div>
+          );
+        } else if (
+          fileExtension === "jpg" ||
+          fileExtension === "jpeg" ||
+          fileExtension === "png" ||
+          fileExtension === "gif"
+        ) {
+          return (
+            <div key={index}>
+              <img
+                className="file"
+                src={`http://localhost:1814/${url}`}
+                alt="Attachment"
+              />
+            </div>
+          );
+        } else {
+          return (
+            <div key={index}>
+              <a
+                className="file"
+                href={`http://localhost:1814/${url}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Download Attachment
+              </a>
+            </div>
+          );
+        }
+      });
+    } else {
+      return <span>No attachments</span>;
+    }
+  };
+
+  const renderTaskAttachment = (fileURL) => {
+    if (fileURL.length > 0) {
+      return fileURL.map((url, index) => {
         const fileExtension = url.split(".").pop().toLowerCase();
         if (fileExtension === "pdf") {
           return (
@@ -178,8 +246,6 @@ const Task = () => {
       );
 
       if (currentUserJournals.length > 0) {
-        // Render all journals without blur
-
         return journals.map((journal) => (
           <div>
             <p className="createdBy">Entry by {task.createdBy}</p>
@@ -188,12 +254,20 @@ const Task = () => {
               className="taskEntry"
               onClick={() => handleClickTaskEntry(journal)}
             >
-              <h3>{journal.title}</h3>
-              <div className="taskEntryDesc">
-                <div
-                  className="truncate"
-                  dangerouslySetInnerHTML={{ __html: journal.content }}
-                />
+              <div>
+                <h3>{journal.title}</h3>
+                <div className="taskEntryDesc">
+                  <div
+                    className="truncate"
+                    dangerouslySetInnerHTML={{ __html: journal.content }}
+                  />
+
+                  <div></div>
+                </div>
+              </div>
+
+              <div className="file_uploads_container taskPage renderTaskAttachment smaller">
+                {renderTaskAttachment(journal.fileURL)}
               </div>
             </div>
           </div>
@@ -204,15 +278,30 @@ const Task = () => {
           <>
             {journals.map((journal) => (
               <div>
-                {console.log(journal)}
                 <p className="createdBy">Entry by {task.createdBy}</p>
                 <div className="sharpEdge">
-                  <div key={journal._id} className="taskEntry blurred">
+                <div
+                  key={journal._id}
+                  className="taskEntry blurred"
+                  onClick={() => handleClickTaskEntry(journal)}
+                >
+                  <div>
                     <h3>{journal.title}</h3>
-                    <p>{journal.content}</p>
+                    <div className="taskEntryDesc">
+                      <div
+                        className="truncate"
+                        dangerouslySetInnerHTML={{ __html: journal.content }}
+                      />
+
+                      <div></div>
+                    </div>
+                  </div>
+
+                  <div className="file_uploads_container taskPage renderTaskAttachment smaller">
+                    {renderTaskAttachment(journal.fileURL)}
                   </div>
                 </div>
-
+                </div>
                 <div className="postToSee">
                   <FaRegEyeSlash size={50} />
                   <span>Post to view</span>
@@ -303,7 +392,8 @@ const Task = () => {
       <Navbar />
       <div className="content">
         <div className="backbutton">
-          <BackButton destination="/tasksOverview" /> <h1>Tasks / "{task.title}"</h1>
+          <BackButton destination="/tasksOverview" />{" "}
+          <h1>Tasks / "{task.title}"</h1>
         </div>
 
         {openPostEntry && (
@@ -317,9 +407,19 @@ const Task = () => {
                   >
                     {" "}
                     {slidePosition == 0 ? (
-                      <FaArrowRight size={30} color="black" />
+                      <FaArrowRight
+                        className="FaArrowRight"
+                        size={30}
+                        color="black"
+                      />
                     ) : (
-                      <FaArrowLeft size={30} color="black" />
+                      <>
+                        <FaArrowLeft
+                          className="FaArrowLeft"
+                          size={30}
+                          color="black"
+                        />
+                      </>
                     )}
                   </div>
                   <div className="title">
@@ -358,23 +458,37 @@ const Task = () => {
         )}
 
         {selectedTaskEntry && openTaskEntry ? (
-          <>
-            <div className="modal" onClick={() => handleCloseModal()}>
-              <div className="openTaskEntryContainer">
-                <div>
-                  <p>Entry by: {selectedTaskEntry.createdBy}</p>
-                </div>
-                <div>
-                  <h2>{selectedTaskEntry.title}</h2>
-                </div>
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: selectedTaskEntry.content,
-                  }}
-                />
-              </div>
-            </div>
-          </>
+           <>
+           <div className="modal postEntry">
+             <div className="closeCreate" onClick={() => handleCloseModal()}>
+               <div>
+                 <IoCloseOutline size={60} color="white" />
+               </div>
+             </div>
+             <div className="openTaskEntryContainer">
+               <div>
+                 <div>
+                   <p>Entry by: {selectedTaskEntry.createdBy}</p>
+                 </div>
+                 <div>
+                   <h2>{selectedTaskEntry.title}</h2>
+                 </div>
+                 <div
+                   dangerouslySetInnerHTML={{
+                     __html: selectedTaskEntry.content,
+                   }}
+                 />
+               </div>
+
+               <div>
+                 Attachments
+                 <div className="file_uploads_container taskPage renderTaskAttachment">
+                   {renderTaskAttachment(selectedTaskEntry.fileURL)}
+                 </div>
+               </div>
+             </div>
+           </div>
+         </>
         ) : (
           ""
         )}

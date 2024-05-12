@@ -119,10 +119,10 @@ const Create = ({taskId,onDone}) => {
                 checked={visibility === "Public"}
                 onChange={(e) => setVisibility(e.target.value)}
               />
-              <label htmlFor="public">Share with teacher</label>
+              <label htmlFor="public">Share with others</label>
             </div>
           </div>
-          <button onClick={handleSaveJournal}>Save</button>
+          <button onClick={handleSaveJournal}>Post</button>
         </div>
       
   );

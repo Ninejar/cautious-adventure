@@ -18,6 +18,7 @@ import Goals from './pages/Goals'
 import EditTask from './pages/EditTask'
 import TasksOverview from './pages/TasksOverview'
 import Task from './pages/Task'
+import TeacherSharedByStudentsOverview from './pages/TeacherSharedByStudentsOverview'
 import TeacherSharedByStudents from './pages/TeacherSharedByStudents'
 
 const App = () => {
@@ -46,7 +47,8 @@ const App = () => {
       <Route path = "/teachers/TeacherTaskHome" element = {<TeacherTaskHome />} />
       <Route path = "/teachers/TeacherCreateTask" element = {<TeacherCreateTask />} />
       <Route path = "/teachers/edit/:id" element = {<EditTask />} />
-      <Route path = "/teachers/shared" element = {<TeacherSharedByStudents />}></Route>
+      <Route path = "/teachers/shared" element = {<TeacherSharedByStudentsOverview />}></Route>
+      <Route path = "/teachers/shared/:id" element = {<TeacherSharedByStudents />}></Route>
     </Routes>
   )
 }

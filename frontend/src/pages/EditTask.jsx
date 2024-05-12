@@ -1,31 +1,32 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { useNavigate, useParams } from 'react-router-dom';
-import { MdOutlineDelete } from 'react-icons/md';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { useNavigate, useParams } from "react-router-dom";
+import { MdOutlineDelete } from "react-icons/md";
 import Navbar from "../components/NavBar/Navbar";
-import BackButton from '../components/BackButton/BackButton';
-import Loading from '../components/Loading';
-import Page from '../components/DocumentPage/DocumentPage';
-import ConfirmationModal from '../components/ConfirmationModal/ConfirmationModal';
-import '../components/DocumentPage/sheets-of-paper.css';
-import '../components/DocumentPage/sheets-of-paper-a4.css';
+import BackButton from "../components/BackButton/BackButton";
+import Loading from "../components/Loading";
+import Page from "../components/DocumentPage/DocumentPage";
+import ConfirmationModal from "../components/ConfirmationModal/ConfirmationModal";
+import "../components/DocumentPage/sheets-of-paper.css";
+import "../components/DocumentPage/sheets-of-paper-a4.css";
 
 const EditTask = () => {
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
-  const [visibility, setVisibility] = useState('');
+  const [title, setTitle] = useState("");
+  const [shortDesc, setShortDesc] = useState("");
+  const [content, setContent] = useState("");
+  const [visibility, setVisibility] = useState("");
   const [attachments, setAttachments] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false); 
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [attachmentToDelete, setAttachmentToDelete] = useState(null);
   const navigate = useNavigate();
   const { id } = useParams();
 
-  const token = localStorage.getItem('auth-token');
+  const token = localStorage.getItem("auth-token");
   const config = {
     headers: {
-      'auth-token': token
-    }
+      "auth-token": token,
+    },
   };
 
   useEffect(() => {
@@ -34,6 +35,7 @@ const EditTask = () => {
       .get(`http://localhost:1814/tasks/${id}`, config)
       .then((res) => {
         setTitle(res.data.task.title);
+        setShortDesc(res.data.task.shortDesc);
         setContent(res.data.task.content);
         setVisibility(res.data.task.visibility);
         setAttachments(Array.from(new Set(res.data.task.fileURL)));
@@ -41,38 +43,39 @@ const EditTask = () => {
       })
       .catch((error) => {
         setLoading(false);
-        alert('An error happened. Please check console.');
+        alert("An error happened. Please check console.");
         console.log(error);
       });
   }, []);
 
   const handleEditTask = () => {
     const formData = new FormData();
-    formData.append('title', title);
-    formData.append('content', content);
-    formData.append('visibility', visibility);
-  
+    formData.append("title", title);
+    formData.append("content", content);
+    formData.append("shortDesc", shortDesc);
+    formData.append("visibility", visibility);
+
     attachments.forEach((attachment) => {
-      formData.append('file', attachment);
+      formData.append("file", attachment);
     });
-  
+
     setLoading(true);
     axios
       .put(`http://localhost:1814/tasks/${id}`, formData, config)
       .then(() => {
         setLoading(false);
-        navigate('/teachers/TeacherTaskHome');
+        navigate("/teachers/TeacherTaskHome");
       })
       .catch((error) => {
         setLoading(false);
-        alert('An error happened. Please check console');
+        alert("An error happened. Please check console");
         console.log(error);
       });
   };
 
   const handleAttachmentsChange = (e) => {
     const selectedFiles = Array.from(e.target.files);
-    setAttachments(prevAttachments => [...prevAttachments, ...selectedFiles]);
+    setAttachments((prevAttachments) => [...prevAttachments, ...selectedFiles]);
   };
 
   const handleRemoveAttachment = (indexToRemove) => {
@@ -87,7 +90,7 @@ const EditTask = () => {
 
   const handleConfirmDelete = () => {
     const attachmentIndexToDelete = attachmentToDelete;
-    setAttachments(prevAttachments =>
+    setAttachments((prevAttachments) =>
       prevAttachments.filter((_, index) => index !== attachmentIndexToDelete)
     );
 
@@ -99,16 +102,28 @@ const EditTask = () => {
     <div className="app">
       <Navbar />
       <div className="content">
-      <div className="backbutton">
+        <div className="backbutton">
           <BackButton destination="/teachers/TeacherTaskHome" />
           <h1>Edit Task</h1>
         </div>
 
-        {loading ? <Loading /> : ''}
+        {loading ? <Loading /> : ""}
 
         <div className="create_task">
-          <input id="title" type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
-          <Page content={content} onChange={(e) => setContent(e.target.value)} />
+          <input
+            id="title"
+            type="text"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+          <input
+            id="shortDesc"
+            type="text"
+            placeholder="Short description of task..."
+            value={shortDesc}
+            onChange={(e) => setShortDesc(e.target.value)}
+          />
+          <Page content={content} onChange={(value) => setContent(value)} />
           <div className="visibility_radios">
             <label>
               <input
@@ -130,17 +145,30 @@ const EditTask = () => {
             </label>
           </div>
           <div className="attachFile_container">
-          <input type="file" multiple onChange={handleAttachmentsChange} />
+            <input type="file" multiple onChange={handleAttachmentsChange} />
             {attachments.map((attachment, index) => (
               <div key={index}>
-                <div className='attachFile_container'>
-                  <a href={`http://localhost:1814/${attachment}`} target="_blank" rel="noopener noreferrer">
-                    <div className='display_attachment_img_container'>
+                <div className="attachFile_container">
+                  <a
+                    href={`http://localhost:1814/${attachment}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <div className="display_attachment_img_container">
                       File {index + 1}
-                      <img className="display_attachment_img" src={`http://localhost:1814/${attachment}`} alt={`Attachment ${index + 1}`} />
+                      <img
+                        className="display_attachment_img"
+                        src={`http://localhost:1814/${attachment}`}
+                        alt={`Attachment ${index + 1}`}
+                      />
                     </div>
                   </a>
-                  <button className='remove_attachment' onClick={() => handleRemoveAttachment(index)}><MdOutlineDelete /></button>
+                  <button
+                    className="remove_attachment"
+                    onClick={() => handleRemoveAttachment(index)}
+                  >
+                    <MdOutlineDelete />
+                  </button>
                 </div>
               </div>
             ))}
@@ -150,7 +178,7 @@ const EditTask = () => {
       </div>
       <ConfirmationModal
         isOpen={isModalOpen}
-        fileName={`File ${attachmentToDelete + 1}`} 
+        fileName={`File ${attachmentToDelete + 1}`}
         onCancel={handleCancelDelete}
         onConfirm={handleConfirmDelete}
       />

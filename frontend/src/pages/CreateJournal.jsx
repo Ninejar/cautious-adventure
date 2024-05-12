@@ -90,63 +90,65 @@ const CreateJournal = () => {
 
         {loading ? <Loading /> : ""}
 
-        <div className="create_journal">
-          <input
-            id="title"
-            type="text"
-            placeholder="Untitled"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
+        <div className="create_journal_container">
+          <div className="create_journal">
+            <input
+              id="title"
+              type="text"
+              placeholder="Untitled"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
 
-          <Page
-            data-testid="document-page"
-            content={content}
-            onChange={(value) => setContent(value)}
-          />
+            <Page
+              data-testid="document-page"
+              content={content}
+              onChange={(value) => setContent(value)}
+            />
 
-          <div className="attachFile_container">
-            <input type="file" multiple onChange={handleFileChange} />
-          </div>
-
-          <div className="radio_container">
-            <label>Set visibility</label>
-            <div>
-              <input
-                type="radio"
-                id="private"
-                value="Private"
-                checked={visibility === "Private"}
-                onChange={(e) => setVisibility(e.target.value)}
-              />
-              <label htmlFor="private">Keep private</label>
+            <div className="attachFile_container">
+              <input type="file" multiple onChange={handleFileChange} />
             </div>
 
-            <div>
-              <input
-                type="radio"
-                id="public"
-                value="Public"
-                checked={visibility === "Public"}
-                onChange={(e) => setVisibility(e.target.value)}
-              />
-              <label htmlFor="public">Share with teacher</label>
+            <div className="radio_container">
+              <label>Set visibility</label>
+              <div>
+                <input
+                  type="radio"
+                  id="private"
+                  value="Private"
+                  checked={visibility === "Private"}
+                  onChange={(e) => setVisibility(e.target.value)}
+                />
+                <label htmlFor="private">Keep private</label>
+              </div>
+
+              <div>
+                <input
+                  type="radio"
+                  id="public"
+                  value="Public"
+                  checked={visibility === "Public"}
+                  onChange={(e) => setVisibility(e.target.value)}
+                />
+                <label htmlFor="public">Share with teacher</label>
+              </div>
             </div>
+
+            <select
+              name="taskId"
+              onChange={(e) => setSelectedTask(e.target.value)}
+            >
+              <option value="">Select a task</option>
+              {interestedTasks.map((task) => (
+                <option key={task._id} value={task._id}>
+                  {task.title}
+                </option>
+              ))}
+            </select>
+
+            <button onClick={handleSaveJournal}>Save</button>
           </div>
-
-          <select
-            name="taskId"
-            onChange={(e) => setSelectedTask(e.target.value)}
-          >
-            <option value="">Select a task</option>
-            {interestedTasks.map((task) => (
-              <option key={task._id} value={task._id}>
-                {task.title}
-              </option>
-            ))}
-          </select>
-
-          <button onClick={handleSaveJournal}>Save</button>
         </div>
       </div>
     </div>

@@ -135,9 +135,9 @@ nav{
   transform: rotate(45deg) translate(-2px, -1px);
 }
 
-input{
+/* input{
   margin-left: 20px;
-}
+} */
 
 #menuToggle input:checked ~ span:nth-last-child(3) {
   opacity: 0;

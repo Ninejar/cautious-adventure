@@ -12,9 +12,9 @@ const TasksOverview = () => {
   const [tasks, setTasks] = useState([]); // Initialize tasks as an empty array
   const [loading, setLoading] = useState(false);
   const { id } = useParams();
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState(null);
   const [sortType, setSortType] = useState("newest"); // Default sorting type
-  const [filterType, setFilterType] = useState("all"); 
+  const [filterType, setFilterType] = useState("all");
 
   const navigate = useNavigate();
 
@@ -25,27 +25,27 @@ const TasksOverview = () => {
     },
   };
 
-    // Fetch user data when the component mounts
-    useEffect(() => {
-      const fetchUserData = async () => {
-        try {
-          const token = localStorage.getItem("auth-token");
-          const decodedToken = jwtDecode(token);
-          const userId = decodedToken._id;
-  
-          const userResponse = await axios.get(
-            `http://localhost:1814/users/${userId}`,
-            config
-          );
-          const userData = userResponse.data;
-          setUser(userData);
-        } catch (error) {
-          console.log(error);
-        }
-      };
-  
-      fetchUserData();
-    }, []);
+  // Fetch user data when the component mounts
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const token = localStorage.getItem("auth-token");
+        const decodedToken = jwtDecode(token);
+        const userId = decodedToken._id;
+
+        const userResponse = await axios.get(
+          `http://localhost:1814/users/${userId}`,
+          config
+        );
+        const userData = userResponse.data;
+        setUser(userData);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchUserData();
+  }, []);
 
   useEffect(() => {
     setLoading(true);
@@ -53,8 +53,6 @@ const TasksOverview = () => {
     axios
       .get(`http://localhost:1814/tasks/published`, config)
       .then((res) => {
-        setTasks(res.data.data);
-
         let sortedTasks = [...res.data.data];
         if (sortType === "newest") {
           sortedTasks.sort(
@@ -66,9 +64,15 @@ const TasksOverview = () => {
           );
         }
         if (filterType !== "all") {
-          sortedTasks = sortedTasks.filter(
-            (item) => item.visibility === filterType
-          );
+          if (filterType === "interested") {
+            sortedTasks = sortedTasks.filter(
+              (item) => user && user[0].interestedTasks.includes(item._id)
+            );
+          } else {
+            sortedTasks = sortedTasks.filter(
+              (item) => item.visibility === filterType
+            );
+          }
         }
         setTasks(sortedTasks);
         setLoading(false);
@@ -77,15 +81,14 @@ const TasksOverview = () => {
         console.log(error);
         setLoading(false);
       });
-  }, [sortType, filterType]);
+  }, [sortType, filterType, user]);
 
   const handleClickTask = (task) => {
     navigate(`task/${task._id}`);
   };
-  
+
   const handleInterestedClick = async (taskId) => {
     try {
-      const token = localStorage.getItem("auth-token");
       const decodedToken = jwtDecode(token);
       const userId = decodedToken._id;
 
@@ -95,12 +98,8 @@ const TasksOverview = () => {
       );
       const user = userResponse.data;
 
-      console.log(user);
-      console.log(taskId);
-
       // Check if the task is already in the user's interested tasks
       const isInterested = user[0].interestedTasks.includes(taskId);
-      console.log(isInterested);
 
       if (isInterested) {
         // If already interested, remove it
@@ -158,8 +157,7 @@ const TasksOverview = () => {
             onChange={(e) => handleFilterChange(e.target.value)}
           >
             <option value="all">All</option>
-            <option value="Private">Private</option>
-            <option value="Public">Shared</option>
+            <option value="interested">Interested</option>
           </select>
         </div>
         <div className="student_tasks_container">
@@ -171,9 +169,14 @@ const TasksOverview = () => {
                   className="student_tasks"
                   onClick={() => handleClickTask(task)}
                 >
-                  <h2>{task.title}</h2> {/* Assuming task has a title */}
-                  <div>{task.shortDesc }</div> 
-                  <div>Last updated: {new Date(task.updatedAt).toLocaleString()}</div> 
+                  <div>
+                    <h2>{task.title}</h2> {/* Assuming task has a title */}
+                    <div>{task.shortDesc}</div>
+                  </div>
+
+                  <div className="lastUpd">
+                     <span>Last updated: {new Date(task.updatedAt).toLocaleString()}</span> 
+                  </div>
                 </div>
                 <div className="interested">
                   <p>Interested?</p>
@@ -183,7 +186,9 @@ const TasksOverview = () => {
                       id={`toggle-${task._id}`}
                       type="checkbox"
                       onChange={() => handleInterestedClick(task._id)}
-                      checked={user && user[0].interestedTasks.includes(task._id)}
+                      checked={
+                        user && user[0].interestedTasks.includes(task._id)
+                      }
                     />
                     <label
                       className="tgl-btn"

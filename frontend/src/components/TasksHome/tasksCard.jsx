@@ -4,16 +4,18 @@ import { MdOutlineDelete } from 'react-icons/md';
 import { FaEye } from 'react-icons/fa';
 import { IoIosLock } from 'react-icons/io';
 import { BsInfoCircle } from 'react-icons/bs';
+import { GoPlus } from "react-icons/go";
 import PropTypes from 'prop-types';
 import './tasksCard.css';
 
 const TasksCard = ({ tasks }) => {
   return (
-    <div className="task_cards">
+    <div className="journal_cards_outer">
+    <div className="journal_cards">
       <Link to="/teachers/TeacherCreateTask">
-        <div className="task_card new">
+        <div className="journal_card new">
           <div className="create_new">
-            <div className="plus">+</div>
+            <div className="plus"><GoPlus /></div>
             <div>New Task</div>
           </div>
         </div>
@@ -21,9 +23,9 @@ const TasksCard = ({ tasks }) => {
 
       {tasks.map((item) => (
         <Link to={`/teachers/edit/${item._id}`} key={item._id}>
-          <div className="task_card">
+          <div className="journal_card">
+            <div className="visibility_container--card">
             <h2>{item.title}</h2>
-            <div className="visibility_container">
               {item.visibility === 'Draft' ? (
                 <span className="--public" title="Published">
                   <IoIosLock />
@@ -33,7 +35,7 @@ const TasksCard = ({ tasks }) => {
                   <FaEye />
                 </span>
               )}
-            </div>
+            
 
             <div className="card_operations">
               <Link to={`/tasks/details/${item._id}`}>
@@ -49,9 +51,11 @@ const TasksCard = ({ tasks }) => {
               <h6>Last edited: </h6>
               <h6>{new Date(item.updatedAt).toLocaleString()}</h6>
             </div>
+            </div>
           </div>
         </Link>
       ))}
+    </div>
     </div>
   );
 };
@@ -69,3 +73,5 @@ TasksCard.propTypes = {
 };
 
 export default TasksCard;
+
+
