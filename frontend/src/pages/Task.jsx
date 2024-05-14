@@ -24,6 +24,7 @@ const Task = () => {
   const [selectedTaskEntry, setSelectedTaskEntry] = useState(null);
   const [openPostEntry, setOpenPostEntry] = useState(null);
   const [slidePosition, setSlidePosition] = useState(-470);
+  const [createdByUsername, setCreatedByUsername] = useState(""); // Step 1
 
   const token = localStorage.getItem("auth-token");
 
@@ -76,11 +77,23 @@ const Task = () => {
 
     // Fetch the task details
     axios
-      .get(`http://localhost:1814/tasks/published/${id}`, config)
-      .then(async (res) => {
-        setTask(res.data.task);
-        console.log(task);
-        setLoading(false);
+  .get(`http://localhost:1814/tasks/published/${id}`, config)
+  .then(async (res) => {
+    setTask(res.data.task);
+    setLoading(false);
+    console.log(res.data.task.createdBy)
+
+    // Fetch the username based on createdBy ID
+    axios
+      .get(`http://localhost:1814/users/${res.data.task.createdBy}`) // Update to use res.data.task.createdBy
+      .then((userRes) => {
+        const createdByUsername = userRes.data[0].fName;
+        setCreatedByUsername(createdByUsername);
+        console.log(createdByUsername)
+      })
+      .catch((userError) => {
+        console.log("Error fetching user:", userError);
+      });
 
         const uniqueUrls = Array.isArray(res.data.task.fileURL)
           ? Array.from(new Set(res.data.task.fileURL))
@@ -248,7 +261,7 @@ const Task = () => {
       if (currentUserJournals.length > 0) {
         return journals.map((journal) => (
           <div>
-            <p className="createdBy">Entry by {task.createdBy}</p>
+            <p className="createdBy">Entry by {createdByUsername}</p>
             <div
               key={journal._id}
               className="taskEntry"
@@ -278,29 +291,29 @@ const Task = () => {
           <>
             {journals.map((journal) => (
               <div>
-                <p className="createdBy">Entry by {task.createdBy}</p>
+                <p className="createdBy">Entry by {createdByUsername}</p>
                 <div className="sharpEdge">
-                <div
-                  key={journal._id}
-                  className="taskEntry blurred"
-                  onClick={() => handleClickTaskEntry(journal)}
-                >
-                  <div>
-                    <h3>{journal.title}</h3>
-                    <div className="taskEntryDesc">
-                      <div
-                        className="truncate"
-                        dangerouslySetInnerHTML={{ __html: journal.content }}
-                      />
+                  <div
+                    key={journal._id}
+                    className="taskEntry blurred"
+                    onClick={() => handleClickTaskEntry(journal)}
+                  >
+                    <div>
+                      <h3>{journal.title}</h3>
+                      <div className="taskEntryDesc">
+                        <div
+                          className="truncate"
+                          dangerouslySetInnerHTML={{ __html: journal.content }}
+                        />
 
-                      <div></div>
+                        <div></div>
+                      </div>
+                    </div>
+
+                    <div className="file_uploads_container taskPage renderTaskAttachment smaller">
+                      {renderTaskAttachment(journal.fileURL)}
                     </div>
                   </div>
-
-                  <div className="file_uploads_container taskPage renderTaskAttachment smaller">
-                    {renderTaskAttachment(journal.fileURL)}
-                  </div>
-                </div>
                 </div>
                 <div className="postToSee">
                   <FaRegEyeSlash size={50} />
@@ -458,37 +471,37 @@ const Task = () => {
         )}
 
         {selectedTaskEntry && openTaskEntry ? (
-           <>
-           <div className="modal postEntry">
-             <div className="closeCreate" onClick={() => handleCloseModal()}>
-               <div>
-                 <IoCloseOutline size={60} color="white" />
-               </div>
-             </div>
-             <div className="openTaskEntryContainer">
-               <div>
-                 <div>
-                   <p>Entry by: {selectedTaskEntry.createdBy}</p>
-                 </div>
-                 <div>
-                   <h2>{selectedTaskEntry.title}</h2>
-                 </div>
-                 <div
-                   dangerouslySetInnerHTML={{
-                     __html: selectedTaskEntry.content,
-                   }}
-                 />
-               </div>
+          <>
+            <div className="modal postEntry">
+              <div className="closeCreate" onClick={() => handleCloseModal()}>
+                <div>
+                  <IoCloseOutline size={60} color="white" />
+                </div>
+              </div>
+              <div className="openTaskEntryContainer">
+                <div>
+                  <div>
+                    <p>Entry by: {selectedTaskEntry.createdBy}</p>
+                  </div>
+                  <div>
+                    <h2>{selectedTaskEntry.title}</h2>
+                  </div>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: selectedTaskEntry.content,
+                    }}
+                  />
+                </div>
 
-               <div>
-                 Attachments
-                 <div className="file_uploads_container taskPage renderTaskAttachment">
-                   {renderTaskAttachment(selectedTaskEntry.fileURL)}
-                 </div>
-               </div>
-             </div>
-           </div>
-         </>
+                <div>
+                  Attachments
+                  <div className="file_uploads_container taskPage renderTaskAttachment">
+                    {renderTaskAttachment(selectedTaskEntry.fileURL)}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </>
         ) : (
           ""
         )}
@@ -496,7 +509,7 @@ const Task = () => {
         <div className="taskRoom_wrapper">
           <div className="taskDescriptionContainer">
             <div className="interested">
-              <div>Task by {task.createdBy}</div>
+              <div>Task by {createdByUsername}</div>
               <div className="interestedContent">
                 <span>Interested?</span>
 
