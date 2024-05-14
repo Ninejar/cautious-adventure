@@ -9,6 +9,8 @@ import "../components/StudentTasks/StudentTasks.css";
 import { jwtDecode } from "jwt-decode";
 
 const TasksOverview = () => {
+  const viteURL = import.meta.env.VITE_URL;
+
   const [tasks, setTasks] = useState([]); // Initialize tasks as an empty array
   const [loading, setLoading] = useState(false);
   const { id } = useParams();
@@ -34,7 +36,7 @@ const TasksOverview = () => {
         const userId = decodedToken._id;
 
         const userResponse = await axios.get(
-          `http://localhost:1814/users/${userId}`,
+          `${viteURL}/users/${userId}`,
           config
         );
         const userData = userResponse.data;
@@ -51,7 +53,7 @@ const TasksOverview = () => {
     setLoading(true);
 
     axios
-      .get(`http://localhost:1814/tasks/published`, config)
+      .get(`${viteURL}/tasks/published`, config)
       .then((res) => {
         let sortedTasks = [...res.data.data];
         if (sortType === "newest") {
@@ -93,7 +95,7 @@ const TasksOverview = () => {
       const userId = decodedToken._id;
 
       const userResponse = await axios.get(
-        `http://localhost:1814/users/${userId}`,
+        `${viteURL}/users/${userId}`,
         config
       );
       const user = userResponse.data;
@@ -104,20 +106,20 @@ const TasksOverview = () => {
       if (isInterested) {
         // If already interested, remove it
         await axios.delete(
-          `http://localhost:1814/users/${userId}/interestedTasks/${taskId}`,
+          `${viteURL}/users/${userId}/interestedTasks/${taskId}`,
           config
         );
       } else {
         // If not interested, add it
         await axios.put(
-          `http://localhost:1814/users/${userId}/interestedTasks/${taskId}`,
+          `${viteURL}/users/${userId}/interestedTasks/${taskId}`,
           null,
           config
         );
       }
 
       const updatedUserResponse = await axios.get(
-        `http://localhost:1814/users/${userId}`,
+        `${viteURL}/users/${userId}`,
         config
       );
       const updatedUser = updatedUserResponse.data;

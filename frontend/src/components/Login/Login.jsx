@@ -8,6 +8,8 @@ import { jwtDecode } from "jwt-decode";
 
 
 const Login = () => {
+  const viteURL = import.meta.env.VITE_URL;
+
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
@@ -17,7 +19,7 @@ const Login = () => {
   const handleLogin = async () => {
     setLoading(true);
     try {
-      const response = await axios.post('http://localhost:1814/users/login', {
+      const response = await axios.post(`${viteURL}/users/login`, {
         email,
         password,
       });

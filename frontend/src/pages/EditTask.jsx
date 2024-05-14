@@ -11,6 +11,8 @@ import "../components/DocumentPage/sheets-of-paper.css";
 import "../components/DocumentPage/sheets-of-paper-a4.css";
 
 const EditTask = () => {
+  const viteURL = import.meta.env.VITE_URL;
+
   const [title, setTitle] = useState("");
   const [shortDesc, setShortDesc] = useState("");
   const [content, setContent] = useState("");
@@ -32,7 +34,7 @@ const EditTask = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`http://localhost:1814/tasks/${id}`, config)
+      .get(`${viteURL}/tasks/${id}`, config)
       .then((res) => {
         setTitle(res.data.task.title);
         setShortDesc(res.data.task.shortDesc);
@@ -61,7 +63,7 @@ const EditTask = () => {
 
     setLoading(true);
     axios
-      .put(`http://localhost:1814/tasks/${id}`, formData, config)
+      .put(`${viteURL}/tasks/${id}`, formData, config)
       .then(() => {
         setLoading(false);
         navigate("/teachers/TeacherTaskHome");
@@ -150,7 +152,7 @@ const EditTask = () => {
               <div key={index}>
                 <div className="attachFile_container">
                   <a
-                    href={`http://localhost:1814/${attachment}`}
+                    href={`${viteURL}/${attachment}`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -158,7 +160,7 @@ const EditTask = () => {
                       File {index + 1}
                       <img
                         className="display_attachment_img"
-                        src={`http://localhost:1814/${attachment}`}
+                        src={`${viteURL}/${attachment}`}
                         alt={`Attachment ${index + 1}`}
                       />
                     </div>

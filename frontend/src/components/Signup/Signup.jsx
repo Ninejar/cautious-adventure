@@ -6,6 +6,8 @@ import './Signup.css'
 
 
 const Signup = () => {
+  const viteURL = import.meta.env.VITE_URL;
+
   const [fName, setfName] = useState('')
   const [lName, setlName] = useState('')
   const [email, setEmail] = useState('')
@@ -24,7 +26,7 @@ const Signup = () => {
     } 
     setLoading(true)
     axios
-      .post('http://localhost:1814/users/signup', data)
+      .post(`${viteURL}/users/signup`, data)
       .then(()=>{
         setLoading(false)
         navigate('/login')

@@ -8,6 +8,8 @@ import Loading from "../Loading";
 import { jwtDecode } from "jwt-decode";
 
 const Create = ({taskId,onDone}) => {
+  const viteURL = import.meta.env.VITE_URL;
+
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [files, setFiles] = useState([]);
@@ -30,7 +32,7 @@ const Create = ({taskId,onDone}) => {
     const userId = decoded._id;
 
     axios
-      .get(`http://localhost:1814/users/${userId}/interestedTasks`, config)
+      .get(`${viteURL}/users/${userId}/interestedTasks`, config)
       .then((res) => {
         const interestedTaskIds = res.data.interestedTasks;
         setInterestedTasks(interestedTaskIds);
@@ -62,7 +64,7 @@ const Create = ({taskId,onDone}) => {
       },
     };
     axios
-      .post("http://localhost:1814/journals", formData, config)
+      .post(`${viteURL}/journals`, formData, config)
       .then(() => {
         setLoading(false);
         onDone();

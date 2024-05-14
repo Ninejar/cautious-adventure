@@ -9,6 +9,8 @@ import { jwtDecode } from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 
 const TeacherSharedByStudentsOverview = () => {
+  const viteURL = import.meta.env.VITE_URL;
+
   const [studentSharedJournals, setStudentSharedJournals] = useState([]);
   const [loading, setLoading] = useState(false);
   const { id } = useParams();
@@ -28,7 +30,7 @@ const TeacherSharedByStudentsOverview = () => {
     setLoading(true);
 
     axios
-      .get(`http://localhost:1814/tasks/published/`, config)
+      .get(`${viteURL}/tasks/published/`, config)
       .then((res) => {
         // Filter tasks with visibility "Publish" and createdBy matching current user ID
         const publishedTasks = res.data.data.filter(
