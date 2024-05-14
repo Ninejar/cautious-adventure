@@ -13,7 +13,7 @@ const Home = () => {
         <main>
             <div className='react-testing' data-testid="Student_log_in" >Journal</div>
         <div className="link_container">
-            <Link to = {`/journals/list`}>
+            <Link to = {`/journals/list`} className='anchorLink'>
                 <div className="link_item journal" >
                 <a href="" className="link_item_container">
                     <div>
@@ -29,7 +29,7 @@ const Home = () => {
             </div>
             </Link>
 
-            <Link to = {`/tasksOverview`}>
+            <Link to = {`/tasksOverview`} className='anchorLink'>
             <div className="link_item tasks">
                 <a href="" className="link_item_container">
                     <div>
@@ -44,7 +44,7 @@ const Home = () => {
             </div>
             </Link>
             
-            <Link to = {`/profile`}>
+            <Link to = {`/profile`} className='anchorLink'>
             <div className="link_item profile">
                 <a href="" className="link_item_container">
                     <div>
@@ -59,7 +59,7 @@ const Home = () => {
             </div>
             </Link>
            
-          <Link to = {`/goals`}>
+          <Link to = {`/goals`} className='anchorLink'>
             <div className="link_item goals">
                 <a href="" className="link_item_container">
                     <div>
