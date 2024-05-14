@@ -12,6 +12,8 @@ import "../components/DocumentPage/sheets-of-paper.css";
 import "../components/DocumentPage/sheets-of-paper-a4.css";
 
 const EditJournal = () => {
+  const viteURL = import.meta.env.VITE_URL;
+
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [visibility, setVisibility] = useState("");
@@ -32,7 +34,7 @@ const EditJournal = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`http://localhost:1814/journals/${id}`, config)
+      .get(`${viteURL}/journals/${id}`, config)
       .then((res) => {
         setTitle(res.data.journal.title);
         setContent(res.data.journal.content);
@@ -60,7 +62,7 @@ const EditJournal = () => {
 
     setLoading(true);
     axios
-      .put(`http://localhost:1814/journals/${id}`, formData, config)
+      .put(`${viteURL}/journals/${id}`, formData, config)
       .then(() => {
         setLoading(false);
         navigate("/journals/list");
@@ -127,7 +129,7 @@ const EditJournal = () => {
                 <div key={index}>
                   <div className="attachment-container">
                     <a
-                      href={`http://localhost:1814/${attachment}`}
+                      href={`${viteURL}/${attachment}`}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -135,7 +137,7 @@ const EditJournal = () => {
                         File {index + 1}
                         <img
                           className="display_attachment_img"
-                          src={`http://localhost:1814/${attachment}`}
+                          src={`${viteURL}/${attachment}`}
                           alt={`Attachment ${index + 1}`}
                         />
                       </div>

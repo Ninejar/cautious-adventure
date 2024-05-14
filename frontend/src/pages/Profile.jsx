@@ -9,10 +9,12 @@ import "../components/Profile/Profile.css";
 import certificatePDF from '../../public/img/certificate.pdf';
 
 const Profile = () => {
-  const [journals, setJournals] = useState([]);
-  const [fname, setfName] = useState("");
-  const [lname, setlName] = useState("");
-  const [loading, setLoading] = useState(false);
+    const viteURL = import.meta.env.VITE_URL;
+
+    const [journals, setJournals] = useState([]);
+    const [fname, setfName] = useState('')
+    const [lname, setlName] = useState('')
+    const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setLoading(true);
@@ -22,16 +24,17 @@ const Profile = () => {
         "auth-token": token, // Set the token in the request headers
       },
     };
-    axios
-      .get("http://localhost:1814/journals", config)
-      .then((res) => {
-        setJournals(res.data.data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.log(error);
-        setLoading(false);
-      });
+        axios
+            .get(`${viteURL}/journals`, config)
+            .then((res) => {
+                setJournals(res.data.data);
+                setLoading(false);
+            })
+            .catch((error) => {
+                console.log(error);
+                setLoading(false);
+            });
+
 
     if (token) {
       const decoded = jwtDecode(token);
