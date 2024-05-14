@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../components/NavBar/Navbar";
+import NewNavbar from "../components/NavBar/NewNavbar";
 import axios from "axios";
 import Loading from "../components/Loading";
 import { useParams } from "react-router-dom";
@@ -404,7 +405,7 @@ const Task = () => {
 
   return (
     <div className="app">
-      <Navbar />
+      <NewNavbar />
       <div className="content">
         <div className="backbutton">
           <BackButton destination="/tasksOverview" />{" "}

@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { MdOutlineDelete } from "react-icons/md";
 import Navbar from "../components/NavBar/Navbar";
+import NewNavbar from "../components/NavBar/NewNavbar";
 import BackButton from "../components/BackButton/BackButton";
 import Loading from "../components/Loading";
 import Page from "../components/DocumentPage/DocumentPage";
@@ -106,7 +107,7 @@ const EditJournal = () => {
 
   return (
     <div className="app">
-      <Navbar />
+      <NewNavbar />
       <div className="content">
         <div className="backbutton">
           <BackButton destination="/journals/list" />

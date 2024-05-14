@@ -12,6 +12,7 @@ import Navbar from "../components/NavBar/Navbar";
 import JournalsCard from "../components/JournalsHome/JournalsCard";
 import JournalsTable from "../components/JournalsHome/JournalsTable";
 import "../components/JournalsHome/FilterSort.css";
+import NewNavbar from "../components/NavBar/NewNavbar";
 
 const Home = () => {
   const viteURL = import.meta.env.VITE_URL;
@@ -68,7 +69,7 @@ const Home = () => {
 
   return (
     <div className="app">
-      <Navbar />
+      <NewNavbar />
       <div className="content">
         <div className="backbutton">
           <BackButton /> <h1>Journal list</h1>

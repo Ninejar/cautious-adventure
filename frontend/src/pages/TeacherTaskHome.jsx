@@ -5,6 +5,7 @@ import { MdOutlineAddBox } from "react-icons/md";
 import Loading from "../components/Loading";
 import BackButton from "../components/BackButton/BackButton";
 import Navbar from "../components/NavBar/Navbar";
+import NewNavbar from "../components/NavBar/NewNavbar";
 import TasksCard from "../components/TasksHome/tasksCard";
 
 const TeacherHome = () => {
@@ -61,7 +62,7 @@ const TeacherHome = () => {
 
   return (
     <div className="app">
-      <Navbar />
+      <NewNavbar />
       <div className="content">
         <div className="backbutton">
           <BackButton destination="/teachers" />

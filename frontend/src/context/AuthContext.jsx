@@ -13,6 +13,7 @@ export const AuthProvider = ({ children }) => {
     userRole: "",
   });
 
+
   useEffect(() => {
     // Store token
     const token = localStorage.getItem("auth-token");
@@ -37,7 +38,7 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     localStorage.removeItem("auth-token");
     setAuthState({ userRole: "" });
-    navigate("/login");
+    navigate("/");
   };
 
   // Login function

@@ -2,11 +2,12 @@ import React from 'react'
 import '../components/Goals/Goals.css'
 import Navbar from "../components/NavBar/Navbar";
 import BackButton from '../components/BackButton/BackButton';
+import NewNavbar from "../components/NavBar/NewNavbar";
 
  const Goals = () => {
     return (
         <div className="app">
-        <Navbar />
+        <NewNavbar />
         <div className='content'>
             <div className="backbutton"> 
             <BackButton destination='/journals' /> 

@@ -5,10 +5,11 @@ import Navbar from "../components/NavBar/Navbar";
 import '../components/LinkItem/LinkItem.css'
 import '../components/Notifications/Notifications.css'
 import { FaCircle } from "react-icons/fa";
+import NewNavbar from '../components/NavBar/NewNavbar';
 const TeacherHome = () => {
   return (
     <div className="app">
-        <Navbar />
+        <NewNavbar />
 
         <div className='content'>
         <main>

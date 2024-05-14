@@ -3,6 +3,7 @@ import axios from "axios";
 import Loading from "../components/Loading";
 import { Link, useParams } from "react-router-dom";
 import Navbar from "../components/NavBar/Navbar";
+import NewNavbar from "../components/NavBar/NewNavbar";
 import BackButton from "../components/BackButton/BackButton";
 import { jwtDecode } from "jwt-decode";
 import "../components/Profile/Profile.css";
@@ -90,7 +91,7 @@ const Profile = () => {
 
   return (
     <div className="app">
-      <Navbar />
+      <NewNavbar />
       <div className="content">
         <div className="backbutton">
           <BackButton destination="/journals" /> <h1>Profile</h1>
