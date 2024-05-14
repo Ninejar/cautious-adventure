@@ -6,6 +6,8 @@ import "./navBarStyle.css"; // Import CSS for Navbar styling
 import { useAuth } from "../../context/AuthContext";
 
 const Navbar = () => {
+  const viteURL = import.meta.env.VITE_URL;
+
   // State to manage submenu visibility
   const [subMenuVisible, setSubMenuVisible] = useState({ goalSubMenu: false, journalSubMenu: false, privateSubMenu: false, sharedSubMenu: false, profileMenu: false });
 
@@ -32,7 +34,7 @@ const Navbar = () => {
   // Function to fetch and log journal titles
   const fetchAndLogJournalTitles = async () => {
     try {
-      const response = await axios.get("http://localhost:1814/journals", config); // Fetch journals data from API
+      const response = await axios.get(`${viteURL}/journals`, config); // Fetch journals data from API
       const sortedJournals = response.data.data.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
 
       // Get the first 6 journals after sorting

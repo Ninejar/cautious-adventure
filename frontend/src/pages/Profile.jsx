@@ -8,6 +8,8 @@ import { jwtDecode } from "jwt-decode";
 import '../components/Profile/Profile.css'
 
 const Profile = () => {
+    const viteURL = import.meta.env.VITE_URL;
+
     const [journals, setJournals] = useState([]);
     const [fname, setfName] = useState('')
     const [lname, setlName] = useState('')
@@ -22,7 +24,7 @@ const Profile = () => {
       }
     };
         axios
-            .get("http://localhost:1814/journals", config)
+            .get(`${viteURL}/journals`, config)
             .then((res) => {
                 setJournals(res.data.data);
                 setLoading(false);

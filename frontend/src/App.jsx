@@ -7,6 +7,7 @@ import CreateJournal from './pages/CreateJournal'
 import ShowJournal from './pages/ShowJournal'
 import EditJournal from './pages/EditJournal'
 import DeleteJournal from './pages/DeleteJournal'
+import DeleteTask from './pages/TeacherDeleteTask'
 import Profile from './pages/Profile'
 import Signup from './components/Signup/Signup'
 import Login from './components/Login/Login'
@@ -49,6 +50,7 @@ const App = () => {
       <Route path = "/teachers/edit/:id" element = {<EditTask />} />
       <Route path = "/teachers/shared" element = {<TeacherSharedByStudentsOverview />}></Route>
       <Route path = "/teachers/shared/:id" element = {<TeacherSharedByStudents />}></Route>
+      <Route path = "/tasks/delete/:id" element = {<DeleteTask />}></Route>
     </Routes>
   )
 }

@@ -14,6 +14,8 @@ import { FaArrowLeft } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa";
 
 const TeacherSharedByStudents = () => {
+  const viteURL = import.meta.env.VITE_URL;
+
   const [task, setTask] = useState({});
   const [journals, setJournals] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -43,7 +45,7 @@ const TeacherSharedByStudents = () => {
         const userId = decodedToken._id;
 
         const userResponse = await axios.get(
-          `http://localhost:1814/users/${userId}`,
+          `${viteURL}/users/${userId}`,
           config
         );
         const userData = userResponse.data;
@@ -59,7 +61,7 @@ const TeacherSharedByStudents = () => {
   const fetchUserNameById = async (userId) => {
     try {
       const response = await axios.get(
-        `http://localhost:1814/users/${userId}`,
+        `${viteURL}/users/${userId}`,
         config
       );
       const fName = response.data[0].fName;
@@ -76,7 +78,7 @@ const TeacherSharedByStudents = () => {
 
     // Fetch the task details
     axios
-      .get(`http://localhost:1814/tasks/published/${id}`, config)
+      .get(`${viteURL}/tasks/published/${id}`, config)
       .then(async (res) => {
         setTask(res.data.task);
         console.log(task);
@@ -94,7 +96,7 @@ const TeacherSharedByStudents = () => {
 
     // Fetch all journals related to the task
     axios
-      .get(`http://localhost:1814/journals/shared`, config)
+      .get(`${viteURL}/journals/shared`, config)
       .then((res) => {
         // Filter journals by taskId
         const filteredJournals = res.data.data.filter(
@@ -116,7 +118,7 @@ const TeacherSharedByStudents = () => {
             <div key={index}>
               <a
                 className="file"
-                href={`http://localhost:1814/${url}`}
+                href={`${viteURL}/${url}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -134,7 +136,7 @@ const TeacherSharedByStudents = () => {
             <div key={index}>
               <img
                 className="file"
-                src={`http://localhost:1814/${url}`}
+                src={`${viteURL}/${url}`}
                 alt="Attachment"
               />
             </div>
@@ -144,7 +146,7 @@ const TeacherSharedByStudents = () => {
             <div key={index}>
               <a
                 className="file"
-                href={`http://localhost:1814/${url}`}
+                href={`${viteURL}/${url}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -168,7 +170,7 @@ const TeacherSharedByStudents = () => {
             <div key={index}>
               <a
                 className="file"
-                href={`http://localhost:1814/${url}`}
+                href={`${viteURL}/${url}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -186,7 +188,7 @@ const TeacherSharedByStudents = () => {
             <div key={index}>
               <img
                 className="file"
-                src={`http://localhost:1814/${url}`}
+                src={`${viteURL}/${url}`}
                 alt="Attachment"
               />
             </div>
@@ -196,7 +198,7 @@ const TeacherSharedByStudents = () => {
             <div key={index}>
               <a
                 className="file"
-                href={`http://localhost:1814/${url}`}
+                href={`${viteURL}/${url}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -224,7 +226,7 @@ const TeacherSharedByStudents = () => {
   const handleDone = async () => {
     setOpenPostEntry(false);
     const res = await axios.get(
-      `http://localhost:1814/journals/shared`,
+      `${viteURL}/journals/shared`,
       config
     );
     const updatedJournals = res.data.data.filter(
@@ -289,7 +291,7 @@ const TeacherSharedByStudents = () => {
       const userId = decodedToken._id;
 
       const userResponse = await axios.get(
-        `http://localhost:1814/users/${userId}`,
+        `${viteURL}/users/${userId}`,
         config
       );
       const user = userResponse.data;
@@ -304,20 +306,20 @@ const TeacherSharedByStudents = () => {
       if (isInterested) {
         // If already interested, remove it
         await axios.delete(
-          `http://localhost:1814/users/${userId}/interestedTasks/${taskId}`,
+          `${viteURL}/users/${userId}/interestedTasks/${taskId}`,
           config
         );
       } else {
         // If not interested, add it
         await axios.put(
-          `http://localhost:1814/users/${userId}/interestedTasks/${taskId}`,
+          `${viteURL}/users/${userId}/interestedTasks/${taskId}`,
           null,
           config
         );
       }
 
       const updatedUserResponse = await axios.get(
-        `http://localhost:1814/users/${userId}`,
+        `${viteURL}/users/${userId}`,
         config
       );
       const updatedUser = updatedUserResponse.data;

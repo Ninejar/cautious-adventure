@@ -14,6 +14,8 @@ import { FaArrowLeft } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa";
 
 const Task = () => {
+  const viteURL = import.meta.env.VITE_URL;
+
   const [task, setTask] = useState({});
   const [journals, setJournals] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -44,7 +46,7 @@ const Task = () => {
         const userId = decodedToken._id;
 
         const userResponse = await axios.get(
-          `http://localhost:1814/users/${userId}`,
+          `${viteURL}/users/${userId}`,
           config
         );
         const userData = userResponse.data;
@@ -60,7 +62,7 @@ const Task = () => {
   const fetchUserNameById = async (userId) => {
     try {
       const response = await axios.get(
-        `http://localhost:1814/users/${userId}`,
+        `${viteURL}/users/${userId}`,
         config
       );
       const fName = response.data[0].fName;
@@ -77,15 +79,15 @@ const Task = () => {
 
     // Fetch the task details
     axios
-  .get(`http://localhost:1814/tasks/published/${id}`, config)
-  .then(async (res) => {
-    setTask(res.data.task);
-    setLoading(false);
-    console.log(res.data.task.createdBy)
+      .get(`${viteURL}/tasks/published/${id}`, config)
+      .then(async (res) => {
+        setTask(res.data.task);
+        console.log(task);
+        setLoading(false);
 
     // Fetch the username based on createdBy ID
     axios
-      .get(`http://localhost:1814/users/${res.data.task.createdBy}`) // Update to use res.data.task.createdBy
+      .get(`${viteURL}/users/${res.data.task.createdBy}`) // Update to use res.data.task.createdBy
       .then((userRes) => {
         const createdByUsername = userRes.data[0].fName;
         setCreatedByUsername(createdByUsername);
@@ -107,7 +109,7 @@ const Task = () => {
 
     // Fetch all journals related to the task
     axios
-      .get(`http://localhost:1814/journals/shared`, config)
+      .get(`${viteURL}/journals/shared`, config)
       .then((res) => {
         // Filter journals by taskId
         const filteredJournals = res.data.data.filter(
@@ -129,7 +131,7 @@ const Task = () => {
             <div key={index}>
               <a
                 className="file"
-                href={`http://localhost:1814/${url}`}
+                href={`${viteURL}/${url}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -147,7 +149,7 @@ const Task = () => {
             <div key={index}>
               <img
                 className="file"
-                src={`http://localhost:1814/${url}`}
+                src={`${viteURL}/${url}`}
                 alt="Attachment"
               />
             </div>
@@ -157,7 +159,7 @@ const Task = () => {
             <div key={index}>
               <a
                 className="file"
-                href={`http://localhost:1814/${url}`}
+                href={`${viteURL}/${url}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -181,7 +183,7 @@ const Task = () => {
             <div key={index}>
               <a
                 className="file"
-                href={`http://localhost:1814/${url}`}
+                href={`${viteURL}/${url}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -199,7 +201,7 @@ const Task = () => {
             <div key={index}>
               <img
                 className="file"
-                src={`http://localhost:1814/${url}`}
+                src={`${viteURL}/${url}`}
                 alt="Attachment"
               />
             </div>
@@ -209,7 +211,7 @@ const Task = () => {
             <div key={index}>
               <a
                 className="file"
-                href={`http://localhost:1814/${url}`}
+                href={`${viteURL}/${url}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -241,7 +243,7 @@ const Task = () => {
   const handleDone = async () => {
     setOpenPostEntry(false);
     const res = await axios.get(
-      `http://localhost:1814/journals/shared`,
+      `${viteURL}/journals/shared`,
       config
     );
     const updatedJournals = res.data.data.filter(
@@ -349,7 +351,7 @@ const Task = () => {
       const userId = decodedToken._id;
 
       const userResponse = await axios.get(
-        `http://localhost:1814/users/${userId}`,
+        `${viteURL}/users/${userId}`,
         config
       );
       const user = userResponse.data;
@@ -364,20 +366,20 @@ const Task = () => {
       if (isInterested) {
         // If already interested, remove it
         await axios.delete(
-          `http://localhost:1814/users/${userId}/interestedTasks/${taskId}`,
+          `${viteURL}/users/${userId}/interestedTasks/${taskId}`,
           config
         );
       } else {
         // If not interested, add it
         await axios.put(
-          `http://localhost:1814/users/${userId}/interestedTasks/${taskId}`,
+          `${viteURL}/users/${userId}/interestedTasks/${taskId}`,
           null,
           config
         );
       }
 
       const updatedUserResponse = await axios.get(
-        `http://localhost:1814/users/${userId}`,
+        `${viteURL}/users/${userId}`,
         config
       );
       const updatedUser = updatedUserResponse.data;
