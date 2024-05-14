@@ -80,7 +80,7 @@ button:focus-visible {
 
 .content{
   grid-area: content;
-  margin: 50px 2%;
+  margin: 0px 2%;
 }
 
 
@@ -101,3 +101,5 @@ main{
 /* h1{
   margin: 3% 0;
 } */
+
+/* *{outline:1px solid red} */

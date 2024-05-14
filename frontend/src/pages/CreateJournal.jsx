@@ -32,6 +32,7 @@ const CreateJournal = () => {
     };
     const decoded = jwtDecode(token);
     const userId = decoded._id;
+    console.log(token)
 
     axios
       .get(`http://localhost:1814/users/${userId}/interestedTasks`, config)
