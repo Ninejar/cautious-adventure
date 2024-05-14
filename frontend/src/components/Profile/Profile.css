@@ -94,4 +94,8 @@
     /* display: none; */
 }
 
+.certificate{
+    border: 4px solid #FFD700;
+}
+
 /* *{outline: 1px solid red;}  */
