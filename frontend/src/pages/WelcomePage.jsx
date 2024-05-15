@@ -1,15 +1,38 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import RoleButtons from '../components/RoleButtons/RoleButtons';
-import '../components/RoleButtons/Rolebuttons.css'; // Import the CSS file
+import '../components/WelcomePage/WelcomePage.css'; 
+
 
 const WelcomePage = () => {
   return (
     <>
-      <p>Welcome</p>
+      <h1 class="welcomeTitle">Welcome</h1>
+      <div class="welcome-content">
+        <div class="text">
+          <div class="welcomeSus">
+            <h2 class="welcome-subTitle">About sustainability:</h2>
+            <p class="welcomeText">The United Nations has established 17 Sustainable Development Goals to address global challenges and achieve a better and more sustainable future for all by 2030. These goals cover a wide range of issues covering the most important topics. Each goal is interconnected, and the aim is to leave no one behind in the journey towards sustainable development.</p>
+          </div>
+          <div class="welcomeAbout">
+            <h2 class="welcome-subTitle">About the diary's purpose:</h2>
+            <p class="welcomeText">The Digital Sustainability Diary is a tool designed to help students engage with and reflect on the UN's sustainability goals. It allows students to journal about their daily actions and thoughts related to sustainability, helping them explore how their activities align with the sustainability development goals and consider ways to contribute to a more sustainable world. This reflective practice promotes personal growth and a deeper understanding of sustainability over time.</p>
+          </div>
+          <div class="welcomeFunction">
+            <h2 class="welcome-subTitle">About the diary's functions:</h2>
+            <p class="welcomeText">The diary also fosters a supportive learning environment through teacher-student interaction. Students can choose to share their reflections with teachers, who provide feedback and guidance, enhancing learning without the pressure of grading. Additionally, the diary empowers students by giving them control over their entries, allowing them to keep reflections private or share them, fostering a sense of autonomy and ownership. This encourages honest and personal reflections, making the diary a valuable tool for personal development.</p>
+          </div>
+          
+          
+          
+        </div>
+        <div class="side-content">
+          <a href="/login" data-testid="loginyouknow" class="welcomeButtons">Already registered ?</a>
+          <a href="/Signup" class="welcomeButtons">Signup now !</a>
+        </div>
+        
+      </div>
 
-      <a href="/login" data-testid="loginyouknow">Login</a>
-      <a href="/Signup">Signup</a>
+     
     
     </>
   );
