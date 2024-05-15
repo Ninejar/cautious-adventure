@@ -35,7 +35,7 @@ const signup = async (req, res) => {
     const emailExists = await User.findOne({email: req.body.email})
 
     if(emailExists){
-        return res.status(400).send('Email already exists')
+        return res.status(400).send('Email already exists.')
     }
 
     if (!req.body.fName) {
@@ -56,6 +56,16 @@ const signup = async (req, res) => {
 
     if (!req.body.role) {
         return res.status(400).send('You must choose a role.');
+    }
+
+    if (req.body.role, req.body.password, req.body.email, req.body.lName, req.body.fName){
+        if (!req.body.email.match(/^\S+@\S+\.\S+$/)) {
+            return res.status(400).send('Invalid email format (example@email.x)');
+        }
+
+        if (req.body.password.length < 8){
+            return res.status(400).send('Password must be at least 8 characters.');
+        }
     }
 
 

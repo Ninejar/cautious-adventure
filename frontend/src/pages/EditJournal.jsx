@@ -11,6 +11,7 @@ import ConfirmationModal from "../components/ConfirmationModal/ConfirmationModal
 import "react-quill/dist/quill.snow.css";
 import "../components/DocumentPage/sheets-of-paper.css";
 import "../components/DocumentPage/sheets-of-paper-a4.css";
+import { useToast } from "../context/toastContext"; 
 
 const EditJournal = () => {
   const viteURL = import.meta.env.VITE_URL;
@@ -24,6 +25,8 @@ const EditJournal = () => {
   const [attachmentToDelete, setAttachmentToDelete] = useState(null);
   const navigate = useNavigate();
   const { id } = useParams();
+
+  const { showToast } = useToast();
 
   const token = localStorage.getItem("auth-token");
   const config = {
@@ -66,7 +69,9 @@ const EditJournal = () => {
       .put(`${viteURL}/journals/${id}`, formData, config)
       .then(() => {
         setLoading(false);
+        localStorage.setItem("toastMessage", "Journal updated successfully!");
         navigate("/journals/list");
+        
       })
       .catch((error) => {
         setLoading(false);
