@@ -4,6 +4,7 @@ import {useParams} from 'react-router-dom'
 import Loading from '../components/Loading'
 import BackButton from '../components/BackButton/BackButton'
 import Navbar from "../components/NavBar/Navbar";
+import NewNavbar from "../components/NavBar/NewNavbar";
 import '../components/ShowJournal/ShowJournal.css'
 
 const ShowJournal = () => {
@@ -90,7 +91,7 @@ const ShowJournal = () => {
 
   return (
     <div className="app">
-      <Navbar />
+      <NewNavbar />
       <div className="content">
         <div className="backbutton">
           <BackButton destination="/journals/list" />

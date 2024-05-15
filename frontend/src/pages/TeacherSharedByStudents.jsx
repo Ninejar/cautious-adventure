@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../components/NavBar/Navbar";
+import NewNavbar from "../components/NavBar/NewNavbar";
 import axios from "axios";
 import Loading from "../components/Loading";
 import { useParams } from "react-router-dom";
@@ -242,7 +243,6 @@ const TeacherSharedByStudents = () => {
       if (journals.length > 0) {
         return journals.map((journal) => (
           <div>
-            <p className="createdBy">Entry by {task.createdBy}</p>
             <div
               key={journal._id}
               className="taskEntry"
@@ -271,7 +271,7 @@ const TeacherSharedByStudents = () => {
       // Render message when no journals are available
       return (
         <div>
-          <p>-</p>
+          {/* <p>-</p> */}
           <div className="sharpEdge">
             <div className="taskEntry"></div>
           </div>
@@ -344,7 +344,7 @@ const TeacherSharedByStudents = () => {
 
   return (
     <div className="app">
-      <Navbar />
+      <NewNavbar />
       <div className="content">
         <div className="backbutton">
           <BackButton destination="/teachers/shared" />{" "}
@@ -423,7 +423,7 @@ const TeacherSharedByStudents = () => {
               <div className="openTaskEntryContainer">
                 <div>
                   <div>
-                    <p>Entry by: {selectedTaskEntry.createdBy}</p>
+                    {/* <p>Entry by: {selectedTaskEntry.createdBy}</p> */}
                   </div>
                   <div>
                     <h2>{selectedTaskEntry.title}</h2>
@@ -452,6 +452,7 @@ const TeacherSharedByStudents = () => {
           <div className="taskDescriptionContainer">
             <div className="title">
               <h2>{task.title}</h2>
+              <p>{task.shortDesc}</p>
             </div>
 
             <div className="description">

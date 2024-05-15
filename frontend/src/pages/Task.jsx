@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../components/NavBar/Navbar";
+import NewNavbar from "../components/NavBar/NewNavbar";
 import axios from "axios";
 import Loading from "../components/Loading";
 import { useParams } from "react-router-dom";
@@ -263,7 +264,7 @@ const Task = () => {
       if (currentUserJournals.length > 0) {
         return journals.map((journal) => (
           <div>
-            <p className="createdBy">Entry by {createdByUsername}</p>
+            {/* <p className="createdBy">Entry by {createdByUsername}</p> */}
             <div
               key={journal._id}
               className="taskEntry"
@@ -293,7 +294,7 @@ const Task = () => {
           <>
             {journals.map((journal) => (
               <div>
-                <p className="createdBy">Entry by {createdByUsername}</p>
+                {/* <p className="createdBy">Entry by {createdByUsername}</p> */}
                 <div className="sharpEdge">
                   <div
                     key={journal._id}
@@ -331,7 +332,7 @@ const Task = () => {
       // Render message when no journals are available
       return (
         <div>
-          <p>-</p>
+          {/* <p>-</p> */}
           <div className="sharpEdge">
             <div className="taskEntry"></div>
           </div>
@@ -404,7 +405,7 @@ const Task = () => {
 
   return (
     <div className="app">
-      <Navbar />
+      <NewNavbar />
       <div className="content">
         <div className="backbutton">
           <BackButton destination="/tasksOverview" />{" "}
@@ -483,7 +484,7 @@ const Task = () => {
               <div className="openTaskEntryContainer">
                 <div>
                   <div>
-                    <p>Entry by: {selectedTaskEntry.createdBy}</p>
+                    {/* <p>Entry by: {selectedTaskEntry.createdBy}</p> */}
                   </div>
                   <div>
                     <h2>{selectedTaskEntry.title}</h2>
@@ -533,6 +534,7 @@ const Task = () => {
 
             <div className="title">
               <h2>{task.title}</h2>
+              <p>{task.shortDesc}</p>
             </div>
 
             <div className="description">
@@ -555,7 +557,7 @@ const Task = () => {
             <div className="taskEntriesContainer">
               <div>
                 {" "}
-                -
+                
                 <div
                   className="taskEntry createNew"
                   onClick={() => handleClickPostEntry()}

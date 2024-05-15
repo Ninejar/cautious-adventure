@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { MdOutlineDelete } from "react-icons/md";
 import Navbar from "../components/NavBar/Navbar";
+import NewNavbar from "../components/NavBar/NewNavbar";
 import BackButton from "../components/BackButton/BackButton";
 import Loading from "../components/Loading";
 import Page from "../components/DocumentPage/DocumentPage";
@@ -10,6 +11,7 @@ import ConfirmationModal from "../components/ConfirmationModal/ConfirmationModal
 import "react-quill/dist/quill.snow.css";
 import "../components/DocumentPage/sheets-of-paper.css";
 import "../components/DocumentPage/sheets-of-paper-a4.css";
+import { useToast } from "../context/toastContext"; 
 
 const EditJournal = () => {
   const viteURL = import.meta.env.VITE_URL;
@@ -23,6 +25,8 @@ const EditJournal = () => {
   const [attachmentToDelete, setAttachmentToDelete] = useState(null);
   const navigate = useNavigate();
   const { id } = useParams();
+
+  const { showToast } = useToast();
 
   const token = localStorage.getItem("auth-token");
   const config = {
@@ -65,7 +69,9 @@ const EditJournal = () => {
       .put(`${viteURL}/journals/${id}`, formData, config)
       .then(() => {
         setLoading(false);
+        localStorage.setItem("toastMessage", "Journal updated successfully!");
         navigate("/journals/list");
+        
       })
       .catch((error) => {
         setLoading(false);
@@ -106,7 +112,7 @@ const EditJournal = () => {
 
   return (
     <div className="app">
-      <Navbar />
+      <NewNavbar />
       <div className="content">
         <div className="backbutton">
           <BackButton destination="/journals/list" />

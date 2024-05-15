@@ -5,17 +5,18 @@ import Navbar from "../components/NavBar/Navbar";
 import '../components/LinkItem/LinkItem.css'
 import '../components/Notifications/Notifications.css'
 import { FaCircle } from "react-icons/fa";
+import NewNavbar from '../components/NavBar/NewNavbar';
 const TeacherHome = () => {
   return (
     <div className="app">
-        <Navbar />
+        <NewNavbar />
 
         <div className='content'>
         <main>
         <div className='react-testing' data-testid="TeacherHome" >TeacherHome</div>
         <div className="link_container">
             
-            <Link to = {`/teachers/shared`}>
+            <Link to = {`/teachers/shared`} className="anchorLink">
             <div className="link_item shared">
                 <a href="" className="link_item_container">
                     <div>
@@ -30,7 +31,7 @@ const TeacherHome = () => {
             </div>
             </Link>
 
-            <Link to = {`/teachers/TeacherTaskHome`}>
+            <Link to = {`/teachers/TeacherTaskHome`} className="anchorLink">
             <div className="link_item tasks">
                 <a href="" className="link_item_container">
                     <div>

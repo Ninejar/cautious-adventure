@@ -3,6 +3,7 @@ import axios from "axios";
 import Loading from "../components/Loading";
 import { Link, useParams } from "react-router-dom";
 import Navbar from "../components/NavBar/Navbar";
+import NewNavbar from "../components/NavBar/NewNavbar";
 import BackButton from "../components/BackButton/BackButton";
 import { jwtDecode } from "jwt-decode";
 import "../components/Profile/Profile.css";
@@ -90,7 +91,7 @@ const Profile = () => {
 
   return (
     <div className="app">
-      <Navbar />
+      <NewNavbar />
       <div className="content">
         <div className="backbutton">
           <BackButton destination="/journals" /> <h1>Profile</h1>
@@ -109,7 +110,7 @@ const Profile = () => {
               <span>{journals.length}</span> <p>Total journal entries</p>
             </div>
             <div>
-              <span>{totalAchievementsUnlocked()} / 7</span>{" "}
+              <span>{totalAchievementsUnlocked()} / 8</span>{" "}
               <p>Achievements unlocked</p>
             </div>
           </div>
@@ -203,7 +204,7 @@ const Profile = () => {
           <figure>
             {journals.length >= 25 ? (
               <>
-                <img src="../public/img/achievement_20.png" alt="placeholder" />
+                <img src="../public/img/achievement_25.png" alt="placeholder" />
                 <div className="figcaption_container">
                   <figcaption>You have 25 entries</figcaption>
                   <figcaption>Unlocked at {getAchievementTime(25)}</figcaption>
@@ -219,7 +220,7 @@ const Profile = () => {
           <figure>
             {journals.length >= 30 ? (
               <>
-                <img src="../public/img/achievement_20.png" alt="placeholder" />
+                <img src="../public/img/achievement_30.png" alt="placeholder" />
                 <div className="figcaption_container">
                   <figcaption>You have 30 entries</figcaption>
                   <figcaption>Unlocked at {getAchievementTime(30)}</figcaption>

@@ -3,6 +3,7 @@ import BackButton from "../components/BackButton/BackButton"
 import Loading from "../components/Loading"
 import Navbar from "../components/NavBar/Navbar"
 import axios from "axios"
+import NewNavbar from "../components/NavBar/NewNavbar";
 import { useNavigate, useParams } from "react-router-dom"
 
 const DeleteTask = () => {
@@ -36,7 +37,7 @@ const DeleteTask = () => {
 
     return(
         <div className="app">
-            <Navbar />
+            <NewNavbar />
 
             <div className="content">
                 <div className="backbutton"><BackButton destination="/Teachers/TeacherTaskHome" /> <h1>Delete task</h1></div>

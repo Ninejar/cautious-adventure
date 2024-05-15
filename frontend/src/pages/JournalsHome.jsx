@@ -12,6 +12,8 @@ import Navbar from "../components/NavBar/Navbar";
 import JournalsCard from "../components/JournalsHome/JournalsCard";
 import JournalsTable from "../components/JournalsHome/JournalsTable";
 import "../components/JournalsHome/FilterSort.css";
+import NewNavbar from "../components/NavBar/NewNavbar";
+import { useToast } from "../context/toastContext"; 
 
 const Home = () => {
   const viteURL = import.meta.env.VITE_URL;
@@ -22,6 +24,7 @@ const Home = () => {
   const [sortType, setSortType] = useState("newest"); // Default sorting type
   const [filterType, setFilterType] = useState("all"); // Default filtering type
 
+  const { showToast } = useToast();
   useEffect(() => {
     setLoading(true);
     const token = localStorage.getItem("auth-token");
@@ -51,6 +54,12 @@ const Home = () => {
         }
         setJournals(sortedJournals);
         setLoading(false);
+
+        const storedToastMessage = localStorage.getItem("toastMessage");
+        if (storedToastMessage) {
+          showToast(storedToastMessage);
+          localStorage.removeItem("toastMessage"); 
+        }
       })
       .catch((error) => {
         console.log(error);
@@ -68,7 +77,7 @@ const Home = () => {
 
   return (
     <div className="app">
-      <Navbar />
+      <NewNavbar />
       <div className="content">
         <div className="backbutton">
           <BackButton /> <h1>Journal list</h1>

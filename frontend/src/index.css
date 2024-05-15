@@ -71,17 +71,18 @@ button:focus-visible {
 } */
 
 
-.app{
+/* .app{
   display: grid;
   grid-template-columns: 1px 1fr;
   grid-template-areas: "nav content ";
   height: 100vh;
-}
+} */
 
-.content{
+/* .content{
   grid-area: content;
-  margin: 0px 2%;
-}
+  margin: 3% 2%;
+} */
+
 
 
 
@@ -89,7 +90,7 @@ main{
   display: flex;
   padding: 4%;
   gap: 10px;
-  height: 100%;
+
 }
 
 .react-testing{

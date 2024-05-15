@@ -1,0 +1,117 @@
+.welcome_wrapper{
+    display: flex;
+}
+
+.welcome_text{
+    width: 50vw;
+    height: 100%;
+    margin: 10% 0 0 5%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+}
+
+/* *{outline: 1px solid red;} */
+.welcome_signup_wrapper{
+    display: flex;
+}
+
+.welcome_signup{
+    background-color: #17A2B8;
+    padding: 1% 2.5%;
+    border-radius: 7px;
+    color: white;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+
+.welcome_nav {
+    height: auto;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    width: 100%;
+}
+
+.welcome_nav a:visited{
+ color: white;
+}
+
+.welcome_nav .logo img{
+   width: 50px;
+
+}
+
+.welcome_nav li{
+    transition: 0.15s ease-in-out ;
+}
+
+.welcome_nav li.placeholderLink:hover{
+    opacity: 1;
+    cursor:default;
+
+}
+
+.welcome_nav li:hover{
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.welcome_nav .logo li{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.welcome_nav .logo{
+    margin-left: 20px;
+    list-style: none;
+ 
+ }
+
+
+.welcome_nav .logsig{
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    align-items: center;
+
+}
+
+.welcome_nav .logsig li{
+    margin-right: 20px;
+}
+
+.welcome_nav .signup{
+    padding: 0.25em 0.5em;
+    border-radius: 7px;
+    color: white;
+    font-weight: 500;
+    border: 2px solid #17A2B8;
+}
+
+
+.welcome_nav .logout{
+    color: red;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+}
+
+.welcome_nav .signup,
+.welcome_nav .signin{
+    transition: 0.1s ease-in-out;
+}
+
+.welcome_nav .signup:hover,
+.welcome_nav .signin:hover{
+    opacity: 0.65;
+
+}
+
+

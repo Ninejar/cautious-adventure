@@ -65,3 +65,13 @@
   .seventeen{
     background-color: #14496B;
   }
+
+
+  .motivation_letter{
+    width: 80%;
+   margin: 0 auto;
+   margin-top: 7%;
+   && p,h2{
+    margin-bottom: 2%;
+   }
+  }

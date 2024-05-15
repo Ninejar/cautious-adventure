@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../components/NavBar/Navbar";
+import NewNavbar from "../components/NavBar/NewNavbar";
 import axios from "axios";
 import Loading from "../components/Loading";
 import { useParams } from "react-router-dom";
@@ -139,13 +140,13 @@ const TasksOverview = () => {
 
   return (
     <div className="app">
-      <Navbar />
+      <NewNavbar />
       <div className="content">
         <div className="backbutton">
           <BackButton destination="/journals" /> <h1>Tasks</h1>
         </div>
 
-        <div className="sorting_filters">
+        <div className="sorting_filters teacherTaskHome">
           <p>Sort by:</p>
           <select
             value={sortType}

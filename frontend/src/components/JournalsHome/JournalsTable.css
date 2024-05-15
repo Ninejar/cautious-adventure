@@ -1,5 +1,6 @@
 table {
-    width: 100%;
+    width: 80%;
+    margin: 0 auto;
     border-collapse: collapse;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
@@ -38,7 +39,10 @@ table {
   }
 
   .new_journal_btn_container{
-    margin-top: -62px;
+    margin-top: -92px;
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
   }
 
   /* *{outline: 1px solid red;} */

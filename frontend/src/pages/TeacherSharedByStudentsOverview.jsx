@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../components/NavBar/Navbar";
+import NewNavbar from "../components/NavBar/NewNavbar";
 import axios from "axios";
 import Loading from "../components/Loading";
 import { useParams } from "react-router-dom";
@@ -54,13 +55,13 @@ const TeacherSharedByStudentsOverview = () => {
 
   return (
     <div className="app">
-      <Navbar />
+      <NewNavbar />
       <div className="content">
         <div className="backbutton">
           <BackButton destination="/teachers" /> <h1>Shared</h1>
         </div>
         <div className="student_tasks_container">
-          <h1>her ska Student-shared tasks visas</h1>
+          <h1>My published tasks</h1><span>Click on a task to see student submissions</span>
           {studentSharedJournals.map((studentSharedJournal) => (
             <div
               className="student_tasks_wrapper"

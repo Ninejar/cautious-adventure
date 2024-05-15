@@ -10,7 +10,7 @@ import './tasksCard.css';
 
 const TasksCard = ({ tasks }) => {
   return (
-    <div className="journal_cards_outer">
+    <div className="journal_cards_outer task">
     <div className="journal_cards">
       <Link to="/teachers/TeacherCreateTask">
         <div className="journal_card new">

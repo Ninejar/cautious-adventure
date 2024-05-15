@@ -4,12 +4,14 @@ import Loading from "../components/Loading";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/NavBar/Navbar";
+import NewNavbar from "../components/NavBar/NewNavbar";
 import Page from "../components/DocumentPage/DocumentPage";
 import { useParams } from "react-router-dom";
 import "react-quill/dist/quill.snow.css";
 import { jwtDecode } from "jwt-decode";
 import "../components/DocumentPage/sheets-of-paper.css";
 import "../components/DocumentPage/sheets-of-paper-a4.css";
+import { useToast } from "../context/toastContext"; 
 
 const CreateJournal = () => {
   const viteURL = import.meta.env.VITE_URL;
@@ -72,7 +74,7 @@ const CreateJournal = () => {
       .post(`${viteURL}/journals`, formData, config)
       .then(() => {
         setLoading(false);
-
+        localStorage.setItem("toastMessage", "Journal created successfully!");
         navigate("/journals/list");
       })
       .catch((error) => {
@@ -84,7 +86,7 @@ const CreateJournal = () => {
 
   return (
     <div className="app">
-      <Navbar />
+      <NewNavbar />
       <div className="content">
         <div className="backbutton">
           <BackButton destination="/journals/list" />

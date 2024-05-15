@@ -4,7 +4,10 @@
   gap: 25px;
   position: relative;
   top: 50px;
+  width: 80%;
+  margin: 0 auto;
 }
+
 
 .backbutton a{
     color: #17A2B8;
