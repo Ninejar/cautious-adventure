@@ -5,6 +5,7 @@ import Loading from "../Loading";
 import "./Login.css";
 import { useAuth } from "../../context/AuthContext";
 import { jwtDecode } from "jwt-decode";
+import NewNavbar from "../NavBar/NewNavbar";
 
 const Login = () => {
   const viteURL = import.meta.env.VITE_URL;
@@ -48,22 +49,7 @@ const Login = () => {
 
   return (
     <>
-      <nav className="welcome_nav">
-        <ul className="logo">
-          <li>
-            <a href="/">a</a>
-          </li>
-        </ul>
-        <ul className="logsig">
-          <li className="signin">
-            <a href="/login">Sign in</a>
-          </li>
-          <li className="signup">
-            <a href="/signup">Sign up</a>
-          </li>
-        </ul>
-      </nav>
-
+      <NewNavbar />
       <div className="login_wrapper">
         <div className="content login">
           <h1 data-testid="login-header">Log in</h1>

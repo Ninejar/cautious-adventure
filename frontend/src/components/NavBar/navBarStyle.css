@@ -61,8 +61,13 @@ nav{
 }
 
 .content {
-  margin-left: 200px;
+  /* margin-left: 200px; */
   padding: 16px;
+  padding-top: 100px;
+}
+
+.content.noPaddingtop{
+  padding-top: -100px;
 }
 
 

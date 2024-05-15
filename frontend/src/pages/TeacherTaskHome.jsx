@@ -69,7 +69,7 @@ const TeacherHome = () => {
           <h1>Your tasks list</h1>
         </div>
 
-        <div className="sorting_filters">
+        <div className="sorting_filters teacherTaskHome">
           <p>Sort by:</p>
           <select
             value={sortType}

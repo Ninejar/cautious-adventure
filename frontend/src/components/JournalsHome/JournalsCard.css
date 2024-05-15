@@ -78,6 +78,11 @@
     margin: 0 0 2% 0;
   }
    */
+
+   .journal_cards_outer.task{
+    margin-top: 10%;
+
+   }
   
    .journal_cards_outer{
     margin: 0 auto;
@@ -85,7 +90,8 @@
     justify-content: center;
    }
   .journal_cards {
-    width: 100%;
+    width: 80%;
+    margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(auto-fill, 300px);
     grid-gap: 1.2rem;

@@ -110,7 +110,7 @@ const Profile = () => {
               <span>{journals.length}</span> <p>Total journal entries</p>
             </div>
             <div>
-              <span>{totalAchievementsUnlocked()} / 7</span>{" "}
+              <span>{totalAchievementsUnlocked()} / 8</span>{" "}
               <p>Achievements unlocked</p>
             </div>
           </div>
@@ -204,7 +204,7 @@ const Profile = () => {
           <figure>
             {journals.length >= 25 ? (
               <>
-                <img src="../public/img/achievement_20.png" alt="placeholder" />
+                <img src="../public/img/achievement_25.png" alt="placeholder" />
                 <div className="figcaption_container">
                   <figcaption>You have 25 entries</figcaption>
                   <figcaption>Unlocked at {getAchievementTime(25)}</figcaption>
@@ -220,7 +220,7 @@ const Profile = () => {
           <figure>
             {journals.length >= 30 ? (
               <>
-                <img src="../public/img/achievement_20.png" alt="placeholder" />
+                <img src="../public/img/achievement_30.png" alt="placeholder" />
                 <div className="figcaption_container">
                   <figcaption>You have 30 entries</figcaption>
                   <figcaption>Unlocked at {getAchievementTime(30)}</figcaption>

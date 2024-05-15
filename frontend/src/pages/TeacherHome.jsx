@@ -16,7 +16,7 @@ const TeacherHome = () => {
         <div className='react-testing' data-testid="TeacherHome" >TeacherHome</div>
         <div className="link_container">
             
-            <Link to = {`/teachers/shared`}>
+            <Link to = {`/teachers/shared`} className="anchorLink">
             <div className="link_item shared">
                 <a href="" className="link_item_container">
                     <div>
@@ -31,7 +31,7 @@ const TeacherHome = () => {
             </div>
             </Link>
 
-            <Link to = {`/teachers/TeacherTaskHome`}>
+            <Link to = {`/teachers/TeacherTaskHome`} className="anchorLink">
             <div className="link_item tasks">
                 <a href="" className="link_item_container">
                     <div>

@@ -146,7 +146,7 @@ const TasksOverview = () => {
           <BackButton destination="/journals" /> <h1>Tasks</h1>
         </div>
 
-        <div className="sorting_filters">
+        <div className="sorting_filters teacherTaskHome">
           <p>Sort by:</p>
           <select
             value={sortType}

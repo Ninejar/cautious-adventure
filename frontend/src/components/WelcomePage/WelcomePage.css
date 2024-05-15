@@ -12,6 +12,7 @@
 
 }
 
+/* *{outline: 1px solid red;} */
 .welcome_signup_wrapper{
     display: flex;
 }
@@ -27,7 +28,7 @@
 
 
 .welcome_nav {
-    height: 50px;
+    height: auto;
     padding: 10px 0;
     display: flex;
     justify-content: space-between;
@@ -44,7 +45,22 @@
 
 }
 
-.welcome_nav .logo li a{
+.welcome_nav li{
+    transition: 0.15s ease-in-out ;
+}
+
+.welcome_nav li.placeholderLink:hover{
+    opacity: 1;
+    cursor:default;
+
+}
+
+.welcome_nav li:hover{
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.welcome_nav .logo li{
     display: flex;
     align-items: center;
     gap: 20px;
@@ -74,7 +90,17 @@
     border-radius: 7px;
     color: white;
     font-weight: 500;
-    border: 1px solid white;
+    border: 2px solid #17A2B8;
+}
+
+
+.welcome_nav .logout{
+    color: red;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
 }
 
 .welcome_nav .signup,

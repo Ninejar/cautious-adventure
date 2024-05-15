@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import Loading from "../Loading";
 import "./Signup.css";
+import NewNavbar from "../NavBar/NewNavbar";
 
 const Signup = () => {
   const viteURL = import.meta.env.VITE_URL;
@@ -38,21 +39,7 @@ const Signup = () => {
   };
   return (
     <>
-      <nav className="welcome_nav">
-        <ul className="logo">
-          <li>
-            <a href="/">a</a>
-          </li>
-        </ul>
-        <ul className="logsig">
-          <li className="signin">
-            <a href="/login">Sign in</a>
-          </li>
-          <li className="signup">
-            <a href="/signup">Sign up</a>
-          </li>
-        </ul>
-      </nav>
+     <NewNavbar />
 
       <div className="signup_wrapper">
         <div className="signup">

@@ -61,7 +61,7 @@ const TeacherSharedByStudentsOverview = () => {
           <BackButton destination="/teachers" /> <h1>Shared</h1>
         </div>
         <div className="student_tasks_container">
-          <h1>her ska Student-shared tasks visas</h1>
+          <h1>My published tasks</h1><span>Click on a task to see student submissions</span>
           {studentSharedJournals.map((studentSharedJournal) => (
             <div
               className="student_tasks_wrapper"

@@ -1,20 +1,20 @@
-import React from 'react'
-import '../components/Goals/Goals.css'
+import React from "react";
+import "../components/Goals/Goals.css";
 import Navbar from "../components/NavBar/Navbar";
-import BackButton from '../components/BackButton/BackButton';
+import BackButton from "../components/BackButton/BackButton";
 import NewNavbar from "../components/NavBar/NewNavbar";
 
- const Goals = () => {
-    return (
-        <div className="app">
-        <NewNavbar />
-        <div className='content'>
-            <div className="backbutton"> 
-            <BackButton destination='/journals' /> 
-                <h1>Sustainability Goals</h1>
-            </div>
+const Goals = () => {
+  return (
+    <div className="app">
+      <NewNavbar />
+      <div className="content">
+        <div className="backbutton">
+          <BackButton destination="/journals" />
+          <h1>Sustainability Goals</h1>
+        </div>
 
-            <div className="goals-container">
+        {/* <div className="goals-container">
                 <div className="goal one">
                     <h2>Goal 1: No Poverty</h2>
                     <p>End poverty in all its forms everywhere</p>
@@ -83,9 +83,38 @@ import NewNavbar from "../components/NavBar/NewNavbar";
                     <h2>Goal 17: Partnership for the goals</h2>
                     <p>Strengthen the means of implementation and revitalize the Global Partnership for Sustainable Development</p>
                 </div>
-            </div>
+            </div> */}
+
+        <div className="motivation_letter">
+          <h2>
+            Unlock the Sustainability Certificate: Your Commitment to a
+            Sustainable Future
+          </h2>
+          <p>
+            Embark on a journey towards a more sustainable future with
+            Sustainability Diary. Each journal entry and task completed brings
+            you closer to unlocking the prestigious Sustainability Certificate.
+            This isn't just a badge of honor; it's a symbol of your dedication
+            to environmental stewardship and sustainability within your field.
+            By actively participating in tasks that promote sustainability
+            awareness and reflection, you're making a tangible impact on our
+            planet. Every journal you write contributes to a collective effort
+            for positive change. With each task completed, you're not just
+            gaining knowledge but also actively shaping a more sustainable
+            world.
+          </p>
+          <p>
+            Keep journaling, keep engaging with tasks, and keep pushing the
+            boundaries of sustainability. Your commitment today will pave the
+            way for a brighter tomorrow. Together, let's create a world where
+            sustainability isn't just a goal but a way of life. Start your
+            journey today and unlock the Sustainability Certificate as a
+            testament to your dedication and passion for a more sustainable
+            future.
+          </p>
         </div>
+      </div>
     </div>
-);
+  );
 };
 export default Goals;

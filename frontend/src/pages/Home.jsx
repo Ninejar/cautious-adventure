@@ -10,7 +10,7 @@ const Home = () => {
     <>
       <NewNavbar />
       <div className="app">
-        <div className="content">
+        <div className="content noPaddingtop">
           <main>
             <div className="react-testing" data-testid="Student_log_in">
               Journal
