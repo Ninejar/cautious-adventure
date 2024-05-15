@@ -25,6 +25,7 @@ const DeleteJournal = () => {
       .delete(`${viteURL}/journals/${id}`,config)
       .then(() => {
         setLoading(false)
+        localStorage.setItem("toastMessage", "Journal deleted successfully!");
         navigate('/journals/list')
       })
       .catch ((error) => {
