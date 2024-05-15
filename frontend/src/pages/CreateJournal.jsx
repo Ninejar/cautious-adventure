@@ -11,6 +11,7 @@ import "react-quill/dist/quill.snow.css";
 import { jwtDecode } from "jwt-decode";
 import "../components/DocumentPage/sheets-of-paper.css";
 import "../components/DocumentPage/sheets-of-paper-a4.css";
+import { useToast } from "../context/toastContext"; 
 
 const CreateJournal = () => {
   const viteURL = import.meta.env.VITE_URL;
@@ -73,7 +74,7 @@ const CreateJournal = () => {
       .post(`${viteURL}/journals`, formData, config)
       .then(() => {
         setLoading(false);
-
+        localStorage.setItem("toastMessage", "Journal created successfully!");
         navigate("/journals/list");
       })
       .catch((error) => {
