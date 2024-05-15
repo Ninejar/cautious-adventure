@@ -10,22 +10,10 @@ const WelcomePage = () => {
       <div className="welcome_wrapper">
         <div className="welcome_text">
           <h1>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus,
-            tempore.
+            Welcome to Sustainability Diary!
           </h1>
           <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae sint
-            natus rerum vitae commodi, ducimus suscipit dolores corporis, iusto
-            dignissimos nihil a. Tempore doloribus quia mollitia fugiat
-            doloremque aperiam ipsam soluta eos ullam laborum assumenda, qui
-            vitae exercitationem ad ex, sit enim cum alias veniam nisi.
-            Voluptate libero laboriosam saepe neque? Voluptate accusantium
-            voluptas molestias distinctio vitae labore quis obcaecati quas
-            velit, dolorum est eaque fuga, incidunt dolores nisi ex ab
-            reiciendis quae itaque qui dolore sequi pariatur! Nisi architecto
-            quam soluta accusamus molestias reprehenderit eveniet reiciendis, ex
-            corrupti alias quaerat aliquid iusto consequuntur. Rerum laudantium
-            facere dignissimos temporibus sit.
+          Empower students to become stewards of the environment with our interactive app. Teachers create engaging sustainability tasks, while students choose and reflect on their interests. Journal your journey through completing tasks, earning badges along the way, and culminating in a prestigious Sustainability Certificate. Shape a greener, more sustainable future, one task at a time.
           </p>
 
           <div className="welcome_signup_wrapper">

@@ -44,4 +44,9 @@
     margin-top: 50px;
 }
 
+
+
+.errorMsg{
+    color: red;
+}
 /* *{outline: 1px solid red} */

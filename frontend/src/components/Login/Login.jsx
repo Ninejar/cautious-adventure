@@ -13,6 +13,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState();
   const navigate = useNavigate();
   const { login } = useAuth();
 
@@ -44,6 +45,7 @@ const Login = () => {
       setLoading(false);
       console.error("Login error:", error);
       // Handle login error
+      setError("Wrong email or password.");
     }
   };
 
@@ -57,6 +59,7 @@ const Login = () => {
           {loading ? <Loading /> : ""}
 
           <div className="login_container">
+            <p className="errorMsg">{error}</p>
             <input
               id="email"
               type="email"
