@@ -18,8 +18,12 @@ const WelcomePage = () => {
       </div>
       <div class="welcome-content">
       <div class="side-content">
-          <button class="welcomeButtons"><a href="/login" data-testid="loginyouknow">Already registered ?</a></button>
-          <button class="welcomeButtons"><a href="/Signup">Start your journey now !</a></button>
+          <button class="welcomeButtons">
+            <a href="/login" data-testid="loginyouknow">Already registered ?</a>
+          </button>
+          <button class="welcomeButtons">
+            <a href="/Signup">Start your journey now !</a>
+          </button>
         </div>
         <div class="text">
           <div class="welcomeSus blockOfText">
@@ -35,12 +39,8 @@ const WelcomePage = () => {
             <p class="welcomeText">The diary also fosters a supportive learning environment through teacher-student interaction. Students can choose to share their reflections with teachers, who provide feedback and guidance, enhancing learning without the pressure of grading. Additionally, the diary empowers students by giving them control over their entries, allowing them to keep reflections private or share them, fostering a sense of autonomy and ownership. This encourages honest and personal reflections, making the diary a valuable tool for personal development.</p>
           </div>
         </div>
-        
-      </div></html>
-      
-
-     
-    
+      </div>
+    </html>
     </>
   );
 };

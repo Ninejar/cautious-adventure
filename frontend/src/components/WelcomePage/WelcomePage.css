@@ -1,10 +1,16 @@
 .welcomeHTML{
     background-color:#232527;
 }
-.welcomeTitle{
-    text-align: center;
-    padding-top: 30px;
-    font-size: 2em;
+.welcomeSusTitle{
+    color: #A7289A;
+    margin-left: 40%;
+}
+.welcomeAboutTitle{
+    color:  #17A2B8;
+    margin-left: 20%;
+}
+.welcomeFunctionTitle{
+    color: #FFC107;
 }
 .wavy-line svg {
     display: block;
@@ -13,24 +19,17 @@
 .wavy-line{
     background-color:rgb(46, 46, 46);
   }
-.welcomeText{
-    max-width:90%;
-    padding-bottom: 2%;
-    margin-bottom: 2%;
-    margin-right: 10%;
-    line-height: 1.8;
-    font-size: 1em;
-    margin-top:1%;
-}
 .welcome-content{
     margin-left: 10%;
     margin-right: 10%;
     display: grid;
     grid-template-columns: 1fr;
 }
-.text{
+.side-content{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    margin-left: 10%;
+    margin-bottom: 10%;
 }
 .welcomeButtons{
     background-color: rgb(46, 46, 46);   
@@ -50,11 +49,9 @@
     background-color: #525252;
     border: 1px solid white;
 }
-.side-content{
+.text{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin-left: 10%;
-    margin-bottom: 10%;;
 }
 .blockOfText{
     padding-left: 5%;
@@ -62,6 +59,23 @@
     margin-bottom: 5%;
     width: 90%;
     position: relative;
+}
+.welcomeText{
+    max-width:90%;
+    padding-bottom: 2%;
+    margin-bottom: 2%;
+    margin-right: 10%;
+    line-height: 1.8;
+    font-size: 1em;
+    margin-top:1%;
+}
+.welcomeTitle{
+    text-align: center;
+    padding-top: 30px;
+    font-size: 2em;
+}
+.welcome-subTitle{
+    text-transform: uppercase;
 }
 .welcomeSus:hover{ 
     animation: moveUpAndShadowDownPink 0.5s forwards;
@@ -71,6 +85,28 @@
 }
 .welcomeFunction:hover{
     animation: moveUpAndShadowDownYellow 0.5s forwards;
+}
+.welcomeSus{
+    border: 5px solid #A7289A;
+    height: 60%;
+}
+.welcomeAbout{
+    border: 5px solid #17A2B8;
+    float: right;
+    margin-top: 20%;
+    height: 70%;
+}
+.welcomeFunction{
+   border: 5px solid #FFC107;
+}
+.introduction{
+    font-size: 2em;
+    font-weight: bold;
+}
+blockquote{
+    padding-left: 20%;
+    padding-top:5%;
+    background-color:rgb(46, 46, 46);
 }
 @keyframes moveUpAndShadowDownPink {
     0% {
@@ -101,44 +137,6 @@
         transform: translate(5px, -10px);
         box-shadow: -10px 10px 0px 0px #FFC107;
     }
-}
-.welcome-subTitle{
-    text-transform: uppercase;
-
-}
-.welcomeSus{
-    border: 5px solid #A7289A;
-    height: 60%;
-}
-.welcomeAbout{
-    border: 5px solid #17A2B8;
-    float: right;
-    margin-top: 20%;
-    height: 70%;
-}
-.welcomeFunction{
-   border: 5px solid #FFC107;
-
-}
-.welcomeSusTitle{
-    color: #A7289A;
-    margin-left: 40%;
-}
-.welcomeAboutTitle{
-    color:  #17A2B8;
-    margin-left: 20%;
-}
-.welcomeFunctionTitle{
-    color: #FFC107;
-}
-.introduction{
-    font-size: 2em;
-    font-weight: bold;
-}
-blockquote{
-    padding-left: 20%;
-    padding-top:5%;
-    background-color:rgb(46, 46, 46);
 }
 @media (max-width: 1200px) {
     .welcome-content {
