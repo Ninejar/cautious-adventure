@@ -251,7 +251,7 @@ const Task = () => {
       (journal) => journal.taskId === id
     );
     setJournals(updatedJournals);
-    handleInterestedClick(task._id);
+    handleInterestedClick(task._id, true);
   };
 
   const renderJournals = () => {
@@ -345,7 +345,7 @@ const Task = () => {
     }
   };
 
-  const handleInterestedClick = async (taskId) => {
+  const handleInterestedClick = async (taskId, createdJournal) => {
     try {
       const token = localStorage.getItem("auth-token");
       const decodedToken = jwtDecode(token);
@@ -362,7 +362,11 @@ const Task = () => {
 
       // Check if the task is already in the user's interested tasks
       const isInterested = user[0].interestedTasks.includes(taskId);
-      console.log(isInterested);
+      console.log("is interedted",isInterested);
+
+      if(isInterested && createdJournal == true){
+        return
+      }
 
       if (isInterested) {
         // If already interested, remove it

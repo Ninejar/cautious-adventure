@@ -38,13 +38,17 @@ const DeleteJournal = () => {
     <div className='app'>
       <NewNavbar />
 
-      <div className='content'>
+      <div className='content deleteJornalPage'>
       <div className="backbutton" ><BackButton destination='/journals/list' /> <h1>Delete journal</h1></div>
         {loading ? <Loading /> : ''}
+
+        <div className='areYouSure'>
         <h3>Are you sure you want to delete this journal?</h3>
         <button onClick={handleDeleteJournal}>
           Yes, delete 
         </button>
+
+        </div>
 
       </div>
       

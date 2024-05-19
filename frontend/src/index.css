@@ -83,6 +83,15 @@ button:focus-visible {
   margin: 3% 2%;
 } */
 
+.content.deleteJornalPage{
+  width: 80%;
+}
+
+.content.deleteJornalPage .areYouSure{
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 100px;
+}
 
 
 

@@ -3,6 +3,7 @@ import "../components/Goals/Goals.css";
 import Navbar from "../components/NavBar/Navbar";
 import BackButton from "../components/BackButton/BackButton";
 import NewNavbar from "../components/NavBar/NewNavbar";
+import { Link } from "react-router-dom";
 
 const Goals = () => {
   return (
@@ -112,6 +113,9 @@ const Goals = () => {
             testament to your dedication and passion for a more sustainable
             future.
           </p>
+
+          <br></br>
+          <p>Click <Link to={`/profile`}>here</Link> to view profile page and achievements.</p>
         </div>
       </div>
     </div>
