@@ -114,4 +114,154 @@
 
 }
 
-
+.welcomeSusTitle{
+    color: #A7289A;
+    margin-left: 40%;
+}
+.welcomeAboutTitle{
+    color:  #17A2B8;
+    margin-left: 20%;
+}
+.welcomeFunctionTitle{
+    color: #FFC107;
+}
+.wavy-line svg {
+    display: block;
+    width: 100%;
+  }
+.wavy-line{
+    background-color:rgb(46, 46, 46);
+  }
+.welcome-content{
+    margin-left: 10%;
+    margin-right: 10%;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+.side-content{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-left: 10%;
+    margin-bottom: 10%;
+}
+.welcomeButtons{
+    background-color: rgb(46, 46, 46);   
+    border-radius: 4px;
+    border-radius: 8px;
+    width: 400px;
+    height: 3em;
+    border: 1px solid white;
+    font-weight: bold;
+    margin-top:10%;
+}
+.welcomeButtons > a{
+    color: white;
+    text-align: center;
+    font-size: 1.2em;
+}
+.welcomeButtons:hover{
+    background-color: #525252;
+    border: 1px solid white;
+}
+.text{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.blockOfText{
+    padding-left: 5%;
+    padding-top: 3%;
+    margin-bottom: 5%;
+    width: 90%;
+    position: relative;
+}
+.welcomeText{
+    max-width:90%;
+    padding-bottom: 2%;
+    margin-bottom: 2%;
+    margin-right: 10%;
+    line-height: 1.8;
+    font-size: 1em;
+    margin-top:1%;
+}
+.welcomeTitle{
+    text-align: center;
+    padding-top: 30px;
+    font-size: 2em;
+}
+.welcome-subTitle{
+    text-transform: uppercase;
+}
+.welcomeSus:hover{ 
+    animation: moveUpAndShadowDownPink 0.5s forwards;
+}
+.welcomeAbout:hover{
+    animation: moveUpAndShadowDownBlue 0.5s forwards;
+}
+.welcomeFunction:hover{
+    animation: moveUpAndShadowDownYellow 0.5s forwards;
+}
+.welcomeSus{
+    border: 5px solid #A7289A;
+    height: 60%;
+}
+.welcomeAbout{
+    border: 5px solid #17A2B8;
+    float: right;
+    margin-top: 20%;
+    height: 70%;
+}
+.welcomeFunction{
+   border: 5px solid #FFC107;
+}
+.introduction{
+    font-size: 2em;
+    font-weight: bold;
+}
+blockquote{
+    padding-left: 20%;
+    padding-top:5%;
+    background-color:rgb(46, 46, 46);
+}
+@keyframes moveUpAndShadowDownPink {
+    0% {
+        transform: translate(0, 0);
+        box-shadow: -5px 5px 0px 0px #A7289A;
+    }
+    100% {
+        transform: translate(5px, -10px);
+        box-shadow: -10px 10px 0px 0px #A7289A;
+    }
+}
+@keyframes moveUpAndShadowDownBlue {
+    0% {
+        transform: translate(0, 0);
+        box-shadow: -5px 5px 0px 0px #17A2B8;
+    }
+    100% {
+        transform: translate(5px, -10px);
+        box-shadow: -10px 10px 0px 0px #17A2B8;
+    }
+}
+@keyframes moveUpAndShadowDownYellow {
+    0% {
+        transform: translate(0, 0);
+        box-shadow: -5px 5px 0px 0px #FFC107;
+    }
+    100% {
+        transform: translate(5px, -10px);
+        box-shadow: -10px 10px 0px 0px #FFC107;
+    }
+}
+@media (max-width: 1200px) {
+    .welcome-content {
+        grid-template-columns: 1fr;
+    }
+    .welcomeText{
+        max-width: 100%;
+    }
+    .welcomeButtons{
+        margin-bottom: 10%;
+        margin-left:5%;
+        margin-right:5%;
+    }
+}
