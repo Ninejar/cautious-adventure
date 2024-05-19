@@ -125,13 +125,6 @@
 .welcomeFunctionTitle{
     color: #FFC107;
 }
-.wavy-line svg {
-    display: block;
-    width: 100%;
-  }
-.wavy-line{
-    background-color:rgb(46, 46, 46);
-  }
 .welcome-content{
     margin-left: 10%;
     margin-right: 10%;
@@ -221,6 +214,7 @@ blockquote{
     padding-left: 20%;
     padding-top:5%;
     background-color:rgb(46, 46, 46);
+    padding-bottom:5%;
 }
 @keyframes moveUpAndShadowDownPink {
     0% {
