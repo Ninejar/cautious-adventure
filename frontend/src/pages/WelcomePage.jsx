@@ -8,13 +8,16 @@ const WelcomePage = () => {
     <>
       <NewNavbar />
       <html class="welcomeHTML">
-      <div class="wavy-line">
-      </div>
       <blockquote>
         <p class="welcomeFunctionTitle introduction">Empower Students, </p>
         <p class="welcomeAboutTitle introduction">Engage And Reflect, </p>
         <p class="welcomeSusTitle introduction">Sustainable Future For All </p>
       </blockquote>
+      <div class="wavy-line">
+        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="150px" viewBox="0 0 100 20" preserveAspectRatio="none">
+          <path class="path" d="M0 10 Q 25 0, 50 10 T 100 10 V 20 H 0 Z" fill="#232527"/>
+        </svg>
+      </div>
       <div class="welcome-content">
       <div class="side-content">
           <button class="welcomeButtons">
