@@ -13,6 +13,7 @@ import Create from "../components/Create/Create";
 import { IoCloseOutline } from "react-icons/io5";
 import { FaArrowLeft } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const Task = () => {
   const viteURL = import.meta.env.VITE_URL;
@@ -27,7 +28,10 @@ const Task = () => {
   const [selectedTaskEntry, setSelectedTaskEntry] = useState(null);
   const [openPostEntry, setOpenPostEntry] = useState(null);
   const [slidePosition, setSlidePosition] = useState(-470);
-  const [createdByUsername, setCreatedByUsername] = useState(""); // Step 1
+  const [createdByUsername, setCreatedByUsername] = useState("");
+  const [confirmDeleteModal, setConfirmDeleteModal] = useState(null);
+
+  const navigate = useNavigate();
 
   const token = localStorage.getItem("auth-token");
 
@@ -294,6 +298,7 @@ const Task = () => {
             {journals.map((journal) => (
               <div>
                 {/* <p className="createdBy">Entry by {createdByUsername}</p> */}
+                <p>-</p>
                 <div className="sharpEdge">
                   <div
                     key={journal._id}
@@ -331,7 +336,8 @@ const Task = () => {
       // Render message when no journals are available
       return (
         <div>
-          {/* <p>-</p> */}
+          <p>-</p>
+
           <div className="sharpEdge">
             <div className="taskEntry"></div>
           </div>
@@ -404,6 +410,40 @@ const Task = () => {
 
   const handleClickCloseMdal = () => {
     setOpenPostEntry(false);
+  };
+
+  const handleDeletePost = () => {
+    setConfirmDeleteModal(true);
+    console.log("click");
+  };
+
+  const handleConfirmedDelete = async (postID) => {
+    setLoading(true);
+    try {
+      // Perform the delete request
+      await axios.delete(`${viteURL}/journals/${postID}`, config);
+
+      // If the delete was successful, perform the following
+      localStorage.setItem("toastMessage", "Journal deleted successfully!");
+      handleCloseModal();
+      setConfirmDeleteModal(false);
+
+      // Perform the get request to update the journals list
+      const res = await axios.get(`${viteURL}/journals/shared`, config);
+      const updatedJournals = res.data.data.filter(
+        (journal) => journal.taskId === id
+      );
+
+      // Update the state with the new journals list
+      setJournals(updatedJournals);
+    } catch (error) {
+      // Handle any errors that occur during the delete or get requests
+      alert("An error happened. Please check console");
+      console.log(error);
+    } finally {
+      // Ensure that loading is set to false regardless of success or failure
+      setLoading(false);
+    }
   };
 
   return (
@@ -505,7 +545,30 @@ const Task = () => {
                     {renderTaskAttachment(selectedTaskEntry.fileURL)}
                   </div>
                 </div>
-                {currentUserID._id == selectedTaskEntry.createdBy ? <p>Delete</p> : ""}
+                {currentUserID._id == selectedTaskEntry.createdBy ? (
+                  <button
+                    className="remove_attachment"
+                    onClick={() => handleDeletePost()}
+                  >
+                    Delete Post
+                  </button>
+                ) : (
+                  ""
+                )}
+                {confirmDeleteModal && (
+                  <div className="modal">
+                    <div className="modal-content">
+                      <h2>Confirmation</h2>
+                      <p>Are you sure you want to delete this post?</p>
+                      <div className="modal-buttons">
+                        <button onClick={()=>setConfirmDeleteModal(false)} >Cancel</button>
+                        <button onClick={() =>
+                        handleConfirmedDelete(selectedTaskEntry._id)
+                      }>Delete</button>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </>
