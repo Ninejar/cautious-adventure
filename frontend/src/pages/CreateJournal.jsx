@@ -11,7 +11,7 @@ import "react-quill/dist/quill.snow.css";
 import { jwtDecode } from "jwt-decode";
 import "../components/DocumentPage/sheets-of-paper.css";
 import "../components/DocumentPage/sheets-of-paper-a4.css";
-import { useToast } from "../context/toastContext"; 
+import { useToast } from "../context/toastContext";
 
 const CreateJournal = () => {
   const viteURL = import.meta.env.VITE_URL;
@@ -36,7 +36,7 @@ const CreateJournal = () => {
     };
     const decoded = jwtDecode(token);
     const userId = decoded._id;
-    console.log(token)
+    console.log(token);
 
     axios
       .get(`${viteURL}/users/${userId}/interestedTasks`, config)
@@ -140,17 +140,19 @@ const CreateJournal = () => {
               </div>
             </div>
 
-            <select
-              name="taskId"
-              onChange={(e) => setSelectedTask(e.target.value)}
-            >
-              <option value="">Select a task</option>
-              {interestedTasks.map((task) => (
-                <option key={task._id} value={task._id}>
-                  {task.title}
-                </option>
-              ))}
-            </select>
+            {visibility === "Public" && (
+              <select
+                name="taskId"
+                onChange={(e) => setSelectedTask(e.target.value)}
+              >
+                <option value="">Select a task</option>
+                {interestedTasks.map((task) => (
+                  <option key={task._id} value={task._id}>
+                    {task.title}
+                  </option>
+                ))}
+              </select>
+            )}
 
             <button onClick={handleSaveJournal}>Save</button>
           </div>
