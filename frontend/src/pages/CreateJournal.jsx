@@ -136,7 +136,7 @@ const CreateJournal = () => {
                   checked={visibility === "Public"}
                   onChange={(e) => setVisibility(e.target.value)}
                 />
-                <label htmlFor="public">Share with teacher</label>
+                <label htmlFor="public">Post to task</label>
               </div>
             </div>
 

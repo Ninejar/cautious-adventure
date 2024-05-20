@@ -12,6 +12,7 @@ import "react-quill/dist/quill.snow.css";
 import "../components/DocumentPage/sheets-of-paper.css";
 import "../components/DocumentPage/sheets-of-paper-a4.css";
 import { useToast } from "../context/toastContext"; 
+import { jwtDecode } from "jwt-decode";
 
 const EditJournal = () => {
   const viteURL = import.meta.env.VITE_URL;
@@ -25,6 +26,8 @@ const EditJournal = () => {
   const [attachmentToDelete, setAttachmentToDelete] = useState(null);
   const navigate = useNavigate();
   const { id } = useParams();
+  const [selectedTask, setSelectedTask] = useState("");
+  const [interestedTasks, setInterestedTasks] = useState([]);
 
   const { showToast } = useToast();
 
@@ -34,6 +37,27 @@ const EditJournal = () => {
       "auth-token": token,
     },
   };
+  useEffect(() => {
+    const token = localStorage.getItem("auth-token");
+    const config = {
+      headers: {
+        "auth-token": token,
+      },
+    };
+    const decoded = jwtDecode(token);
+    const userId = decoded._id;
+    console.log(token);
+
+    axios
+      .get(`${viteURL}/users/${userId}/interestedTasks`, config)
+      .then((res) => {
+        const interestedTaskIds = res.data.interestedTasks;
+        setInterestedTasks(interestedTaskIds);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  });
 
   useEffect(() => {
     setLoading(true);
@@ -58,6 +82,7 @@ const EditJournal = () => {
     formData.append("title", title);
     formData.append("content", content);
     formData.append("visibility", visibility);
+    formData.append("taskId", selectedTask);
 
     // Append all attachments
     attachments.forEach((attachment) => {
@@ -179,8 +204,22 @@ const EditJournal = () => {
                   checked={visibility === "Public"}
                   onChange={(e) => setVisibility(e.target.value)}
                 />
-                <label htmlFor="public">Share with teacher</label>
+                <label htmlFor="public">Post to task</label>
               </div>
+
+              {/* {visibility === "Public" && (
+              <select
+                name="taskId"
+                onChange={(e) => setSelectedTask(e.target.value)}
+              >
+                <option value="">Select a task</option>
+                {interestedTasks.map((task) => (
+                  <option key={task._id} value={task._id}>
+                    {task.title}
+                  </option>
+                ))}
+              </select>
+            )} */}
             </div>
             <button onClick={handleEditJournal}>Save</button>
           </div>

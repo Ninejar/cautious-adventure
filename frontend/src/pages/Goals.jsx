@@ -87,13 +87,23 @@ const Goals = () => {
             </div> */}
 
         <div className="motivation_letter">
+          <h2>UN's 17 sustainability goals</h2>
+          <p>Our Sustainability Diary App empowers teachers to create tasks specifically designed to foster sustainability awareness among students.</p>
+          <p>By aligning these tasks with the 17 United Nations Sustainable Development Goals (SDGs), educators can provide meaningful, real-world learning experiences that encourage students to reflect on and contribute to global sustainability efforts. </p>
+          <p>Each task is an opportunity for students to engage with and support the diverse and interconnected goals set by the UN. This approach not only enriches the educational experience but also helps cultivate a generation committed to building a sustainable future.</p>
+
+          <p>
+            Click <a target="_blank" href="https://sdgs.un.org/goals">here</a> to learn more
+            about the sustainability goals
+          </p>
+
+          <br></br>
+          <br></br>
           <h2>
-            Unlock the Sustainability Certificate: Your Commitment to a
-            Sustainable Future
+            Unlock the Sustainability Certificate
           </h2>
           <p>
-            Embark on a journey towards a more sustainable future with
-            Sustainability Diary. Each journal entry and task completed brings
+            Each journal entry and task completed brings
             you closer to unlocking the prestigious Sustainability Certificate.
             This isn't just a badge of honor; it's a symbol of your dedication
             to environmental stewardship and sustainability within your field.
@@ -105,9 +115,8 @@ const Goals = () => {
             world.
           </p>
           <p>
-            Keep journaling, keep engaging with tasks, and keep pushing the
-            boundaries of sustainability. Your commitment today will pave the
-            way for a brighter tomorrow. Together, let's create a world where
+            Keep journaling and keep engaging with tasks. Your commitment today will pave the
+            way for a brighter tomorrow. Create a world where
             sustainability isn't just a goal but a way of life. Start your
             journey today and unlock the Sustainability Certificate as a
             testament to your dedication and passion for a more sustainable
@@ -115,7 +124,10 @@ const Goals = () => {
           </p>
 
           <br></br>
-          <p>Click <Link to={`/profile`}>here</Link> to view profile page and achievements.</p>
+          <p>
+            Click <Link to={`/profile`}>here</Link> to view profile page and
+            achievements.
+          </p>
         </div>
       </div>
     </div>

@@ -277,7 +277,7 @@ const TeacherSharedByStudents = () => {
           </div>
 
           <div className="postToSee">
-            <span>No one has posted an entry to this task, yet.</span>
+            <span>No one has posted a journal to this task, yet.</span>
           </div>
         </div>
       );
@@ -469,7 +469,7 @@ const TeacherSharedByStudents = () => {
 
           <div className="taskEntriesContainerWrapper">
             <div>
-              <h2>All entries to this task</h2>
+              <h2>All journals to this task</h2>
             </div>
 
             <div className="taskEntriesContainer">{renderJournals()}</div>

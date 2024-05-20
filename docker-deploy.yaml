@@ -21,7 +21,7 @@ services:
     networks:
       - react-express
     ports:
-      - 1814:1814
+      - 8091:8091
 
 networks:
   react-express:
