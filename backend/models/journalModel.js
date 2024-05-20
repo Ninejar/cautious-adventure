@@ -27,7 +27,8 @@ const journalSchema = mongoose.Schema(
         },
         taskId: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'Task'
+            ref: 'Task',
+            required: false
         }
     },
     {

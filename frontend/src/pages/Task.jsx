@@ -62,10 +62,7 @@ const Task = () => {
 
   const fetchUserNameById = async (userId) => {
     try {
-      const response = await axios.get(
-        `${viteURL}/users/${userId}`,
-        config
-      );
+      const response = await axios.get(`${viteURL}/users/${userId}`, config);
       const fName = response.data[0].fName;
       const lName = response.data[0].lName;
       const fullName = `${fName} ${lName}`;
@@ -86,17 +83,17 @@ const Task = () => {
         console.log(task);
         setLoading(false);
 
-    // Fetch the username based on createdBy ID
-    axios
-      .get(`${viteURL}/users/${res.data.task.createdBy}`) // Update to use res.data.task.createdBy
-      .then((userRes) => {
-        const createdByUsername = userRes.data[0].fName;
-        setCreatedByUsername(createdByUsername);
-        console.log(createdByUsername)
-      })
-      .catch((userError) => {
-        console.log("Error fetching user:", userError);
-      });
+        // Fetch the username based on createdBy ID
+        axios
+          .get(`${viteURL}/users/${res.data.task.createdBy}`) // Update to use res.data.task.createdBy
+          .then((userRes) => {
+            const createdByUsername = userRes.data[0].fName;
+            setCreatedByUsername(createdByUsername);
+            console.log(createdByUsername);
+          })
+          .catch((userError) => {
+            console.log("Error fetching user:", userError);
+          });
 
         const uniqueUrls = Array.isArray(res.data.task.fileURL)
           ? Array.from(new Set(res.data.task.fileURL))
@@ -243,10 +240,7 @@ const Task = () => {
 
   const handleDone = async () => {
     setOpenPostEntry(false);
-    const res = await axios.get(
-      `${viteURL}/journals/shared`,
-      config
-    );
+    const res = await axios.get(`${viteURL}/journals/shared`, config);
     const updatedJournals = res.data.data.filter(
       (journal) => journal.taskId === id
     );
@@ -265,6 +259,11 @@ const Task = () => {
         return journals.map((journal) => (
           <div>
             {/* <p className="createdBy">Entry by {createdByUsername}</p> */}
+            {journal.createdBy === currentUserID._id ? (
+              <p className="createdBy">Entry by you</p>
+            ) : (
+              "-"
+            )}
             <div
               key={journal._id}
               className="taskEntry"
@@ -362,10 +361,10 @@ const Task = () => {
 
       // Check if the task is already in the user's interested tasks
       const isInterested = user[0].interestedTasks.includes(taskId);
-      console.log("is interedted",isInterested);
+      console.log("is interedted", isInterested);
 
-      if(isInterested && createdJournal == true){
-        return
+      if (isInterested && createdJournal == true) {
+        return;
       }
 
       if (isInterested) {
@@ -506,6 +505,7 @@ const Task = () => {
                     {renderTaskAttachment(selectedTaskEntry.fileURL)}
                   </div>
                 </div>
+                {currentUserID._id == selectedTaskEntry.createdBy ? <p>Delete</p> : ""}
               </div>
             </div>
           </>
@@ -561,7 +561,7 @@ const Task = () => {
             <div className="taskEntriesContainer">
               <div>
                 {" "}
-                
+                -
                 <div
                   className="taskEntry createNew"
                   onClick={() => handleClickPostEntry()}

@@ -29,8 +29,11 @@ const createJournal = async (req,res) => {
             visibility: req.body.visibility,
             createdBy: req.user._id,
             fileURL: fileURLs,
-            taskId: req.body.taskId
         };
+
+        if (req.body.taskId) {
+            newJournal.taskId = req.body.taskId;
+        }
 
         const journal = await Journal.create(newJournal);
 
