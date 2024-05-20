@@ -16,27 +16,27 @@ const TeacherHome = () => {
         <div className='react-testing' data-testid="TeacherHome" >TeacherHome</div>
         <div className="link_container">
             
-            <Link to = {`/teachers/shared`} className="anchorLink">
-            <div className="link_item shared">
-                <a href="" className="link_item_container">
-                    <div>
-                        <p className="link_item_header" >Shared</p>
-                        <p>View your students entries</p>
-                    </div>
-                    
-                    <img src="earth.png" alt=""/>
-                </a>
-            
-                <div className="bottom"><div>Visit your Shared page</div><div></div></div>
-            </div>
-            </Link>
 
             <Link to = {`/teachers/TeacherTaskHome`} className="anchorLink">
             <div className="link_item tasks">
                 <a href="" className="link_item_container">
                     <div>
                         <p className="link_item_header" >Tasks</p>
-                        <p>View your students entries</p>
+                        <p>View your tasks list</p>
+                    </div>
+                    
+                    <img src="earth.png" alt=""/>
+                </a>
+            
+                <div className="bottom"><div>Visit your Tasks page</div><div></div></div>
+            </div>
+            </Link>
+            <Link to = {`/teachers/shared`} className="anchorLink">
+            <div className="link_item shared">
+                <a href="" className="link_item_container">
+                    <div>
+                        <p className="link_item_header" >Shared</p>
+                        <p>View your shared tasks and student journal submissions</p>
                     </div>
                     
                     <img src="earth.png" alt=""/>

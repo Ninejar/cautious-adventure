@@ -264,7 +264,7 @@ const Task = () => {
           <div>
             {/* <p className="createdBy">Entry by {createdByUsername}</p> */}
             {journal.createdBy === currentUserID._id ? (
-              <p className="createdBy">Entry by you</p>
+              <p className="createdBy">Journal by you</p>
             ) : (
               "-"
             )}
@@ -325,7 +325,7 @@ const Task = () => {
                 <div className="postToSee">
                   <FaRegEyeSlash size={50} />
                   <span>Post to view</span>
-                  <span>To view other's entries, share yours with them.</span>
+                  <span>To view other's journals, share yours with them.</span>
                 </div>
               </div>
             ))}
@@ -343,7 +343,7 @@ const Task = () => {
           </div>
 
           <div className="postToSee">
-            <span>No one has posted an entry to this task, yet.</span>
+            <span>No one has posted a journal to this task, yet.</span>
           </div>
         </div>
       );
@@ -424,7 +424,7 @@ const Task = () => {
       await axios.delete(`${viteURL}/journals/${postID}`, config);
 
       // If the delete was successful, perform the following
-      localStorage.setItem("toastMessage", "Journal deleted successfully!");
+      localStorage.setItem("toastMessage", "Post deleted successfully!");
       handleCloseModal();
       setConfirmDeleteModal(false);
 
@@ -618,7 +618,7 @@ const Task = () => {
 
           <div className="taskEntriesContainerWrapper">
             <div>
-              <h2>All entries to this task</h2>
+              <h2>All journals to this task</h2>
             </div>
 
             <div className="taskEntriesContainer">
@@ -630,7 +630,7 @@ const Task = () => {
                   onClick={() => handleClickPostEntry()}
                 >
                   <GoPlus size={70} />
-                  <div>Post entry</div>
+                  <div>Post journal</div>
                 </div>
               </div>
 
