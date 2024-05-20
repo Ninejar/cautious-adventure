@@ -38,9 +38,9 @@ const TasksCard = ({ tasks }) => {
             
 
             <div className="card_operations">
-              <Link to={`/tasks/details/${item._id}`}>
+              {/* <Link to={`/tasks/details/${item._id}`}>
                 <BsInfoCircle />
-              </Link>
+              </Link> */}
 
               <Link to={`/tasks/delete/${item._id}`}>
                 <MdOutlineDelete />

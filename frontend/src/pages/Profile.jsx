@@ -126,14 +126,14 @@ const Profile = () => {
                   alt="1 journal entries achievement"
                 />
                 <div className="figcaption_container">
-                  <figcaption>You have 1 entry</figcaption>
+                  <figcaption>You have written 1 journal</figcaption>
                   <figcaption>Unlocked at {getAchievementTime(1)}</figcaption>
                 </div>
               </>
             ) : (
               <>
                 <img src="../public/img/locked.png" alt="locked" />
-                <figcaption>You need 1 entry to unlock this</figcaption>
+                <figcaption>You need to write 1 journal to unlock this</figcaption>
               </>
             )}
           </figure>
@@ -142,14 +142,14 @@ const Profile = () => {
               <>
                 <img src="../public/img/achievement_5.png" alt="placeholder" />
                 <div className="figcaption_container">
-                  <figcaption>You have 5 entries</figcaption>
+                  <figcaption>You have written 5 journals</figcaption>
                   <figcaption>Unlocked at {getAchievementTime(5)}</figcaption>
                 </div>
               </>
             ) : (
               <>
                 <img src="../public/img/locked.png" alt="locked" />
-                <figcaption>You need 5 entries to unlock this</figcaption>
+                <figcaption>You need to write 5 journals to unlock this</figcaption>
               </>
             )}
           </figure>
@@ -158,14 +158,14 @@ const Profile = () => {
               <>
                 <img src="../public/img/achievement_10.png" alt="placeholder" />
                 <div className="figcaption_container">
-                  <figcaption>You have 10 entries</figcaption>
+                  <figcaption>You have written 10 journals</figcaption>
                   <figcaption>Unlocked at {getAchievementTime(10)}</figcaption>
                 </div>
               </>
             ) : (
               <>
                 <img src="../public/img/locked.png" alt="locked" />
-                <figcaption>You need 10 entries to unlock this</figcaption>
+                <figcaption>You need to write 10 journals to unlock this</figcaption>
               </>
             )}
           </figure>
@@ -174,14 +174,14 @@ const Profile = () => {
               <>
                 <img src="../public/img/achievement_15.png" alt="placeholder" />
                 <div className="figcaption_container">
-                  <figcaption>You have 15 entries</figcaption>
+                  <figcaption>You have written 15 journals</figcaption>
                   <figcaption>Unlocked at {getAchievementTime(15)}</figcaption>
                 </div>
               </>
             ) : (
               <>
                 <img src="../public/img/locked.png" alt="locked" />
-                <figcaption>You need 15 entries to unlock this</figcaption>
+                <figcaption>You need to write 15 journals to unlock this</figcaption>
               </>
             )}
           </figure>
@@ -190,14 +190,14 @@ const Profile = () => {
               <>
                 <img src="../public/img/achievement_20.png" alt="placeholder" />
                 <div className="figcaption_container">
-                  <figcaption>You have 20 entries</figcaption>
+                  <figcaption>You have written 20 journals</figcaption>
                   <figcaption>Unlocked at {getAchievementTime(20)}</figcaption>
                 </div>
               </>
             ) : (
               <>
                 <img src="../public/img/locked.png" alt="locked" />
-                <figcaption>You need 20 entries to unlock this</figcaption>
+                <figcaption>You need to write 20 journals to unlock this</figcaption>
               </>
             )}
           </figure>
@@ -206,14 +206,14 @@ const Profile = () => {
               <>
                 <img src="../public/img/achievement_25.png" alt="placeholder" />
                 <div className="figcaption_container">
-                  <figcaption>You have 25 entries</figcaption>
+                  <figcaption>You have written 25 journals</figcaption>
                   <figcaption>Unlocked at {getAchievementTime(25)}</figcaption>
                 </div>
               </>
             ) : (
               <>
                 <img src="../public/img/locked.png" alt="locked" />
-                <figcaption>You need 25 entries to unlock this</figcaption>
+                <figcaption>You need to write 25 journals to unlock this</figcaption>
               </>
             )}
           </figure>
@@ -222,14 +222,14 @@ const Profile = () => {
               <>
                 <img src="../public/img/achievement_30.png" alt="placeholder" />
                 <div className="figcaption_container">
-                  <figcaption>You have 30 entries</figcaption>
+                  <figcaption>You have written 30 journals</figcaption>
                   <figcaption>Unlocked at {getAchievementTime(30)}</figcaption>
                 </div>
               </>
             ) : (
               <>
                 <img src="../public/img/locked.png" alt="locked" />
-                <figcaption>You need 30 entries to unlock this</figcaption>
+                <figcaption>You need to write 30 journals to unlock this</figcaption>
               </>
             )}
           </figure>
@@ -243,7 +243,7 @@ const Profile = () => {
                 />
                 <div className="figcaption_container">
                   <figcaption>
-                    You unlocked the certificate!
+                    You have written 35 journals and unlocked the certificate!
                     <br />
                     <a target="_blank" href={certificatePDF} download="certificate.pdf">
                       Download it here
@@ -256,7 +256,7 @@ const Profile = () => {
               <>
                 <img src="../public/img/locked.png" alt="locked" />
                 <figcaption>
-                  You need 35 entries to unlock the certificate
+                You need to write 35 journals to unlock this
                 </figcaption>
               </>
             )}

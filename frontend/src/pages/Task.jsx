@@ -14,6 +14,7 @@ import { IoCloseOutline } from "react-icons/io5";
 import { FaArrowLeft } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { useToast } from "../context/toastContext"; 
 
 const Task = () => {
   const viteURL = import.meta.env.VITE_URL;
@@ -30,6 +31,7 @@ const Task = () => {
   const [slidePosition, setSlidePosition] = useState(-470);
   const [createdByUsername, setCreatedByUsername] = useState("");
   const [confirmDeleteModal, setConfirmDeleteModal] = useState(null);
+  const { showToast } = useToast();
 
   const navigate = useNavigate();
 
@@ -427,6 +429,11 @@ const Task = () => {
       localStorage.setItem("toastMessage", "Post deleted successfully!");
       handleCloseModal();
       setConfirmDeleteModal(false);
+      const storedToastMessage = localStorage.getItem("toastMessage");
+      if (storedToastMessage) {
+        showToast(storedToastMessage);
+        localStorage.removeItem("toastMessage"); 
+      }
 
       // Perform the get request to update the journals list
       const res = await axios.get(`${viteURL}/journals/shared`, config);

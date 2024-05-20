@@ -1,59 +1,56 @@
-import React, {useState} from 'react'
-import BackButton from '../components/BackButton/BackButton'
-import Loading from '../components/Loading'
+import React, { useState } from "react";
+import BackButton from "../components/BackButton/BackButton";
+import Loading from "../components/Loading";
 import Navbar from "../components/NavBar/Navbar";
 import NewNavbar from "../components/NavBar/NewNavbar";
-import axios from 'axios'
-import { useNavigate, useParams } from 'react-router-dom'
+import axios from "axios";
+import { useNavigate, useParams } from "react-router-dom";
 
 const DeleteJournal = () => {
   const viteURL = import.meta.env.VITE_URL;
 
-  const [loading, setLoading] = useState(false)
-  const navigate = useNavigate()
-  const {id} = useParams()
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+  const { id } = useParams();
 
-  const token = localStorage.getItem('auth-token'); // Retrieve token from local storage
+  const token = localStorage.getItem("auth-token"); // Retrieve token from local storage
   const config = {
     headers: {
-      'auth-token': token // Set the token in the request headers
-    }
+      "auth-token": token, // Set the token in the request headers
+    },
   };
   const handleDeleteJournal = () => {
-    setLoading(true)
+    setLoading(true);
     axios
-      .delete(`${viteURL}/journals/${id}`,config)
+      .delete(`${viteURL}/journals/${id}`, config)
       .then(() => {
-        setLoading(false)
+        setLoading(false);
         localStorage.setItem("toastMessage", "Journal deleted successfully!");
-        navigate('/journals/list')
+        navigate("/journals/list");
       })
-      .catch ((error) => {
-        setLoading(false)
-        alert('An error happened. Please check console')
-        console.log(error)
-      })
-  }
+      .catch((error) => {
+        setLoading(false);
+        alert("An error happened. Please check console");
+        console.log(error);
+      });
+  };
   return (
-    <div className='app'>
+    <div className="app">
       <NewNavbar />
 
-      <div className='content deleteJornalPage'>
-      <div className="backbutton" ><BackButton destination='/journals/list' /> <h1>Delete journal</h1></div>
-        {loading ? <Loading /> : ''}
-
-        <div className='areYouSure'>
-        <h3>Are you sure you want to delete this journal?</h3>
-        <button onClick={handleDeleteJournal}>
-          Yes, delete 
-        </button>
-
+      <div className="content deleteJornalPage">
+        <div className="backbutton">
+          <BackButton destination="/journals/list" /> <h1>Delete journal</h1>
         </div>
+        {loading ? <Loading /> : ""}
 
+        <div className="areYouSure">
+          <h3>Are you sure you want to delete this journal?</h3>
+          <button onClick={handleDeleteJournal}>Yes, delete</button>
+        </div>
       </div>
-      
     </div>
-  )
-}
+  );
+};
 
-export default DeleteJournal
+export default DeleteJournal;
