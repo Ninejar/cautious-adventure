@@ -245,7 +245,7 @@ const Profile = () => {
                   <figcaption>
                     You have written 35 journals and unlocked the certificate!
                     <br />
-                    <a target="_blank" href={certificatePDF} download="certificate.pdf">
+                    <a target="_blank" href="/img/certificate.pdf?url">
                       Download it here
                     </a>
                   </figcaption>
